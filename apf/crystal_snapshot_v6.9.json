@@ -1,0 +1,3063 @@
+{
+  "version": "APF v6.9 crystal snapshot",
+  "preset": "CORE",
+  "stage3_sinks": [
+    "T_sin2theta",
+    "T_gauge",
+    "T_PMNS",
+    "T_mass_ratios",
+    "L_count"
+  ],
+  "views": {
+    "full_graph": {
+      "view": "full",
+      "preset": "CORE",
+      "n_nodes": 228,
+      "n_edges": 826,
+      "max_depth": 30,
+      "width_profile": {
+        "0": 4,
+        "1": 13,
+        "2": 2,
+        "3": 5,
+        "4": 3,
+        "5": 4,
+        "6": 3,
+        "7": 4,
+        "8": 6,
+        "9": 7,
+        "10": 7,
+        "11": 7,
+        "12": 11,
+        "13": 8,
+        "14": 11,
+        "15": 12,
+        "16": 10,
+        "17": 5,
+        "18": 9,
+        "19": 9,
+        "20": 16,
+        "21": 15,
+        "22": 17,
+        "23": 10,
+        "24": 4,
+        "25": 4,
+        "26": 4,
+        "27": 4,
+        "28": 2,
+        "29": 3,
+        "30": 9
+      },
+      "by_depth": {
+        "0": [
+          "A1",
+          "L_epsilon*",
+          "worked_example",
+          "Regime_R"
+        ],
+        "1": [
+          "M",
+          "NT",
+          "A1_disjoint_scope",
+          "D_quotient_forced",
+          "L_NZ",
+          "P4_IMP",
+          "T_epsilon",
+          "OR2_spin",
+          "OR2_repetition",
+          "Regime_exit_Type_II",
+          "Regime_exit_Type_IV",
+          "Regime_exit_Type_V",
+          "L_M_derived"
+        ],
+        "2": [
+          "L_loc",
+          "kappa_zero_Tsep"
+        ],
+        "3": [
+          "L_nc",
+          "T_M",
+          "OR2_steane",
+          "P_tom",
+          "P_cls"
+        ],
+        "4": [
+          "L_irr",
+          "T_LV",
+          "T_confinement"
+        ],
+        "5": [
+          "L_T2",
+          "T0",
+          "T_kappa",
+          "Delta_fbc"
+        ],
+        "6": [
+          "T1",
+          "Delta_ordering",
+          "T_eta"
+        ],
+        "7": [
+          "T1b",
+          "T_alg",
+          "T2",
+          "Delta_continuum"
+        ],
+        "8": [
+          "T3",
+          "T_Hermitian",
+          "T_tensor",
+          "L_color_Gram",
+          "Delta_signature",
+          "state_sensitivity"
+        ],
+        "9": [
+          "T_Tsirelson",
+          "T_particle",
+          "T20",
+          "T7B",
+          "L_cost",
+          "T_Born",
+          "T4"
+        ],
+        "10": [
+          "Regime_exit_Type_I",
+          "L_irr_uniform",
+          "T_CPTP",
+          "T_entropy",
+          "disjoint_partition",
+          "L_NT_derived",
+          "T5"
+        ],
+        "11": [
+          "B1_prime",
+          "T21",
+          "T_Bek",
+          "I3_thermo_quantum",
+          "I3_integer",
+          "I3_scalar",
+          "I3_subspace"
+        ],
+        "12": [
+          "I1_holographic",
+          "L_horizon_convention_equivalence",
+          "I1_integer",
+          "I1_scalar",
+          "T_I3_three_level_consistent",
+          "M_Omega",
+          "T_canonical",
+          "T_gauge",
+          "Theorem_R",
+          "L_Fisher_gradient",
+          "L_AF_capacity"
+        ],
+        "13": [
+          "T_vacuum_stability",
+          "L_Omega_sign",
+          "P_exhaust",
+          "L_gauge_template_uniqueness",
+          "T_field",
+          "T_channels",
+          "T6",
+          "T8"
+        ],
+        "14": [
+          "T7",
+          "T_Higgs",
+          "L_Weinberg_dim",
+          "T_proton",
+          "T6B",
+          "T25a",
+          "T26",
+          "T27d",
+          "T_S0",
+          "L_trace_equality",
+          "T_Coleman_Mandula"
+        ],
+        "15": [
+          "T9",
+          "T4E",
+          "T4F",
+          "L_count",
+          "L_dim_angle",
+          "L_anomaly_free",
+          "L_proton_decay_channels",
+          "T4G_Q31",
+          "T27c",
+          "L_gen_path",
+          "Delta_particle",
+          "L_DH_primordial"
+        ],
+        "16": [
+          "T_theta_QCD",
+          "T19",
+          "T25b",
+          "L_H_curv",
+          "L_LL_coherence",
+          "L_beta_capacity",
+          "Delta_closure",
+          "Regime_exit_Type_III",
+          "I2_integer",
+          "L_equip"
+        ],
+        "17": [
+          "L_strong_CP_synthesis",
+          "L_anomaly_nonpert",
+          "T22",
+          "L_boundary_projection",
+          "T9_grav"
+        ],
+        "18": [
+          "L_B_operator_exclusion",
+          "T23",
+          "L_Gram",
+          "T10",
+          "L_global_interface_is_horizon",
+          "T_graviton",
+          "L_Weinberg_Witten",
+          "T11",
+          "T12"
+        ],
+        "19": [
+          "T24",
+          "L_Gram_generation",
+          "T_capacity_ladder",
+          "L_holonomy_phase",
+          "L_angular_far_edge",
+          "L_multiplicative_amplitude",
+          "L_self_exclusion",
+          "A9_closure",
+          "T12E"
+        ],
+        "20": [
+          "T21b",
+          "T_sin2theta",
+          "L_D2q",
+          "T_q_Higgs",
+          "L_adjoint_sep",
+          "L_capacity_per_dimension",
+          "L_channel_disjoint",
+          "L_Yukawa_bilinear",
+          "T_deSitter_entropy",
+          "T_horizon_reciprocity",
+          "I2_gauge_cosmological",
+          "T_ACC_unification",
+          "I2_scalar",
+          "L_singlet_Gram",
+          "L_saturation_partition",
+          "L_bridges_closed"
+        ],
+        "21": [
+          "T21c",
+          "L_beta",
+          "L_FN_ladder_uniqueness",
+          "L_channel_crossing",
+          "T_PMNS",
+          "L_rank2_texture",
+          "L_crossing_entropy",
+          "L_seesaw_dimension",
+          "T_interface_sector_bridge",
+          "L_dark_budget",
+          "L_equation_of_state",
+          "L_matching_transition",
+          "L_singularity_resolution",
+          "L_W_mass",
+          "T21a"
+        ],
+        "22": [
+          "T_CKM",
+          "T_nu_ordering",
+          "L_conjugation",
+          "T_mass_ratios",
+          "L_edge_amplitude",
+          "L_capacity_depth",
+          "L_nu_mass_gap",
+          "L_alpha_s",
+          "L_seesaw_ordering",
+          "L_Fisher_factorization",
+          "L_null_direction",
+          "L_mass_from_capacity",
+          "L_GJ_from_capacity",
+          "I1_subspace",
+          "I2_subspace",
+          "L_DESI_response",
+          "L_GW_matching"
+        ],
+        "23": [
+          "L_mass_mixing_indep",
+          "L_CP_channel",
+          "L_dm2_hierarchy",
+          "L_Fisher_curvature",
+          "L_Fisher_entropy_budget",
+          "L_e3_gen0",
+          "L_rho_spacetime",
+          "T_I1_three_level_consistent",
+          "T_I2_three_level_consistent",
+          "T4G"
+        ],
+        "24": [
+          "L_NLO_texture",
+          "L_Fisher_geodesic",
+          "T_three_level_unification",
+          "L_N_eff_prediction"
+        ],
+        "25": [
+          "L_rank_lift",
+          "L_PMNS_NLO_immune",
+          "L_kB_sector",
+          "L_NNLO_three_effects"
+        ],
+        "26": [
+          "T_PMNS_CP",
+          "L_md_zero",
+          "L_c_FN_gap",
+          "L_texture_from_capacity"
+        ],
+        "27": [
+          "L_mbb_prediction",
+          "L_CP_geometric_bound",
+          "L_NNLO_down_mass",
+          "L_NNLO_up_mass"
+        ],
+        "28": [
+          "L_CP_dual_mechanism",
+          "L_sum_mnu_cosmo"
+        ],
+        "29": [
+          "L_DUNE_response",
+          "L_delta_PMNS_confrontation",
+          "L_nu_mass_confrontation"
+        ],
+        "30": [
+          "L_Pi",
+          "T_alg_FPi",
+          "T_adj_commutes",
+          "L_baryogenesis_NNLO",
+          "I4_action_thermo",
+          "I4_integer",
+          "I4_scalar",
+          "I4_subspace",
+          "T_I4_three_level_consistent"
+        ]
+      },
+      "waist_candidates": [
+        {
+          "depth": 28,
+          "width": 2,
+          "ids": [
+            "L_CP_dual_mechanism",
+            "L_sum_mnu_cosmo"
+          ],
+          "dominant": "L_CP_dual_mechanism",
+          "dominant_descendants": 2
+        },
+        {
+          "depth": 4,
+          "width": 3,
+          "ids": [
+            "L_irr",
+            "T_LV",
+            "T_confinement"
+          ],
+          "dominant": "L_irr",
+          "dominant_descendants": 196
+        },
+        {
+          "depth": 6,
+          "width": 3,
+          "ids": [
+            "T1",
+            "Delta_ordering",
+            "T_eta"
+          ],
+          "dominant": "T1",
+          "dominant_descendants": 186
+        }
+      ],
+      "plec_anchor_ids": [
+        "A1",
+        "L_epsilon*",
+        "worked_example",
+        "Regime_R"
+      ],
+      "notes": [
+        "depth: cycle/orphan resolution touched 159 nodes"
+      ],
+      "epistemic_counts": {
+        "AXIOM": 1,
+        "AXIOM_COROLLARY": 1,
+        "P": 226
+      },
+      "tier_counts": {
+        "-1": 4,
+        "0": 47,
+        "1": 8,
+        "2": 14,
+        "3": 103,
+        "4": 39,
+        "5": 13
+      },
+      "module_counts": {
+        "apf.core": 48,
+        "apf.cosmology": 17,
+        "apf.gauge": 29,
+        "apf.generations": 85,
+        "apf.gravity": 12,
+        "apf.plec": 6,
+        "apf.spacetime": 8,
+        "apf.unification": 6,
+        "apf.unification_three_levels": 17
+      }
+    },
+    "post_R_subgraph": {
+      "view": "post_R",
+      "preset": "CORE",
+      "n_nodes": 223,
+      "n_edges": 814,
+      "max_depth": 30,
+      "width_profile": {
+        "0": 3,
+        "1": 11,
+        "2": 2,
+        "3": 5,
+        "4": 3,
+        "5": 4,
+        "6": 3,
+        "7": 4,
+        "8": 6,
+        "9": 7,
+        "10": 6,
+        "11": 7,
+        "12": 11,
+        "13": 8,
+        "14": 11,
+        "15": 12,
+        "16": 9,
+        "17": 5,
+        "18": 9,
+        "19": 9,
+        "20": 16,
+        "21": 15,
+        "22": 17,
+        "23": 10,
+        "24": 4,
+        "25": 4,
+        "26": 4,
+        "27": 4,
+        "28": 2,
+        "29": 3,
+        "30": 9
+      },
+      "by_depth": {
+        "0": [
+          "A1",
+          "L_epsilon*",
+          "worked_example"
+        ],
+        "1": [
+          "M",
+          "NT",
+          "A1_disjoint_scope",
+          "D_quotient_forced",
+          "L_NZ",
+          "P4_IMP",
+          "T_epsilon",
+          "OR2_spin",
+          "OR2_repetition",
+          "Regime_exit_Type_V",
+          "L_M_derived"
+        ],
+        "2": [
+          "L_loc",
+          "kappa_zero_Tsep"
+        ],
+        "3": [
+          "L_nc",
+          "T_M",
+          "OR2_steane",
+          "P_tom",
+          "P_cls"
+        ],
+        "4": [
+          "L_irr",
+          "T_LV",
+          "T_confinement"
+        ],
+        "5": [
+          "L_T2",
+          "T0",
+          "T_kappa",
+          "Delta_fbc"
+        ],
+        "6": [
+          "T1",
+          "Delta_ordering",
+          "T_eta"
+        ],
+        "7": [
+          "T1b",
+          "T_alg",
+          "T2",
+          "Delta_continuum"
+        ],
+        "8": [
+          "T3",
+          "T_Hermitian",
+          "T_tensor",
+          "L_color_Gram",
+          "Delta_signature",
+          "state_sensitivity"
+        ],
+        "9": [
+          "T_Tsirelson",
+          "T_particle",
+          "T20",
+          "T7B",
+          "L_cost",
+          "T_Born",
+          "T4"
+        ],
+        "10": [
+          "L_irr_uniform",
+          "T_CPTP",
+          "T_entropy",
+          "disjoint_partition",
+          "L_NT_derived",
+          "T5"
+        ],
+        "11": [
+          "B1_prime",
+          "T21",
+          "T_Bek",
+          "I3_thermo_quantum",
+          "I3_integer",
+          "I3_scalar",
+          "I3_subspace"
+        ],
+        "12": [
+          "I1_holographic",
+          "L_horizon_convention_equivalence",
+          "I1_integer",
+          "I1_scalar",
+          "T_I3_three_level_consistent",
+          "M_Omega",
+          "T_canonical",
+          "T_gauge",
+          "Theorem_R",
+          "L_Fisher_gradient",
+          "L_AF_capacity"
+        ],
+        "13": [
+          "T_vacuum_stability",
+          "L_Omega_sign",
+          "P_exhaust",
+          "L_gauge_template_uniqueness",
+          "T_field",
+          "T_channels",
+          "T6",
+          "T8"
+        ],
+        "14": [
+          "T7",
+          "T_Higgs",
+          "L_Weinberg_dim",
+          "T_proton",
+          "T6B",
+          "T25a",
+          "T26",
+          "T27d",
+          "T_S0",
+          "L_trace_equality",
+          "T_Coleman_Mandula"
+        ],
+        "15": [
+          "T9",
+          "T4E",
+          "T4F",
+          "L_count",
+          "L_dim_angle",
+          "L_anomaly_free",
+          "L_proton_decay_channels",
+          "T4G_Q31",
+          "T27c",
+          "L_gen_path",
+          "Delta_particle",
+          "L_DH_primordial"
+        ],
+        "16": [
+          "T_theta_QCD",
+          "T19",
+          "T25b",
+          "L_H_curv",
+          "L_LL_coherence",
+          "L_beta_capacity",
+          "Delta_closure",
+          "I2_integer",
+          "L_equip"
+        ],
+        "17": [
+          "L_strong_CP_synthesis",
+          "L_anomaly_nonpert",
+          "T22",
+          "L_boundary_projection",
+          "T9_grav"
+        ],
+        "18": [
+          "L_B_operator_exclusion",
+          "T23",
+          "L_Gram",
+          "T10",
+          "L_global_interface_is_horizon",
+          "T_graviton",
+          "L_Weinberg_Witten",
+          "T11",
+          "T12"
+        ],
+        "19": [
+          "T24",
+          "L_Gram_generation",
+          "T_capacity_ladder",
+          "L_holonomy_phase",
+          "L_angular_far_edge",
+          "L_multiplicative_amplitude",
+          "L_self_exclusion",
+          "A9_closure",
+          "T12E"
+        ],
+        "20": [
+          "T21b",
+          "T_sin2theta",
+          "L_D2q",
+          "T_q_Higgs",
+          "L_adjoint_sep",
+          "L_capacity_per_dimension",
+          "L_channel_disjoint",
+          "L_Yukawa_bilinear",
+          "T_deSitter_entropy",
+          "T_horizon_reciprocity",
+          "I2_gauge_cosmological",
+          "T_ACC_unification",
+          "I2_scalar",
+          "L_singlet_Gram",
+          "L_saturation_partition",
+          "L_bridges_closed"
+        ],
+        "21": [
+          "T21c",
+          "L_beta",
+          "L_FN_ladder_uniqueness",
+          "L_channel_crossing",
+          "T_PMNS",
+          "L_rank2_texture",
+          "L_crossing_entropy",
+          "L_seesaw_dimension",
+          "T_interface_sector_bridge",
+          "L_dark_budget",
+          "L_equation_of_state",
+          "L_matching_transition",
+          "L_singularity_resolution",
+          "L_W_mass",
+          "T21a"
+        ],
+        "22": [
+          "T_CKM",
+          "T_nu_ordering",
+          "L_conjugation",
+          "T_mass_ratios",
+          "L_edge_amplitude",
+          "L_capacity_depth",
+          "L_nu_mass_gap",
+          "L_alpha_s",
+          "L_seesaw_ordering",
+          "L_Fisher_factorization",
+          "L_null_direction",
+          "L_mass_from_capacity",
+          "L_GJ_from_capacity",
+          "I1_subspace",
+          "I2_subspace",
+          "L_DESI_response",
+          "L_GW_matching"
+        ],
+        "23": [
+          "L_mass_mixing_indep",
+          "L_CP_channel",
+          "L_dm2_hierarchy",
+          "L_Fisher_curvature",
+          "L_Fisher_entropy_budget",
+          "L_e3_gen0",
+          "L_rho_spacetime",
+          "T_I1_three_level_consistent",
+          "T_I2_three_level_consistent",
+          "T4G"
+        ],
+        "24": [
+          "L_NLO_texture",
+          "L_Fisher_geodesic",
+          "T_three_level_unification",
+          "L_N_eff_prediction"
+        ],
+        "25": [
+          "L_rank_lift",
+          "L_PMNS_NLO_immune",
+          "L_kB_sector",
+          "L_NNLO_three_effects"
+        ],
+        "26": [
+          "T_PMNS_CP",
+          "L_md_zero",
+          "L_c_FN_gap",
+          "L_texture_from_capacity"
+        ],
+        "27": [
+          "L_mbb_prediction",
+          "L_CP_geometric_bound",
+          "L_NNLO_down_mass",
+          "L_NNLO_up_mass"
+        ],
+        "28": [
+          "L_CP_dual_mechanism",
+          "L_sum_mnu_cosmo"
+        ],
+        "29": [
+          "L_DUNE_response",
+          "L_delta_PMNS_confrontation",
+          "L_nu_mass_confrontation"
+        ],
+        "30": [
+          "L_Pi",
+          "T_alg_FPi",
+          "T_adj_commutes",
+          "L_baryogenesis_NNLO",
+          "I4_action_thermo",
+          "I4_integer",
+          "I4_scalar",
+          "I4_subspace",
+          "T_I4_three_level_consistent"
+        ]
+      },
+      "waist_candidates": [
+        {
+          "depth": 28,
+          "width": 2,
+          "ids": [
+            "L_CP_dual_mechanism",
+            "L_sum_mnu_cosmo"
+          ],
+          "dominant": "L_CP_dual_mechanism",
+          "dominant_descendants": 2
+        },
+        {
+          "depth": 4,
+          "width": 3,
+          "ids": [
+            "L_irr",
+            "T_LV",
+            "T_confinement"
+          ],
+          "dominant": "L_irr",
+          "dominant_descendants": 193
+        },
+        {
+          "depth": 6,
+          "width": 3,
+          "ids": [
+            "T1",
+            "Delta_ordering",
+            "T_eta"
+          ],
+          "dominant": "T1",
+          "dominant_descendants": 184
+        }
+      ],
+      "plec_anchor_ids": [
+        "A1",
+        "L_epsilon*",
+        "worked_example"
+      ],
+      "notes": [
+        "depth: cycle/orphan resolution touched 158 nodes"
+      ],
+      "epistemic_counts": {
+        "AXIOM": 1,
+        "AXIOM_COROLLARY": 1,
+        "P": 221
+      },
+      "tier_counts": {
+        "-1": 4,
+        "0": 47,
+        "1": 8,
+        "2": 14,
+        "3": 98,
+        "4": 39,
+        "5": 13
+      },
+      "module_counts": {
+        "apf.core": 48,
+        "apf.cosmology": 17,
+        "apf.gauge": 29,
+        "apf.generations": 85,
+        "apf.gravity": 12,
+        "apf.plec": 1,
+        "apf.spacetime": 8,
+        "apf.unification": 6,
+        "apf.unification_three_levels": 17
+      }
+    }
+  },
+  "centrality": {
+    "full_graph": {
+      "view": "full",
+      "preset": "CORE",
+      "n_nodes": 228,
+      "n_edges": 826,
+      "top_k": [
+        [
+          "T_gauge",
+          0.04335298541181371
+        ],
+        [
+          "L_AF_capacity",
+          0.030584824662297276
+        ],
+        [
+          "T_field",
+          0.022109685867949046
+        ],
+        [
+          "L_Gram",
+          0.01600915953109824
+        ],
+        [
+          "T21",
+          0.013569096078908218
+        ],
+        [
+          "T4",
+          0.013185097276125286
+        ],
+        [
+          "T_channels",
+          0.013137393275049874
+        ],
+        [
+          "L_gauge_template_uniqueness",
+          0.011266088452986442
+        ],
+        [
+          "T_PMNS",
+          0.010969503322264453
+        ],
+        [
+          "T_Bek",
+          0.010745144903083934
+        ],
+        [
+          "T_canonical",
+          0.010693291013259046
+        ],
+        [
+          "Theorem_R",
+          0.010412770837345596
+        ],
+        [
+          "T22",
+          0.010058447252559624
+        ],
+        [
+          "T21b",
+          0.010037756676289287
+        ],
+        [
+          "T7",
+          0.009533719927320565
+        ]
+      ],
+      "stats": {
+        "n": 228,
+        "min": 0.0,
+        "max": 0.04335298541181371,
+        "mean": 0.002160409600665341,
+        "median": 0.0003044881558389804,
+        "n_zero": 70
+      },
+      "bc_top50": {
+        "T_gauge": 0.04335298541181371,
+        "L_AF_capacity": 0.030584824662297276,
+        "T_field": 0.022109685867949046,
+        "L_Gram": 0.01600915953109824,
+        "T21": 0.013569096078908218,
+        "T4": 0.013185097276125286,
+        "T_channels": 0.013137393275049874,
+        "L_gauge_template_uniqueness": 0.011266088452986442,
+        "T_PMNS": 0.010969503322264453,
+        "T_Bek": 0.010745144903083934,
+        "T_canonical": 0.010693291013259046,
+        "Theorem_R": 0.010412770837345596,
+        "T22": 0.010058447252559624,
+        "T21b": 0.010037756676289287,
+        "T7": 0.009533719927320565,
+        "T_q_Higgs": 0.009377693597740504,
+        "T_capacity_ladder": 0.009105732750912273,
+        "L_loc": 0.008699847956114769,
+        "L_count": 0.008349294569663226,
+        "T2": 0.007942473094416489,
+        "T27c": 0.007297149840822991,
+        "L_self_exclusion": 0.00709733816620201,
+        "T11": 0.0069724668006870055,
+        "T24": 0.006322754174116465,
+        "T9_grav": 0.005360818429509709,
+        "L_holonomy_phase": 0.005338819080457406,
+        "T_particle": 0.005333334970142502,
+        "L_NLO_texture": 0.00513490492458174,
+        "T_entropy": 0.0050798871273706565,
+        "T19": 0.004774266727991729,
+        "L_cost": 0.004735601626750235,
+        "T3": 0.004644687967462908,
+        "T8": 0.0045983226536937686,
+        "L_rank2_texture": 0.004423018677336247,
+        "Delta_continuum": 0.004231203014790169,
+        "T12": 0.004096449146547164,
+        "T5": 0.0040818882448439816,
+        "T1": 0.003831603824294168,
+        "T_deSitter_entropy": 0.003799119936462364,
+        "L_kB_sector": 0.0037721723142196736,
+        "L_dim_angle": 0.0033996540497261713,
+        "L_channel_crossing": 0.003368580828767567,
+        "T12E": 0.0032541422065451627,
+        "L_capacity_per_dimension": 0.0032190231787713377,
+        "Delta_closure": 0.0031541143374015385,
+        "L_Fisher_factorization": 0.003136389640126451,
+        "T_confinement": 0.003044224427650026,
+        "L_Weinberg_dim": 0.002751219566786933,
+        "L_irr": 0.0026787669773438018,
+        "L_singlet_Gram": 0.0026702550724434834
+      }
+    },
+    "post_R_subgraph": {
+      "view": "post_R",
+      "preset": "CORE",
+      "n_nodes": 223,
+      "n_edges": 814,
+      "top_k": [
+        [
+          "T_gauge",
+          0.04222810832176109
+        ],
+        [
+          "L_AF_capacity",
+          0.03163981645316487
+        ],
+        [
+          "T_field",
+          0.02296609340470223
+        ],
+        [
+          "L_Gram",
+          0.016671291473327667
+        ],
+        [
+          "T21",
+          0.014086701867843736
+        ],
+        [
+          "T4",
+          0.013474553159806897
+        ],
+        [
+          "T_channels",
+          0.012638421109275514
+        ],
+        [
+          "L_gauge_template_uniqueness",
+          0.01155030783800994
+        ],
+        [
+          "T_PMNS",
+          0.011392462985807242
+        ],
+        [
+          "T_Bek",
+          0.011245921972565569
+        ],
+        [
+          "T_canonical",
+          0.011181509428115763
+        ],
+        [
+          "T21b",
+          0.010348273470445415
+        ],
+        [
+          "T22",
+          0.010290077744163451
+        ],
+        [
+          "T_q_Higgs",
+          0.009612242643657612
+        ],
+        [
+          "T_capacity_ladder",
+          0.009480704039527565
+        ]
+      ],
+      "stats": {
+        "n": 223,
+        "min": 0.0,
+        "max": 0.04222810832176109,
+        "mean": 0.002245260092793725,
+        "median": 0.00033623460094048334,
+        "n_zero": 66
+      },
+      "bc_top50": {
+        "T_gauge": 0.04222810832176109,
+        "L_AF_capacity": 0.03163981645316487,
+        "T_field": 0.02296609340470223,
+        "L_Gram": 0.016671291473327667,
+        "T21": 0.014086701867843736,
+        "T4": 0.013474553159806897,
+        "T_channels": 0.012638421109275514,
+        "L_gauge_template_uniqueness": 0.01155030783800994,
+        "T_PMNS": 0.011392462985807242,
+        "T_Bek": 0.011245921972565569,
+        "T_canonical": 0.011181509428115763,
+        "T21b": 0.010348273470445415,
+        "T22": 0.010290077744163451,
+        "T_q_Higgs": 0.009612242643657612,
+        "T_capacity_ladder": 0.009480704039527565,
+        "T7": 0.009016120413179235,
+        "L_loc": 0.008933993719061593,
+        "L_count": 0.008703487628161567,
+        "T2": 0.008216775128539836,
+        "Theorem_R": 0.0078044984474916835,
+        "T27c": 0.007425025566832792,
+        "L_self_exclusion": 0.007417980839261115,
+        "T11": 0.007201122901814944,
+        "T24": 0.006529899609484385,
+        "T9_grav": 0.00560217766100119,
+        "L_holonomy_phase": 0.005456200245926091,
+        "L_NLO_texture": 0.005342170296921428,
+        "T_particle": 0.005332247984962917,
+        "T_entropy": 0.005315214138743551,
+        "T19": 0.00499224311441506,
+        "L_cost": 0.004932279591582226,
+        "T3": 0.004778106248694484,
+        "T8": 0.00461667020286099,
+        "L_rank2_texture": 0.004570605305899422,
+        "Delta_continuum": 0.004431179128410961,
+        "T12": 0.004156404447680043,
+        "T5": 0.004111988179656746,
+        "T_deSitter_entropy": 0.003942000957571893,
+        "T1": 0.003938600262129674,
+        "L_kB_sector": 0.0038161205373451576,
+        "L_dim_angle": 0.0035446792234122546,
+        "L_channel_crossing": 0.0034969005274435145,
+        "T12E": 0.0034027150030610234,
+        "L_capacity_per_dimension": 0.003349977840928068,
+        "Delta_closure": 0.0032981202098849153,
+        "L_Fisher_factorization": 0.0032592038913572046,
+        "T_confinement": 0.003162830736360149,
+        "L_singlet_Gram": 0.0027783933879261414,
+        "L_Weinberg_dim": 0.002761984165316286,
+        "L_irr": 0.0026544869105422737
+      }
+    }
+  },
+  "cascade": {
+    "full_graph": {
+      "baseline_count": 219,
+      "top_k": [
+        {
+          "node_id": "T_entropy",
+          "cascade_count": 5,
+          "baseline_count": 218,
+          "fraction": 0.022935779816513763,
+          "sample": [
+            "I3_integer",
+            "I3_scalar",
+            "I3_subspace",
+            "I3_thermo_quantum",
+            "T_I3_three_level_consistent"
+          ]
+        },
+        {
+          "node_id": "T_Bek",
+          "cascade_count": 4,
+          "baseline_count": 218,
+          "fraction": 0.01834862385321101,
+          "sample": [
+            "I1_holographic",
+            "I1_integer",
+            "I1_scalar",
+            "L_horizon_convention_equivalence"
+          ]
+        },
+        {
+          "node_id": "L_loc",
+          "cascade_count": 2,
+          "baseline_count": 218,
+          "fraction": 0.009174311926605505,
+          "sample": [
+            "P_cls",
+            "P_tom"
+          ]
+        },
+        {
+          "node_id": "L_rank2_texture",
+          "cascade_count": 2,
+          "baseline_count": 218,
+          "fraction": 0.009174311926605505,
+          "sample": [
+            "L_e3_gen0",
+            "L_null_direction"
+          ]
+        },
+        {
+          "node_id": "T21",
+          "cascade_count": 2,
+          "baseline_count": 218,
+          "fraction": 0.009174311926605505,
+          "sample": [
+            "L_AF_capacity",
+            "L_Fisher_gradient"
+          ]
+        },
+        {
+          "node_id": "T21b",
+          "cascade_count": 2,
+          "baseline_count": 218,
+          "fraction": 0.009174311926605505,
+          "sample": [
+            "T21a",
+            "T21c"
+          ]
+        },
+        {
+          "node_id": "L_Weinberg_dim",
+          "cascade_count": 1,
+          "baseline_count": 218,
+          "fraction": 0.0045871559633027525,
+          "sample": [
+            "T4G_Q31"
+          ]
+        },
+        {
+          "node_id": "T1",
+          "cascade_count": 1,
+          "baseline_count": 218,
+          "fraction": 0.0045871559633027525,
+          "sample": [
+            "T1b"
+          ]
+        },
+        {
+          "node_id": "T2",
+          "cascade_count": 1,
+          "baseline_count": 218,
+          "fraction": 0.0045871559633027525,
+          "sample": [
+            "T_Hermitian"
+          ]
+        },
+        {
+          "node_id": "T4",
+          "cascade_count": 1,
+          "baseline_count": 218,
+          "fraction": 0.0045871559633027525,
+          "sample": [
+            "T5"
+          ]
+        },
+        {
+          "node_id": "T4G",
+          "cascade_count": 1,
+          "baseline_count": 218,
+          "fraction": 0.0045871559633027525,
+          "sample": [
+            "L_N_eff_prediction"
+          ]
+        },
+        {
+          "node_id": "T_PMNS",
+          "cascade_count": 1,
+          "baseline_count": 218,
+          "fraction": 0.0045871559633027525,
+          "sample": [
+            "T_nu_ordering"
+          ]
+        },
+        {
+          "node_id": "T_alg",
+          "cascade_count": 1,
+          "baseline_count": 218,
+          "fraction": 0.0045871559633027525,
+          "sample": [
+            "state_sensitivity"
+          ]
+        },
+        {
+          "node_id": "T_capacity_ladder",
+          "cascade_count": 1,
+          "baseline_count": 218,
+          "fraction": 0.0045871559633027525,
+          "sample": [
+            "L_D2q"
+          ]
+        },
+        {
+          "node_id": "T_channels",
+          "cascade_count": 1,
+          "baseline_count": 218,
+          "fraction": 0.0045871559633027525,
+          "sample": [
+            "T_S0"
+          ]
+        }
+      ],
+      "mean_fraction": 0.0005973970556859399,
+      "median_fraction": 0.0,
+      "max_fraction": 0.022935779816513763,
+      "n_scanned": 215
+    },
+    "post_R_subgraph": {
+      "baseline_count": 214,
+      "top_k": [
+        {
+          "node_id": "T_entropy",
+          "cascade_count": 5,
+          "baseline_count": 213,
+          "fraction": 0.023474178403755867,
+          "sample": [
+            "I3_integer",
+            "I3_scalar",
+            "I3_subspace",
+            "I3_thermo_quantum",
+            "T_I3_three_level_consistent"
+          ]
+        },
+        {
+          "node_id": "T_Bek",
+          "cascade_count": 4,
+          "baseline_count": 213,
+          "fraction": 0.018779342723004695,
+          "sample": [
+            "I1_holographic",
+            "I1_integer",
+            "I1_scalar",
+            "L_horizon_convention_equivalence"
+          ]
+        },
+        {
+          "node_id": "L_loc",
+          "cascade_count": 2,
+          "baseline_count": 213,
+          "fraction": 0.009389671361502348,
+          "sample": [
+            "P_cls",
+            "P_tom"
+          ]
+        },
+        {
+          "node_id": "L_rank2_texture",
+          "cascade_count": 2,
+          "baseline_count": 213,
+          "fraction": 0.009389671361502348,
+          "sample": [
+            "L_e3_gen0",
+            "L_null_direction"
+          ]
+        },
+        {
+          "node_id": "T21",
+          "cascade_count": 2,
+          "baseline_count": 213,
+          "fraction": 0.009389671361502348,
+          "sample": [
+            "L_AF_capacity",
+            "L_Fisher_gradient"
+          ]
+        },
+        {
+          "node_id": "T21b",
+          "cascade_count": 2,
+          "baseline_count": 213,
+          "fraction": 0.009389671361502348,
+          "sample": [
+            "T21a",
+            "T21c"
+          ]
+        },
+        {
+          "node_id": "L_Weinberg_dim",
+          "cascade_count": 1,
+          "baseline_count": 213,
+          "fraction": 0.004694835680751174,
+          "sample": [
+            "T4G_Q31"
+          ]
+        },
+        {
+          "node_id": "T1",
+          "cascade_count": 1,
+          "baseline_count": 213,
+          "fraction": 0.004694835680751174,
+          "sample": [
+            "T1b"
+          ]
+        },
+        {
+          "node_id": "T2",
+          "cascade_count": 1,
+          "baseline_count": 213,
+          "fraction": 0.004694835680751174,
+          "sample": [
+            "T_Hermitian"
+          ]
+        },
+        {
+          "node_id": "T4",
+          "cascade_count": 1,
+          "baseline_count": 213,
+          "fraction": 0.004694835680751174,
+          "sample": [
+            "T5"
+          ]
+        },
+        {
+          "node_id": "T4G",
+          "cascade_count": 1,
+          "baseline_count": 213,
+          "fraction": 0.004694835680751174,
+          "sample": [
+            "L_N_eff_prediction"
+          ]
+        },
+        {
+          "node_id": "T_PMNS",
+          "cascade_count": 1,
+          "baseline_count": 213,
+          "fraction": 0.004694835680751174,
+          "sample": [
+            "T_nu_ordering"
+          ]
+        },
+        {
+          "node_id": "T_alg",
+          "cascade_count": 1,
+          "baseline_count": 213,
+          "fraction": 0.004694835680751174,
+          "sample": [
+            "state_sensitivity"
+          ]
+        },
+        {
+          "node_id": "T_capacity_ladder",
+          "cascade_count": 1,
+          "baseline_count": 213,
+          "fraction": 0.004694835680751174,
+          "sample": [
+            "L_D2q"
+          ]
+        },
+        {
+          "node_id": "T_channels",
+          "cascade_count": 1,
+          "baseline_count": 213,
+          "fraction": 0.004694835680751174,
+          "sample": [
+            "T_S0"
+          ]
+        }
+      ],
+      "mean_fraction": 0.0006230113699575017,
+      "median_fraction": 0.0,
+      "max_fraction": 0.023474178403755867,
+      "n_scanned": 211
+    }
+  },
+  "path_attribution": {
+    "full_graph": {
+      "T_sin2theta": {
+        "target": "T_sin2theta",
+        "anchor_filter": "plec",
+        "method": "scc",
+        "anchors": [
+          {
+            "id": "A1",
+            "role": "A1",
+            "n_paths": 921,
+            "share": 0.7463533225283631
+          },
+          {
+            "id": "L_epsilon*",
+            "role": "MD",
+            "n_paths": 312,
+            "share": 0.25283630470016205
+          },
+          {
+            "id": "Regime_R",
+            "role": "A2",
+            "n_paths": 1,
+            "share": 0.0008103727714748784
+          },
+          {
+            "id": "worked_example",
+            "role": "BW",
+            "n_paths": 0,
+            "share": 0.0
+          }
+        ],
+        "total_paths": 1234,
+        "n_sccs": 207,
+        "n_nontrivial_sccs": 1,
+        "n_edges_internal": 53,
+        "n_edges_cross_scc": 773,
+        "target_scc_size": 1
+      },
+      "T_gauge": {
+        "target": "T_gauge",
+        "anchor_filter": "plec",
+        "method": "scc",
+        "anchors": [
+          {
+            "id": "A1",
+            "role": "A1",
+            "n_paths": 921,
+            "share": 0.7463533225283631
+          },
+          {
+            "id": "L_epsilon*",
+            "role": "MD",
+            "n_paths": 312,
+            "share": 0.25283630470016205
+          },
+          {
+            "id": "Regime_R",
+            "role": "A2",
+            "n_paths": 1,
+            "share": 0.0008103727714748784
+          },
+          {
+            "id": "worked_example",
+            "role": "BW",
+            "n_paths": 0,
+            "share": 0.0
+          }
+        ],
+        "total_paths": 1234,
+        "n_sccs": 207,
+        "n_nontrivial_sccs": 1,
+        "n_edges_internal": 53,
+        "n_edges_cross_scc": 773,
+        "target_scc_size": 22
+      },
+      "T_PMNS": {
+        "target": "T_PMNS",
+        "anchor_filter": "plec",
+        "method": "scc",
+        "anchors": [
+          {
+            "id": "A1",
+            "role": "A1",
+            "n_paths": 57818,
+            "share": 0.7465781726150509
+          },
+          {
+            "id": "L_epsilon*",
+            "role": "MD",
+            "n_paths": 19569,
+            "share": 0.2526858116832808
+          },
+          {
+            "id": "Regime_R",
+            "role": "A2",
+            "n_paths": 57,
+            "share": 0.0007360157016683023
+          },
+          {
+            "id": "worked_example",
+            "role": "BW",
+            "n_paths": 0,
+            "share": 0.0
+          }
+        ],
+        "total_paths": 77444,
+        "n_sccs": 207,
+        "n_nontrivial_sccs": 1,
+        "n_edges_internal": 53,
+        "n_edges_cross_scc": 773,
+        "target_scc_size": 1
+      },
+      "T_mass_ratios": {
+        "target": "T_mass_ratios",
+        "anchor_filter": "plec",
+        "method": "scc",
+        "anchors": [
+          {
+            "id": "A1",
+            "role": "A1",
+            "n_paths": 81778,
+            "share": 0.7466128619946683
+          },
+          {
+            "id": "L_epsilon*",
+            "role": "MD",
+            "n_paths": 27677,
+            "share": 0.2526841470985648
+          },
+          {
+            "id": "Regime_R",
+            "role": "A2",
+            "n_paths": 77,
+            "share": 0.0007029909067669722
+          },
+          {
+            "id": "worked_example",
+            "role": "BW",
+            "n_paths": 0,
+            "share": 0.0
+          }
+        ],
+        "total_paths": 109532,
+        "n_sccs": 207,
+        "n_nontrivial_sccs": 1,
+        "n_edges_internal": 53,
+        "n_edges_cross_scc": 773,
+        "target_scc_size": 1
+      },
+      "L_count": {
+        "target": "L_count",
+        "anchor_filter": "plec",
+        "method": "scc",
+        "anchors": [
+          {
+            "id": "A1",
+            "role": "A1",
+            "n_paths": 2150,
+            "share": 0.7460097154753643
+          },
+          {
+            "id": "L_epsilon*",
+            "role": "MD",
+            "n_paths": 729,
+            "share": 0.25294934073560027
+          },
+          {
+            "id": "Regime_R",
+            "role": "A2",
+            "n_paths": 2,
+            "share": 0.0006939625260235947
+          },
+          {
+            "id": "worked_example",
+            "role": "BW",
+            "n_paths": 1,
+            "share": 0.00034698126301179735
+          }
+        ],
+        "total_paths": 2882,
+        "n_sccs": 207,
+        "n_nontrivial_sccs": 1,
+        "n_edges_internal": 53,
+        "n_edges_cross_scc": 773,
+        "target_scc_size": 1
+      }
+    },
+    "post_R_subgraph": {
+      "T_sin2theta": {
+        "target": "T_sin2theta",
+        "anchor_filter": "plec",
+        "method": "scc",
+        "anchors": [
+          {
+            "id": "A1",
+            "role": "A1",
+            "n_paths": 903,
+            "share": 0.7468982630272953
+          },
+          {
+            "id": "L_epsilon*",
+            "role": "MD",
+            "n_paths": 306,
+            "share": 0.2531017369727047
+          },
+          {
+            "id": "worked_example",
+            "role": "BW",
+            "n_paths": 0,
+            "share": 0.0
+          }
+        ],
+        "total_paths": 1209,
+        "n_sccs": 202,
+        "n_nontrivial_sccs": 1,
+        "n_edges_internal": 53,
+        "n_edges_cross_scc": 761,
+        "target_scc_size": 1
+      },
+      "T_gauge": {
+        "target": "T_gauge",
+        "anchor_filter": "plec",
+        "method": "scc",
+        "anchors": [
+          {
+            "id": "A1",
+            "role": "A1",
+            "n_paths": 903,
+            "share": 0.7468982630272953
+          },
+          {
+            "id": "L_epsilon*",
+            "role": "MD",
+            "n_paths": 306,
+            "share": 0.2531017369727047
+          },
+          {
+            "id": "worked_example",
+            "role": "BW",
+            "n_paths": 0,
+            "share": 0.0
+          }
+        ],
+        "total_paths": 1209,
+        "n_sccs": 202,
+        "n_nontrivial_sccs": 1,
+        "n_edges_internal": 53,
+        "n_edges_cross_scc": 761,
+        "target_scc_size": 22
+      },
+      "T_PMNS": {
+        "target": "T_PMNS",
+        "anchor_filter": "plec",
+        "method": "scc",
+        "anchors": [
+          {
+            "id": "A1",
+            "role": "A1",
+            "n_paths": 56792,
+            "share": 0.7470763887975375
+          },
+          {
+            "id": "L_epsilon*",
+            "role": "MD",
+            "n_paths": 19227,
+            "share": 0.25292361120246254
+          },
+          {
+            "id": "worked_example",
+            "role": "BW",
+            "n_paths": 0,
+            "share": 0.0
+          }
+        ],
+        "total_paths": 76019,
+        "n_sccs": 202,
+        "n_nontrivial_sccs": 1,
+        "n_edges_internal": 53,
+        "n_edges_cross_scc": 761,
+        "target_scc_size": 1
+      },
+      "T_mass_ratios": {
+        "target": "T_mass_ratios",
+        "anchor_filter": "plec",
+        "method": "scc",
+        "anchors": [
+          {
+            "id": "A1",
+            "role": "A1",
+            "n_paths": 80392,
+            "share": 0.7470889440278049
+          },
+          {
+            "id": "L_epsilon*",
+            "role": "MD",
+            "n_paths": 27215,
+            "share": 0.2529110559721951
+          },
+          {
+            "id": "worked_example",
+            "role": "BW",
+            "n_paths": 0,
+            "share": 0.0
+          }
+        ],
+        "total_paths": 107607,
+        "n_sccs": 202,
+        "n_nontrivial_sccs": 1,
+        "n_edges_internal": 53,
+        "n_edges_cross_scc": 761,
+        "target_scc_size": 1
+      },
+      "L_count": {
+        "target": "L_count",
+        "anchor_filter": "plec",
+        "method": "scc",
+        "anchors": [
+          {
+            "id": "A1",
+            "role": "A1",
+            "n_paths": 2114,
+            "share": 0.7464689265536724
+          },
+          {
+            "id": "L_epsilon*",
+            "role": "MD",
+            "n_paths": 717,
+            "share": 0.2531779661016949
+          },
+          {
+            "id": "worked_example",
+            "role": "BW",
+            "n_paths": 1,
+            "share": 0.00035310734463276836
+          }
+        ],
+        "total_paths": 2832,
+        "n_sccs": 202,
+        "n_nontrivial_sccs": 1,
+        "n_edges_internal": 53,
+        "n_edges_cross_scc": 761,
+        "target_scc_size": 1
+      }
+    },
+    "method": "scc",
+    "_depth_filtered": {
+      "full_graph": {
+        "T_sin2theta": {
+          "target": "T_sin2theta",
+          "anchor_filter": "plec",
+          "method": "depth_filtered",
+          "anchors": [
+            {
+              "id": "A1",
+              "role": "A1",
+              "n_paths": 10976,
+              "share": 0.6598136459272618
+            },
+            {
+              "id": "L_epsilon*",
+              "role": "MD",
+              "n_paths": 5659,
+              "share": 0.34018635407273823
+            },
+            {
+              "id": "Regime_R",
+              "role": "A2",
+              "n_paths": 0,
+              "share": 0.0
+            },
+            {
+              "id": "worked_example",
+              "role": "BW",
+              "n_paths": 0,
+              "share": 0.0
+            }
+          ],
+          "total_paths": 16635,
+          "edges_kept": 774,
+          "edges_dropped": 52
+        },
+        "T_gauge": {
+          "target": "T_gauge",
+          "anchor_filter": "plec",
+          "method": "depth_filtered",
+          "anchors": [
+            {
+              "id": "A1",
+              "role": "A1",
+              "n_paths": 279,
+              "share": 0.6595744680851063
+            },
+            {
+              "id": "L_epsilon*",
+              "role": "MD",
+              "n_paths": 144,
+              "share": 0.3404255319148936
+            },
+            {
+              "id": "Regime_R",
+              "role": "A2",
+              "n_paths": 0,
+              "share": 0.0
+            },
+            {
+              "id": "worked_example",
+              "role": "BW",
+              "n_paths": 0,
+              "share": 0.0
+            }
+          ],
+          "total_paths": 423,
+          "edges_kept": 774,
+          "edges_dropped": 52
+        },
+        "T_PMNS": {
+          "target": "T_PMNS",
+          "anchor_filter": "plec",
+          "method": "depth_filtered",
+          "anchors": [
+            {
+              "id": "A1",
+              "role": "A1",
+              "n_paths": 36779,
+              "share": 0.6605779765432764
+            },
+            {
+              "id": "L_epsilon*",
+              "role": "MD",
+              "n_paths": 18898,
+              "share": 0.3394220234567236
+            },
+            {
+              "id": "Regime_R",
+              "role": "A2",
+              "n_paths": 0,
+              "share": 0.0
+            },
+            {
+              "id": "worked_example",
+              "role": "BW",
+              "n_paths": 0,
+              "share": 0.0
+            }
+          ],
+          "total_paths": 55677,
+          "edges_kept": 774,
+          "edges_dropped": 52
+        },
+        "T_mass_ratios": {
+          "target": "T_mass_ratios",
+          "anchor_filter": "plec",
+          "method": "depth_filtered",
+          "anchors": [
+            {
+              "id": "A1",
+              "role": "A1",
+              "n_paths": 21819,
+              "share": 0.6605412932913538
+            },
+            {
+              "id": "L_epsilon*",
+              "role": "MD",
+              "n_paths": 11213,
+              "share": 0.33945870670864614
+            },
+            {
+              "id": "Regime_R",
+              "role": "A2",
+              "n_paths": 0,
+              "share": 0.0
+            },
+            {
+              "id": "worked_example",
+              "role": "BW",
+              "n_paths": 0,
+              "share": 0.0
+            }
+          ],
+          "total_paths": 33032,
+          "edges_kept": 774,
+          "edges_dropped": 52
+        },
+        "L_count": {
+          "target": "L_count",
+          "anchor_filter": "plec",
+          "method": "depth_filtered",
+          "anchors": [
+            {
+              "id": "A1",
+              "role": "A1",
+              "n_paths": 2031,
+              "share": 0.6598440545808967
+            },
+            {
+              "id": "L_epsilon*",
+              "role": "MD",
+              "n_paths": 1046,
+              "share": 0.3398310591293047
+            },
+            {
+              "id": "worked_example",
+              "role": "BW",
+              "n_paths": 1,
+              "share": 0.0003248862897985705
+            },
+            {
+              "id": "Regime_R",
+              "role": "A2",
+              "n_paths": 0,
+              "share": 0.0
+            }
+          ],
+          "total_paths": 3078,
+          "edges_kept": 774,
+          "edges_dropped": 52
+        }
+      },
+      "post_R_subgraph": {
+        "T_sin2theta": {
+          "target": "T_sin2theta",
+          "anchor_filter": "plec",
+          "method": "depth_filtered",
+          "anchors": [
+            {
+              "id": "A1",
+              "role": "A1",
+              "n_paths": 10976,
+              "share": 0.6598136459272618
+            },
+            {
+              "id": "L_epsilon*",
+              "role": "MD",
+              "n_paths": 5659,
+              "share": 0.34018635407273823
+            },
+            {
+              "id": "worked_example",
+              "role": "BW",
+              "n_paths": 0,
+              "share": 0.0
+            }
+          ],
+          "total_paths": 16635,
+          "edges_kept": 765,
+          "edges_dropped": 49
+        },
+        "T_gauge": {
+          "target": "T_gauge",
+          "anchor_filter": "plec",
+          "method": "depth_filtered",
+          "anchors": [
+            {
+              "id": "A1",
+              "role": "A1",
+              "n_paths": 279,
+              "share": 0.6595744680851063
+            },
+            {
+              "id": "L_epsilon*",
+              "role": "MD",
+              "n_paths": 144,
+              "share": 0.3404255319148936
+            },
+            {
+              "id": "worked_example",
+              "role": "BW",
+              "n_paths": 0,
+              "share": 0.0
+            }
+          ],
+          "total_paths": 423,
+          "edges_kept": 765,
+          "edges_dropped": 49
+        },
+        "T_PMNS": {
+          "target": "T_PMNS",
+          "anchor_filter": "plec",
+          "method": "depth_filtered",
+          "anchors": [
+            {
+              "id": "A1",
+              "role": "A1",
+              "n_paths": 36779,
+              "share": 0.6605779765432764
+            },
+            {
+              "id": "L_epsilon*",
+              "role": "MD",
+              "n_paths": 18898,
+              "share": 0.3394220234567236
+            },
+            {
+              "id": "worked_example",
+              "role": "BW",
+              "n_paths": 0,
+              "share": 0.0
+            }
+          ],
+          "total_paths": 55677,
+          "edges_kept": 765,
+          "edges_dropped": 49
+        },
+        "T_mass_ratios": {
+          "target": "T_mass_ratios",
+          "anchor_filter": "plec",
+          "method": "depth_filtered",
+          "anchors": [
+            {
+              "id": "A1",
+              "role": "A1",
+              "n_paths": 21819,
+              "share": 0.6605412932913538
+            },
+            {
+              "id": "L_epsilon*",
+              "role": "MD",
+              "n_paths": 11213,
+              "share": 0.33945870670864614
+            },
+            {
+              "id": "worked_example",
+              "role": "BW",
+              "n_paths": 0,
+              "share": 0.0
+            }
+          ],
+          "total_paths": 33032,
+          "edges_kept": 765,
+          "edges_dropped": 49
+        },
+        "L_count": {
+          "target": "L_count",
+          "anchor_filter": "plec",
+          "method": "depth_filtered",
+          "anchors": [
+            {
+              "id": "A1",
+              "role": "A1",
+              "n_paths": 2031,
+              "share": 0.6598440545808967
+            },
+            {
+              "id": "L_epsilon*",
+              "role": "MD",
+              "n_paths": 1046,
+              "share": 0.3398310591293047
+            },
+            {
+              "id": "worked_example",
+              "role": "BW",
+              "n_paths": 1,
+              "share": 0.0003248862897985705
+            }
+          ],
+          "total_paths": 3078,
+          "edges_kept": 765,
+          "edges_dropped": 49
+        }
+      },
+      "method": "depth_filtered"
+    }
+  },
+  "convergence": {
+    "full_graph": {
+      "top_k": [
+        {
+          "node_id": "L_texture_from_capacity",
+          "fan_in": 11,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "L_GJ_from_capacity",
+            "L_NLO_texture",
+            "L_gen_path",
+            "L_holonomy_phase",
+            "L_mass_from_capacity",
+            "L_rank2_texture",
+            "L_rank_lift",
+            "T27c",
+            "T7",
+            "T8",
+            "T_channels"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "L_mass_from_capacity",
+          "fan_in": 11,
+          "anchor_diversity": 2,
+          "predecessors": [
+            "L_FN_ladder_uniqueness",
+            "L_Gram",
+            "L_H_curv",
+            "L_Yukawa_bilinear",
+            "L_cost",
+            "L_holonomy_phase",
+            "L_multiplicative_amplitude",
+            "T27c",
+            "T_capacity_ladder",
+            "T_channels",
+            "T_q_Higgs"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*"
+          ]
+        },
+        {
+          "node_id": "T_PMNS",
+          "fan_in": 11,
+          "anchor_diversity": 2,
+          "predecessors": [
+            "L_Gram",
+            "L_LL_coherence",
+            "L_Weinberg_dim",
+            "L_angular_far_edge",
+            "L_capacity_per_dimension",
+            "L_dim_angle",
+            "L_gen_path",
+            "T27c",
+            "T8",
+            "T_capacity_ladder",
+            "T_q_Higgs"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*"
+          ]
+        },
+        {
+          "node_id": "L_count",
+          "fan_in": 10,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "L_epsilon*",
+            "L_loc",
+            "T3",
+            "T7",
+            "T_Higgs",
+            "T_M",
+            "T_field",
+            "T_gauge",
+            "T_kappa",
+            "worked_example"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "L_NLO_texture",
+          "fan_in": 10,
+          "anchor_diversity": 2,
+          "predecessors": [
+            "L_CP_channel",
+            "L_adjoint_sep",
+            "L_capacity_per_dimension",
+            "L_cost",
+            "L_holonomy_phase",
+            "L_loc",
+            "L_nc",
+            "T8",
+            "T_CKM",
+            "T_capacity_ladder"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*"
+          ]
+        },
+        {
+          "node_id": "T_interface_sector_bridge",
+          "fan_in": 9,
+          "anchor_diversity": 4,
+          "predecessors": [
+            "L_global_interface_is_horizon",
+            "L_irr",
+            "L_self_exclusion",
+            "T12",
+            "T12E",
+            "T_Bek",
+            "T_M",
+            "T_horizon_reciprocity",
+            "T_kappa"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "Regime_R",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "L_self_exclusion",
+          "fan_in": 9,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "A1",
+            "L_Gram",
+            "L_epsilon*",
+            "T11",
+            "T_M",
+            "T_entropy",
+            "T_epsilon",
+            "T_eta",
+            "T_field"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "Theorem_R",
+          "fan_in": 9,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "A1",
+            "B1_prime",
+            "L_irr",
+            "L_irr_uniform",
+            "L_nc",
+            "Regime_R",
+            "T3",
+            "T_M",
+            "T_confinement"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "Regime_R"
+          ]
+        },
+        {
+          "node_id": "T_mass_ratios",
+          "fan_in": 9,
+          "anchor_diversity": 2,
+          "predecessors": [
+            "L_boundary_projection",
+            "L_channel_crossing",
+            "L_color_Gram",
+            "L_dim_angle",
+            "L_epsilon*",
+            "T27c",
+            "T_canonical",
+            "T_capacity_ladder",
+            "T_gauge"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*"
+          ]
+        },
+        {
+          "node_id": "L_dm2_hierarchy",
+          "fan_in": 8,
+          "anchor_diversity": 4,
+          "predecessors": [
+            "L_dark_budget",
+            "L_nu_mass_gap",
+            "L_seesaw_dimension",
+            "L_seesaw_ordering",
+            "L_singlet_Gram",
+            "T_PMNS",
+            "T_capacity_ladder",
+            "T_nu_ordering"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "Regime_R",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "L_bridges_closed",
+          "fan_in": 8,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "L_Gram",
+            "L_cost",
+            "L_equip",
+            "L_self_exclusion",
+            "T11",
+            "T27c",
+            "T_Bek",
+            "T_entropy"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "L_gauge_template_uniqueness",
+          "fan_in": 8,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "B1_prime",
+            "L_AF_capacity",
+            "L_irr_uniform",
+            "L_loc",
+            "T5",
+            "T_M",
+            "T_confinement",
+            "Theorem_R"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "Regime_R"
+          ]
+        },
+        {
+          "node_id": "T11",
+          "fan_in": 8,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "A1",
+            "L_count",
+            "L_equip",
+            "T4F",
+            "T9_grav",
+            "T_Higgs",
+            "T_field",
+            "T_gauge"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "T12",
+          "fan_in": 8,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "A1",
+            "L_anomaly_free",
+            "T3",
+            "T7",
+            "T9_grav",
+            "T_Higgs",
+            "T_field",
+            "T_gauge"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "Regime_R"
+          ]
+        },
+        {
+          "node_id": "T_horizon_reciprocity",
+          "fan_in": 8,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "L_irr",
+            "L_self_exclusion",
+            "T11",
+            "T_Bek",
+            "T_M",
+            "T_eta",
+            "T_field",
+            "T_kappa"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        }
+      ],
+      "fan_in_histogram": {
+        "0": 13,
+        "1": 37,
+        "2": 32,
+        "3": 56,
+        "4": 32,
+        "5": 26,
+        "6": 10,
+        "7": 6,
+        "8": 7,
+        "9": 4,
+        "10": 2,
+        "11": 3
+      },
+      "n_with_fan_in_geq_min": 178,
+      "max_fan_in": 11
+    },
+    "post_R_subgraph": {
+      "top_k": [
+        {
+          "node_id": "L_texture_from_capacity",
+          "fan_in": 11,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "L_GJ_from_capacity",
+            "L_NLO_texture",
+            "L_gen_path",
+            "L_holonomy_phase",
+            "L_mass_from_capacity",
+            "L_rank2_texture",
+            "L_rank_lift",
+            "T27c",
+            "T7",
+            "T8",
+            "T_channels"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "L_mass_from_capacity",
+          "fan_in": 11,
+          "anchor_diversity": 2,
+          "predecessors": [
+            "L_FN_ladder_uniqueness",
+            "L_Gram",
+            "L_H_curv",
+            "L_Yukawa_bilinear",
+            "L_cost",
+            "L_holonomy_phase",
+            "L_multiplicative_amplitude",
+            "T27c",
+            "T_capacity_ladder",
+            "T_channels",
+            "T_q_Higgs"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*"
+          ]
+        },
+        {
+          "node_id": "T_PMNS",
+          "fan_in": 11,
+          "anchor_diversity": 2,
+          "predecessors": [
+            "L_Gram",
+            "L_LL_coherence",
+            "L_Weinberg_dim",
+            "L_angular_far_edge",
+            "L_capacity_per_dimension",
+            "L_dim_angle",
+            "L_gen_path",
+            "T27c",
+            "T8",
+            "T_capacity_ladder",
+            "T_q_Higgs"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*"
+          ]
+        },
+        {
+          "node_id": "L_count",
+          "fan_in": 10,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "L_epsilon*",
+            "L_loc",
+            "T3",
+            "T7",
+            "T_Higgs",
+            "T_M",
+            "T_field",
+            "T_gauge",
+            "T_kappa",
+            "worked_example"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "L_NLO_texture",
+          "fan_in": 10,
+          "anchor_diversity": 2,
+          "predecessors": [
+            "L_CP_channel",
+            "L_adjoint_sep",
+            "L_capacity_per_dimension",
+            "L_cost",
+            "L_holonomy_phase",
+            "L_loc",
+            "L_nc",
+            "T8",
+            "T_CKM",
+            "T_capacity_ladder"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*"
+          ]
+        },
+        {
+          "node_id": "L_self_exclusion",
+          "fan_in": 9,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "A1",
+            "L_Gram",
+            "L_epsilon*",
+            "T11",
+            "T_M",
+            "T_entropy",
+            "T_epsilon",
+            "T_eta",
+            "T_field"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "T_interface_sector_bridge",
+          "fan_in": 9,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "L_global_interface_is_horizon",
+            "L_irr",
+            "L_self_exclusion",
+            "T12",
+            "T12E",
+            "T_Bek",
+            "T_M",
+            "T_horizon_reciprocity",
+            "T_kappa"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "T_mass_ratios",
+          "fan_in": 9,
+          "anchor_diversity": 2,
+          "predecessors": [
+            "L_boundary_projection",
+            "L_channel_crossing",
+            "L_color_Gram",
+            "L_dim_angle",
+            "L_epsilon*",
+            "T27c",
+            "T_canonical",
+            "T_capacity_ladder",
+            "T_gauge"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*"
+          ]
+        },
+        {
+          "node_id": "L_bridges_closed",
+          "fan_in": 8,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "L_Gram",
+            "L_cost",
+            "L_equip",
+            "L_self_exclusion",
+            "T11",
+            "T27c",
+            "T_Bek",
+            "T_entropy"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "L_dm2_hierarchy",
+          "fan_in": 8,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "L_dark_budget",
+            "L_nu_mass_gap",
+            "L_seesaw_dimension",
+            "L_seesaw_ordering",
+            "L_singlet_Gram",
+            "T_PMNS",
+            "T_capacity_ladder",
+            "T_nu_ordering"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "T11",
+          "fan_in": 8,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "A1",
+            "L_count",
+            "L_equip",
+            "T4F",
+            "T9_grav",
+            "T_Higgs",
+            "T_field",
+            "T_gauge"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "T_horizon_reciprocity",
+          "fan_in": 8,
+          "anchor_diversity": 3,
+          "predecessors": [
+            "L_irr",
+            "L_self_exclusion",
+            "T11",
+            "T_Bek",
+            "T_M",
+            "T_eta",
+            "T_field",
+            "T_kappa"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*",
+            "worked_example"
+          ]
+        },
+        {
+          "node_id": "L_NNLO_down_mass",
+          "fan_in": 8,
+          "anchor_diversity": 2,
+          "predecessors": [
+            "L_NLO_texture",
+            "L_NNLO_three_effects",
+            "L_c_FN_gap",
+            "L_e3_gen0",
+            "L_kB_sector",
+            "L_md_zero",
+            "L_null_direction",
+            "L_rho_spacetime"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*"
+          ]
+        },
+        {
+          "node_id": "L_gauge_template_uniqueness",
+          "fan_in": 8,
+          "anchor_diversity": 2,
+          "predecessors": [
+            "B1_prime",
+            "L_AF_capacity",
+            "L_irr_uniform",
+            "L_loc",
+            "T5",
+            "T_M",
+            "T_confinement",
+            "Theorem_R"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*"
+          ]
+        },
+        {
+          "node_id": "T12",
+          "fan_in": 8,
+          "anchor_diversity": 2,
+          "predecessors": [
+            "A1",
+            "L_anomaly_free",
+            "T3",
+            "T7",
+            "T9_grav",
+            "T_Higgs",
+            "T_field",
+            "T_gauge"
+          ],
+          "anchors_reaching": [
+            "A1",
+            "L_epsilon*"
+          ]
+        }
+      ],
+      "fan_in_histogram": {
+        "0": 12,
+        "1": 35,
+        "2": 31,
+        "3": 55,
+        "4": 33,
+        "5": 25,
+        "6": 10,
+        "7": 6,
+        "8": 8,
+        "9": 3,
+        "10": 2,
+        "11": 3
+      },
+      "n_with_fan_in_geq_min": 176,
+      "max_fan_in": 11
+    }
+  },
+  "min_cut": {
+    "post_R_subgraph": {
+      "rows": [
+        {
+          "source": "A1",
+          "source_role": "A1",
+          "sink": "T_sin2theta",
+          "reachable": true,
+          "direct": false,
+          "cut_size": 5,
+          "cut_witness": [
+            "L_irr",
+            "T21",
+            "T22",
+            "T27c",
+            "T_channels"
+          ]
+        },
+        {
+          "source": "A1",
+          "source_role": "A1",
+          "sink": "T_gauge",
+          "reachable": true,
+          "direct": true,
+          "cut_size": -1,
+          "cut_witness": []
+        },
+        {
+          "source": "A1",
+          "source_role": "A1",
+          "sink": "T_PMNS",
+          "reachable": true,
+          "direct": false,
+          "cut_size": 9,
+          "cut_witness": [
+            "L_Gram",
+            "L_gen_path",
+            "T27c",
+            "T8",
+            "T_canonical",
+            "T_capacity_ladder",
+            "T_field",
+            "T_gauge",
+            "T_q_Higgs"
+          ]
+        },
+        {
+          "source": "A1",
+          "source_role": "A1",
+          "sink": "T_mass_ratios",
+          "reachable": true,
+          "direct": false,
+          "cut_size": 8,
+          "cut_witness": [
+            "L_channel_crossing",
+            "L_color_Gram",
+            "T27c",
+            "T8",
+            "T_canonical",
+            "T_capacity_ladder",
+            "T_field",
+            "T_gauge"
+          ]
+        },
+        {
+          "source": "A1",
+          "source_role": "A1",
+          "sink": "L_count",
+          "reachable": true,
+          "direct": false,
+          "cut_size": 8,
+          "cut_witness": [
+            "L_loc",
+            "T2",
+            "T7",
+            "T_Higgs",
+            "T_M",
+            "T_field",
+            "T_gauge",
+            "T_kappa"
+          ]
+        },
+        {
+          "source": "L_epsilon*",
+          "source_role": "MD",
+          "sink": "T_sin2theta",
+          "reachable": true,
+          "direct": false,
+          "cut_size": 5,
+          "cut_witness": [
+            "T21",
+            "T22",
+            "T27c",
+            "T27d",
+            "T_channels"
+          ]
+        },
+        {
+          "source": "L_epsilon*",
+          "source_role": "MD",
+          "sink": "T_gauge",
+          "reachable": true,
+          "direct": false,
+          "cut_size": 3,
+          "cut_witness": [
+            "L_cost",
+            "L_loc",
+            "T_confinement"
+          ]
+        },
+        {
+          "source": "L_epsilon*",
+          "source_role": "MD",
+          "sink": "T_PMNS",
+          "reachable": true,
+          "direct": false,
+          "cut_size": 10,
+          "cut_witness": [
+            "L_angular_far_edge",
+            "L_cost",
+            "L_loc",
+            "T27d",
+            "T_LV",
+            "T_M",
+            "T_canonical",
+            "T_confinement",
+            "T_epsilon",
+            "T_q_Higgs"
+          ]
+        },
+        {
+          "source": "L_epsilon*",
+          "source_role": "MD",
+          "sink": "T_mass_ratios",
+          "reachable": true,
+          "direct": true,
+          "cut_size": -1,
+          "cut_witness": []
+        },
+        {
+          "source": "L_epsilon*",
+          "source_role": "MD",
+          "sink": "L_count",
+          "reachable": true,
+          "direct": true,
+          "cut_size": -1,
+          "cut_witness": []
+        },
+        {
+          "source": "worked_example",
+          "source_role": "BW",
+          "sink": "T_sin2theta",
+          "reachable": false,
+          "direct": false,
+          "cut_size": 0,
+          "cut_witness": []
+        },
+        {
+          "source": "worked_example",
+          "source_role": "BW",
+          "sink": "T_gauge",
+          "reachable": false,
+          "direct": false,
+          "cut_size": 0,
+          "cut_witness": []
+        },
+        {
+          "source": "worked_example",
+          "source_role": "BW",
+          "sink": "T_PMNS",
+          "reachable": false,
+          "direct": false,
+          "cut_size": 0,
+          "cut_witness": []
+        },
+        {
+          "source": "worked_example",
+          "source_role": "BW",
+          "sink": "T_mass_ratios",
+          "reachable": false,
+          "direct": false,
+          "cut_size": 0,
+          "cut_witness": []
+        },
+        {
+          "source": "worked_example",
+          "source_role": "BW",
+          "sink": "L_count",
+          "reachable": true,
+          "direct": true,
+          "cut_size": -1,
+          "cut_witness": []
+        }
+      ],
+      "by_sink_min": {
+        "T_sin2theta": {
+          "min_cut": 5,
+          "achieved_by": "A1",
+          "witness": [
+            "L_irr",
+            "T21",
+            "T22",
+            "T27c",
+            "T_channels"
+          ],
+          "direct_sources": []
+        },
+        "T_gauge": {
+          "min_cut": 3,
+          "achieved_by": "L_epsilon*",
+          "witness": [
+            "L_cost",
+            "L_loc",
+            "T_confinement"
+          ],
+          "direct_sources": [
+            "A1"
+          ]
+        },
+        "T_PMNS": {
+          "min_cut": 9,
+          "achieved_by": "A1",
+          "witness": [
+            "L_Gram",
+            "L_gen_path",
+            "T27c",
+            "T8",
+            "T_canonical",
+            "T_capacity_ladder",
+            "T_field",
+            "T_gauge",
+            "T_q_Higgs"
+          ],
+          "direct_sources": []
+        },
+        "T_mass_ratios": {
+          "min_cut": 8,
+          "achieved_by": "A1",
+          "witness": [
+            "L_channel_crossing",
+            "L_color_Gram",
+            "T27c",
+            "T8",
+            "T_canonical",
+            "T_capacity_ladder",
+            "T_field",
+            "T_gauge"
+          ],
+          "direct_sources": [
+            "L_epsilon*"
+          ]
+        },
+        "L_count": {
+          "min_cut": 8,
+          "achieved_by": "A1",
+          "witness": [
+            "L_loc",
+            "T2",
+            "T7",
+            "T_Higgs",
+            "T_M",
+            "T_field",
+            "T_gauge",
+            "T_kappa"
+          ],
+          "direct_sources": [
+            "L_epsilon*",
+            "worked_example"
+          ]
+        }
+      },
+      "by_source_min": {
+        "A1": {
+          "min_cut": 5,
+          "sink": "T_sin2theta",
+          "witness": [
+            "L_irr",
+            "T21",
+            "T22",
+            "T27c",
+            "T_channels"
+          ],
+          "direct_sinks": [
+            "T_gauge"
+          ]
+        },
+        "L_epsilon*": {
+          "min_cut": 3,
+          "sink": "T_gauge",
+          "witness": [
+            "L_cost",
+            "L_loc",
+            "T_confinement"
+          ],
+          "direct_sinks": [
+            "L_count",
+            "T_mass_ratios"
+          ]
+        },
+        "worked_example": {
+          "min_cut": 0,
+          "sink": null,
+          "witness": [],
+          "direct_sinks": [
+            "L_count"
+          ]
+        }
+      },
+      "n_pairs": 15,
+      "n_reachable": 11,
+      "n_direct": 4
+    }
+  },
+  "sector_verdicts": {
+    "gauge": {
+      "verdict": "complete",
+      "n_passing": "all"
+    },
+    "gravity": {
+      "verdict": "complete",
+      "n_passing": "all"
+    },
+    "rg_mechanism": {
+      "verdict": "complete",
+      "n_passing": "all"
+    },
+    "flavor_mixing": {
+      "verdict": "partial",
+      "n_passing": "most",
+      "open": [
+        "m_t, m_b absolute scale"
+      ]
+    },
+    "quantum_structure": {
+      "verdict": "complete",
+      "n_passing": "all"
+    },
+    "particles": {
+      "verdict": "partial",
+      "n_passing": "most",
+      "open": [
+        "dark matter particle ID"
+      ]
+    },
+    "cosmology": {
+      "verdict": "tension",
+      "n_passing": "most",
+      "open": [
+        "H0DN 7.09σ tension; Paper 6 §11.4"
+      ]
+    },
+    "geometry": {
+      "verdict": "complete",
+      "n_passing": "all"
+    }
+  }
+}

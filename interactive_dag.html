@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>APF Paper 8 — Derivation DAG</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    :root {
+      --bg: #fafaf7;
+      --fg: #1a1a1a;
+      --muted: #666;
+      --axiom: #2c3e50;
+      --theorem: #27ae60;
+      --lemma: #3498db;
+      --red_team: #c0392b;
+      --other: #95a5a6;
+      --link: #999;
+      --hover: #f39c12;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      margin: 0; padding: 0; background: var(--bg); color: var(--fg);
+    }
+    header {
+      padding: 1rem 1.5rem; border-bottom: 1px solid #ddd;
+      background: white; display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    header h1 { margin: 0; font-size: 1.2rem; font-weight: 600; }
+    header .subtitle { color: var(--muted); font-size: 0.9rem; margin-top: 0.2rem; }
+    header .controls { display: flex; gap: 0.5rem; }
+    header button {
+      padding: 0.4rem 0.9rem; font-size: 0.85rem;
+      background: white; border: 1px solid #ccc; border-radius: 4px; cursor: pointer;
+    }
+    header button:hover { background: #eee; }
+    #status {
+      padding: 0.5rem 1.5rem; background: #fff3cd;
+      border-bottom: 1px solid #ffc107; font-size: 0.85rem; color: #856404;
+      display: none;
+    }
+    #status.visible { display: block; }
+    #status.success { background: #d4edda; border-color: #28a745; color: #155724; }
+    main {
+      display: grid; grid-template-columns: 1fr 320px;
+      height: calc(100vh - 70px); overflow: hidden;
+    }
+    @media (max-width: 768px) {
+      main { grid-template-columns: 1fr; }
+      #sidebar { display: none; }
+    }
+    #graph { background: var(--bg); position: relative; overflow: hidden; }
+    #graph svg { width: 100%; height: 100%; cursor: grab; }
+    #graph svg:active { cursor: grabbing; }
+    #sidebar {
+      background: white; padding: 1rem 1.2rem; overflow-y: auto;
+      border-left: 1px solid #ddd; font-size: 0.88rem;
+    }
+    #sidebar h2 {
+      font-size: 1rem; margin: 0 0 0.5rem; padding-bottom: 0.4rem;
+      border-bottom: 1px solid #eee;
+    }
+    #sidebar .empty { color: var(--muted); font-style: italic; }
+    #sidebar .field { margin-bottom: 0.7rem; }
+    #sidebar .field-label {
+      font-size: 0.72rem; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.15rem;
+    }
+    #sidebar .deps { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    #sidebar .dep {
+      background: #eef; padding: 0.15rem 0.5rem; border-radius: 3px;
+      font-family: ui-monospace, monospace; font-size: 0.8rem; cursor: pointer;
+    }
+    #sidebar .dep:hover { background: #dde; }
+    #legend {
+      position: absolute; bottom: 1rem; left: 1rem; background: white;
+      padding: 0.6rem 0.9rem; border: 1px solid #ddd; border-radius: 4px;
+      font-size: 0.78rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    #legend .item { display: flex; align-items: center; gap: 0.4rem; margin: 0.2rem 0; }
+    #legend .swatch { width: 12px; height: 12px; border-radius: 50%; }
+    .node circle { stroke: white; stroke-width: 1.5px; cursor: pointer; }
+    .node text { font-size: 11px; pointer-events: none; }
+    .node.faded circle, .node.faded text { opacity: 0.2; }
+    .node.passed circle { stroke: #27ae60; stroke-width: 3px; }
+    .node.failed circle { stroke: #c0392b; stroke-width: 3px; }
+    .link { stroke: var(--link); stroke-width: 1.2px; fill: none; }
+    .link.faded { opacity: 0.1; }
+    .link.highlight { stroke: var(--hover); stroke-width: 2.5px; }
+    footer {
+      position: fixed; bottom: 0; right: 0; padding: 0.4rem 0.8rem;
+      font-size: 0.72rem; color: var(--muted); background: rgba(255,255,255,0.85);
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Paper 8 — The Admissibility-Capacity Ledger</h1>
+      <div class="subtitle">Interactive derivation DAG · 36 checks · APF v6.8</div>
+    </div>
+    <div class="controls">
+      <button id="run-checks-btn">▶ Run All Checks</button>
+      <button id="reset-btn">⟳ Reset View</button>
+    </div>
+  </header>
+  <div id="status"></div>
+  <main>
+    <div id="graph">
+      <svg></svg>
+      <div id="legend">
+        <div class="item"><div class="swatch" style="background:var(--axiom)"></div>Axiom / primitive</div>
+        <div class="item"><div class="swatch" style="background:var(--theorem)"></div>Theorem (T_·)</div>
+        <div class="item"><div class="swatch" style="background:var(--lemma)"></div>Lemma (L_·)</div>
+        <div class="item"><div class="swatch" style="background:var(--red_team)"></div>Red-team (RT_·)</div>
+        <div class="item"><div class="swatch" style="background:var(--other)"></div>Other</div>
+      </div>
+    </div>
+    <aside id="sidebar">
+      <h2>Theorem details</h2>
+      <p class="empty">Hover any node to see its summary; click to highlight its dependency subgraph.</p>
+    </aside>
+  </main>
+  <footer>
+    Generated by APF <a href="https://github.com/Ethan-Brooke">create-repo</a> skill ·
+    <a href="https://github.com/Ethan-Brooke/APF-Paper-8-Admissibility-Capacity-Ledger">repo</a>
+  </footer>
+
+<script>
+const NODES = [
+  {
+    "id": "ACC",
+    "fullId": "ACC",
+    "type": "other",
+    "summary": "",
+    "deps": []
+  },
+  {
+    "id": "pi_T",
+    "fullId": "pi_T",
+    "type": "other",
+    "summary": "Thermodynamic projection: S(rho, Gamma) = ACC(rho, Gamma).",
+    "deps": []
+  },
+  {
+    "id": "pi_G",
+    "fullId": "pi_G",
+    "type": "other",
+    "summary": "Gravitational projection: S_BH = A/(4 ell_P^2) = ACC_horizon.",
+    "deps": []
+  },
+  {
+    "id": "pi_Q",
+    "fullId": "pi_Q",
+    "type": "other",
+    "summary": "Quantum projection: dim H(rho, Gamma) = exp(ACC) = N.",
+    "deps": []
+  },
+  {
+    "id": "pi_F",
+    "fullId": "pi_F",
+    "type": "other",
+    "summary": "Gauge/field projection: K(rho, Gamma) \u2014 the structural capacity.",
+    "deps": []
+  },
+  {
+    "id": "pi_C",
+    "fullId": "pi_C",
+    "type": "other",
+    "summary": "Cosmological projection: residuals as fractions over K.",
+    "deps": []
+  },
+  {
+    "id": "pi_A",
+    "fullId": "pi_A",
+    "type": "other",
+    "summary": "Action projection: Z(beta) = sum_g exp(-beta H(g)).",
+    "deps": []
+  },
+  {
+    "id": "_identity_I1_holographic",
+    "fullId": "_identity_I1_holographic",
+    "type": "other",
+    "summary": "Identity I1 (Holographic): S_BH = ln(dim H_horizon) = ACC_horizon.",
+    "deps": []
+  },
+  {
+    "id": "_identity_I2_gauge_cosmological",
+    "fullId": "_identity_I2_gauge_cosmological",
+    "type": "other",
+    "summary": "Identity I2 (Gauge-cosmological): K in pi_F equals denominator in pi_C.",
+    "deps": []
+  },
+  {
+    "id": "_identity_I3_thermo_quantum",
+    "fullId": "_identity_I3_thermo_quantum",
+    "type": "other",
+    "summary": "Identity I3 (Thermo-quantum): S_vN(rho_max_mixed) = ln(dim H) = ACC.",
+    "deps": []
+  },
+  {
+    "id": "_identity_I4_action_thermo",
+    "fullId": "_identity_I4_action_thermo",
+    "type": "other",
+    "summary": "Identity I4 (Action-thermo): lim_{beta -> 0} ln Z(beta) = ACC.",
+    "deps": []
+  },
+  {
+    "id": "T_ACC_unification",
+    "fullId": "check_T_ACC_unification",
+    "type": "theorem",
+    "summary": "T_ACC_unification: Admissibility-Capacity Ledger unification [P].",
+    "deps": []
+  },
+  {
+    "id": "T_three_level_unification",
+    "fullId": "check_T_three_level_unification",
+    "type": "theorem",
+    "summary": "T_three_level_unification \u2014 Three-level refinement of T_ACC [P]. (tier 4)",
+    "deps": []
+  },
+  {
+    "id": "T_subspace_functors_unified",
+    "fullId": "check_T_subspace_functors_unified",
+    "type": "theorem",
+    "summary": "T_subspace_functors_unified [P] \u2014 All three 14c functors delivered. (tier 4)",
+    "deps": []
+  },
+  {
+    "id": "T_fractional_reading_equivalence",
+    "fullId": "check_T_fractional_reading_equivalence",
+    "type": "theorem",
+    "summary": "T_fractional_reading_equivalence [P] \u2014 FRE at any ACC interface.",
+    "deps": []
+  },
+  {
+    "id": "L_Omega_Lambda_is_entropy_fraction",
+    "fullId": "check_L_Omega_Lambda_is_entropy_fraction",
+    "type": "lemma",
+    "summary": "L_Omega_Lambda_is_entropy_fraction [P] \u2014 the dark-energy eureka.",
+    "deps": []
+  },
+  {
+    "id": "L_Omega_b_is_entropy_fraction",
+    "fullId": "check_L_Omega_b_is_entropy_fraction",
+    "type": "lemma",
+    "summary": "L_Omega_b_is_entropy_fraction [P] \u2014 Baryon fraction as entropy allocation.",
+    "deps": []
+  },
+  {
+    "id": "L_Omega_c_is_entropy_fraction",
+    "fullId": "check_L_Omega_c_is_entropy_fraction",
+    "type": "lemma",
+    "summary": "L_Omega_c_is_entropy_fraction [P] \u2014 CDM fraction as entropy allocation.",
+    "deps": []
+  },
+  {
+    "id": "T_residual_entropy_closure",
+    "fullId": "check_T_residual_entropy_closure",
+    "type": "theorem",
+    "summary": "T_residual_entropy_closure [P] \u2014 Entropy fractions sum to 1.",
+    "deps": []
+  },
+  {
+    "id": "T_FRE_SM_to_entropy_dictionary",
+    "fullId": "check_T_FRE_SM_to_entropy_dictionary",
+    "type": "theorem",
+    "summary": "T_FRE_SM_to_entropy_dictionary [P] \u2014 Full SM entropy dictionary. (tier 4)",
+    "deps": [
+      "T_fractional_reading_equivalence",
+      "L_Omega_b_is_entropy_fraction",
+      "L_Omega_c_is_entropy_fraction",
+      "L_Omega_Lambda_is_entropy_fraction",
+      "T_residual_entropy_closure"
+    ]
+  },
+  {
+    "id": "_identity_composition_tests",
+    "fullId": "_identity_composition_tests",
+    "type": "other",
+    "summary": "",
+    "deps": []
+  },
+  {
+    "id": "L_Lambda_absolute_numerical_formula",
+    "fullId": "check_L_Lambda_absolute_numerical_formula",
+    "type": "lemma",
+    "summary": "L_Lambda_absolute_numerical_formula [P] \u2014 APF coefficient formula matches \u039b.",
+    "deps": []
+  },
+  {
+    "id": "T_Lambda_coefficient_degeneracy_audit",
+    "fullId": "check_T_Lambda_coefficient_degeneracy_audit",
+    "type": "theorem",
+    "summary": "T_Lambda_coefficient_degeneracy_audit [C] \u2014 Numerical vs structural privilege.",
+    "deps": []
+  },
+  {
+    "id": "T_Lambda_absolute_extended_formula",
+    "fullId": "check_T_Lambda_absolute_extended_formula",
+    "type": "theorem",
+    "summary": "T_Lambda_absolute_extended_formula [P] \u2014 Universal cosmological density formula.",
+    "deps": []
+  },
+  {
+    "id": "T_Lambda_to_H0_inversion",
+    "fullId": "check_T_Lambda_to_H0_inversion",
+    "type": "theorem",
+    "summary": "T_Lambda_to_H0_inversion [P] \u2014 APF prediction for the Hubble constant.",
+    "deps": []
+  },
+  {
+    "id": "T_T_CMB_absolute_formula",
+    "fullId": "check_T_T_CMB_absolute_formula",
+    "type": "theorem",
+    "summary": "T_T_CMB_absolute_formula [P] \u2014 APF predicts T_CMB via thermal C/d_eff^k.",
+    "deps": []
+  },
+  {
+    "id": "T_Lambda_absolute_bulletproof",
+    "fullId": "check_T_Lambda_absolute_bulletproof",
+    "type": "theorem",
+    "summary": "T_Lambda_absolute_bulletproof [P] \u2014 Full robustness of \u039b-absolute claim.",
+    "deps": [
+      "L_Lambda_absolute_numerical_formula",
+      "T_Lambda_absolute_extended_formula",
+      "T_Lambda_coefficient_degeneracy_audit"
+    ]
+  },
+  {
+    "id": "_build_model",
+    "fullId": "_build_model",
+    "type": "other",
+    "summary": "Build the (H_micro, H_total, P_vac_slot0) tuple for a model interface.",
+    "deps": []
+  },
+  {
+    "id": "T_Lambda_partition_function_at_beta_zero",
+    "fullId": "check_T_Lambda_partition_function_at_beta_zero",
+    "type": "theorem",
+    "summary": "T_Lambda_partition_function_at_beta_zero [P] \u2014 Operator-level \u03b2 \u2192 0 limit.",
+    "deps": []
+  },
+  {
+    "id": "T_Lambda_d2_operator_derivation",
+    "fullId": "check_T_Lambda_d2_operator_derivation",
+    "type": "theorem",
+    "summary": "T_Lambda_d2_operator_derivation [P over [P]+[P_structural]+[C]] \u2014",
+    "deps": [
+      "T_Lambda_partition_function_at_beta_zero"
+    ]
+  },
+  {
+    "id": "T_I3_operator_self_identification",
+    "fullId": "check_T_I3_operator_self_identification",
+    "type": "theorem",
+    "summary": "T_I3_operator_self_identification [P_comp] \u2014 Composed top for I3.",
+    "deps": []
+  },
+  {
+    "id": "T_I4_operator_self_identification",
+    "fullId": "check_T_I4_operator_self_identification",
+    "type": "theorem",
+    "summary": "T_I4_operator_self_identification [P_comp] \u2014 Composed top for I4.",
+    "deps": [
+      "T_Lambda_partition_function_at_beta_zero"
+    ]
+  },
+  {
+    "id": "L_Sigma_m_nu_suggestive",
+    "fullId": "check_L_Sigma_m_nu_suggestive",
+    "type": "lemma",
+    "summary": "L_Sigma_m_nu_suggestive [C, open] \u2014 neutrino mass sum consistent with k=15.",
+    "deps": []
+  },
+  {
+    "id": "L_eta_does_not_fit_cleanly",
+    "fullId": "check_L_eta_does_not_fit_cleanly",
+    "type": "lemma",
+    "summary": "L_eta_does_not_fit_cleanly [C, open] \u2014 baryon-to-photon ratio scope.",
+    "deps": []
+  },
+  {
+    "id": "T_bridge_observer_independence_open",
+    "fullId": "check_T_bridge_observer_independence_open",
+    "type": "theorem",
+    "summary": "T_bridge_observer_independence_open [C, open] \u2014",
+    "deps": []
+  },
+  {
+    "id": "L_horizon_convention_equivalence",
+    "fullId": "check_L_horizon_convention_equivalence",
+    "type": "lemma",
+    "summary": "L_horizon_convention_equivalence [P] \u2014 Conventions A and B agree.",
+    "deps": []
+  }
+];
+const LINKS = [
+  {
+    "source": "T_fractional_reading_equivalence",
+    "target": "T_FRE_SM_to_entropy_dictionary"
+  },
+  {
+    "source": "L_Omega_b_is_entropy_fraction",
+    "target": "T_FRE_SM_to_entropy_dictionary"
+  },
+  {
+    "source": "L_Omega_c_is_entropy_fraction",
+    "target": "T_FRE_SM_to_entropy_dictionary"
+  },
+  {
+    "source": "L_Omega_Lambda_is_entropy_fraction",
+    "target": "T_FRE_SM_to_entropy_dictionary"
+  },
+  {
+    "source": "T_residual_entropy_closure",
+    "target": "T_FRE_SM_to_entropy_dictionary"
+  },
+  {
+    "source": "L_Lambda_absolute_numerical_formula",
+    "target": "T_Lambda_absolute_bulletproof"
+  },
+  {
+    "source": "T_Lambda_absolute_extended_formula",
+    "target": "T_Lambda_absolute_bulletproof"
+  },
+  {
+    "source": "T_Lambda_coefficient_degeneracy_audit",
+    "target": "T_Lambda_absolute_bulletproof"
+  },
+  {
+    "source": "T_Lambda_partition_function_at_beta_zero",
+    "target": "T_Lambda_d2_operator_derivation"
+  },
+  {
+    "source": "T_Lambda_partition_function_at_beta_zero",
+    "target": "T_I4_operator_self_identification"
+  }
+];
+const COLOR = {
+  axiom: getCss('--axiom'), theorem: getCss('--theorem'),
+  lemma: getCss('--lemma'), red_team: getCss('--red_team'),
+  other: getCss('--other'),
+};
+function getCss(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+
+const svg = d3.select('#graph svg');
+const W = () => document.getElementById('graph').clientWidth;
+const H = () => document.getElementById('graph').clientHeight;
+
+// Zoom + pan
+const g = svg.append('g');
+svg.call(d3.zoom().scaleExtent([0.3, 3]).on('zoom', (e) => g.attr('transform', e.transform)));
+
+// Force simulation
+const sim = d3.forceSimulation(NODES)
+  .force('link', d3.forceLink(LINKS).id(d => d.id).distance(70).strength(0.7))
+  .force('charge', d3.forceManyBody().strength(-220))
+  .force('center', d3.forceCenter(W()/2, H()/2))
+  .force('collide', d3.forceCollide().radius(28));
+
+// Links (arrowheads)
+svg.append('defs').append('marker')
+  .attr('id', 'arrow').attr('viewBox', '0 -5 10 10').attr('refX', 18)
+  .attr('refY', 0).attr('markerWidth', 5).attr('markerHeight', 5)
+  .attr('orient', 'auto').attr('fill', '#999')
+  .append('path').attr('d', 'M0,-5L10,0L0,5');
+
+const link = g.append('g').attr('class', 'links').selectAll('line')
+  .data(LINKS).join('line').attr('class', 'link').attr('marker-end', 'url(#arrow)');
+
+const node = g.append('g').attr('class', 'nodes').selectAll('g')
+  .data(NODES).join('g').attr('class', 'node')
+  .call(d3.drag()
+    .on('start', (e, d) => { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+    .on('drag', (e, d) => { d.fx = e.x; d.fy = e.y; })
+    .on('end', (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; }));
+
+node.append('circle').attr('r', 14).attr('fill', d => COLOR[d.type] || COLOR.other);
+node.append('text').attr('dy', '0.32em').attr('text-anchor', 'middle')
+  .attr('fill', 'white').attr('font-weight', 'bold').text(d => d.id.slice(0, 4));
+node.append('title').text(d => `${d.fullId}\n${d.summary}`);
+
+// Hover → sidebar
+node.on('mouseover', (e, d) => showSidebar(d))
+    .on('click', (e, d) => highlightSubgraph(d));
+
+const sidebarEmpty = '<p class="empty">Hover any node to see its summary; click to highlight its dependency subgraph.</p>';
+
+function showSidebar(d) {
+  const sb = document.getElementById('sidebar');
+  const depsHtml = d.deps.length
+    ? d.deps.map(x => `<span class="dep" data-id="${x}">${x}</span>`).join('')
+    : '<span class="empty">none in this paper\'s subset</span>';
+  sb.innerHTML = `
+    <h2>${d.fullId}</h2>
+    <div class="field">
+      <div class="field-label">Type</div>
+      <div>${d.type}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Summary</div>
+      <div>${d.summary || '<span class="empty">no summary available</span>'}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Direct dependencies</div>
+      <div class="deps">${depsHtml}</div>
+    </div>
+    <div class="field">
+      <div class="field-label">Run this check (CLI)</div>
+      <pre style="background:#f6f6f0; padding:0.5rem; border-radius:4px; font-size:0.78rem;"><code>python -c "from apf.bank import get_check; print(get_check('${d.fullId}')())"</code></pre>
+    </div>
+  `;
+  sb.querySelectorAll('.dep').forEach(el => {
+    el.onclick = () => {
+      const id = el.dataset.id;
+      const target = NODES.find(n => n.id === id);
+      if (target) showSidebar(target);
+    };
+  });
+}
+
+function highlightSubgraph(d) {
+  // Find all upstream nodes (transitive dependencies)
+  const upstream = new Set();
+  function walk(id) {
+    const n = NODES.find(x => x.id === id);
+    if (!n) return;
+    for (const dep of n.deps) {
+      if (!upstream.has(dep)) {
+        upstream.add(dep);
+        walk(dep);
+      }
+    }
+  }
+  walk(d.id);
+  upstream.add(d.id);
+  node.classed('faded', n => !upstream.has(n.id));
+  link.classed('faded', l => !(upstream.has(l.source.id) && upstream.has(l.target.id)))
+      .classed('highlight', l => upstream.has(l.source.id) && upstream.has(l.target.id));
+}
+
+document.getElementById('reset-btn').onclick = () => {
+  node.classed('faded', false).classed('passed', false).classed('failed', false);
+  link.classed('faded', false).classed('highlight', false);
+  document.getElementById('sidebar').innerHTML = `<h2>Theorem details</h2>${sidebarEmpty}`;
+  const status = document.getElementById('status');
+  status.classList.remove('visible', 'success');
+  status.textContent = '';
+};
+
+document.getElementById('run-checks-btn').onclick = async () => {
+  const status = document.getElementById('status');
+  status.classList.add('visible');
+  status.classList.remove('success');
+  status.textContent = 'Animating verification in topological order...';
+
+  // Topological sort
+  const inDeg = new Map(NODES.map(n => [n.id, 0]));
+  for (const l of LINKS) inDeg.set(l.target.id || l.target, (inDeg.get(l.target.id || l.target) || 0) + 1);
+  const queue = NODES.filter(n => inDeg.get(n.id) === 0).map(n => n.id);
+  const topo = [];
+  while (queue.length) {
+    const id = queue.shift();
+    topo.push(id);
+    for (const l of LINKS) {
+      const src = l.source.id || l.source;
+      const tgt = l.target.id || l.target;
+      if (src === id) {
+        inDeg.set(tgt, inDeg.get(tgt) - 1);
+        if (inDeg.get(tgt) === 0) queue.push(tgt);
+      }
+    }
+  }
+  // Animate
+  for (const id of topo) {
+    await new Promise(r => setTimeout(r, 80));
+    node.filter(n => n.id === id).classed('passed', true);
+  }
+  status.classList.add('success');
+  status.textContent = `✓ All ${topo.length} checks marked passed (visual; run python run_checks.py for actual verification).`;
+};
+
+sim.on('tick', () => {
+  link.attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+      .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+  node.attr('transform', d => `translate(${d.x},${d.y})`);
+});
+
+window.addEventListener('resize', () => {
+  sim.force('center', d3.forceCenter(W()/2, H()/2));
+  sim.alpha(0.3).restart();
+});
+</script>
+</body>
+</html>

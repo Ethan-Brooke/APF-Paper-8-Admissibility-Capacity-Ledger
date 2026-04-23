@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "apf-paper8"
+version = "2.9"
+description = "Admissibility Capacity Ledger — executable mathematical appendix"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+  {name = "Ethan Brooke", email = "brooke.ethan@gmail.com"}
+]
+keywords = ["admissibility-capacity ledger", "gauge-cosmological bridge", "cosmological constant", "Omega_Lambda", "V_Lambda subspace", "two-tier carrier", "representation theory", "KMS condition", "Type III_1 factor", "meta-theoretical consistency framework"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Scientific/Engineering :: Physics",
+  "Topic :: Scientific/Engineering :: Mathematics",
+]
+dependencies = ["numpy>=1.20", "scipy>=1.7"]
+
+[project.urls]
+Homepage = "https://github.com/Ethan-Brooke/APF-Paper-8-Admissibility-Capacity-Ledger"
+"Bug Tracker" = "https://github.com/Ethan-Brooke/APF-Paper-8-Admissibility-Capacity-Ledger/issues"
+"Zenodo" = "https://doi.org/10.5281/zenodo.PENDING"
+
+[tool.setuptools.packages.find]
+include = ["apf*"]

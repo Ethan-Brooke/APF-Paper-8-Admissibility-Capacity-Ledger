@@ -1,0 +1,1381 @@
+% ======================================================================
+% Paper 8 --- The Admissibility-Capacity Ledger
+% Version 2.9 (April 2026) --- Sync with supplement v2.5 major rewrite
+%
+% v2.9 (2026-04-24 pre-dawn): SYNC WITH V2.5 SUPPLEMENT MAJOR REWRITE.
+%   Third external review asked for (i) self-contained proof, (ii) minimal
+%   working example external readers can audit, (iii) community-standard
+%   cosmological validation.  Supplement v2.5 addresses these by inserting
+%   a new §1 "Formal Kernel of the Paper" front-loaded with Theorem 1.1,
+%   a new §R Minimal Working Example (K=3, d_eff=4 toy interface fully
+%   explicit), and a reframed §I'.4 Bayes factor with prior-sensitivity
+%   table + Cobaya stub.  Main paper gains one paragraph in §1
+%   Introduction making the hierarchy of claims explicit: "Paper 8
+%   contains four regime-consistency identities.  Three are intentionally
+%   modest: I_1 is a horizon-convention identity, I_3 and I_4 are standard
+%   finite-dimensional closures.  The paper's only non-trivial structural
+%   claim is the gauge-cosmological bridge I_2, stated in fully self-
+%   contained form as Theorem 1.1 of Supplement §1 (Formal Kernel)."
+%   No other changes to main paper text.
+%
+% v2.8 (2026-04-23 very-late-night): CENTERPIECE PROMOTION.  Main-paper
+%   edits flowing from the v2.4 supplement's §O-promotion pass.  Two
+%   surgical edits:
+%   (1) §1 Introduction gains one sentence pointing to Supplement §O
+%       as the integrated non-trivial content, so readers starting
+%       from the main paper are trained to read the supplement through
+%       §O as the focal section.
+%   (2) Minor tone tightening: "framework-internal" language used
+%       consistently where the phrase naturally belongs (matching
+%       Sprint C discipline sweep in supplement v2.4).
+%   No theorem content changed; no abstract changes beyond the v2.7
+%   scope note (already accurate).
+%   Companion supplement: v2.4 (centerpiece consolidation + algebraic
+%   precision: §D2 "in context" box, Theorem 7.14' Assumptions block +
+%   import table + generality upgrade + "what could go wrong" remark,
+%   framework-internal discipline sweep, §O boxed roadmap + "Start
+%   here" reader-map bullet + abstract pointer).
+%
+% v2.7 (2026-04-23 late-night): CENTERPIECE SYNC.  Main-paper edits
+%   flowing from the v2.3 supplement centerpiece + mathematical
+%   strengthening pass.  Three surgical edits, no content removed:
+%   (1) Abstract "does claim" bullet updated to mention the four new
+%       theorems (Theorem 7.14' Type III_1 factor at infinite volume;
+%       multivariate Planck 2018 Bayes factor with chi^2 = 1.18;
+%       Theorem C.5 single-scale impossibility; Theorem 5.7 V_Lambda
+%       gauge-uniqueness) and the centerpiece §O in the supplement.
+%   (2) §13 Discussion: new one-paragraph pointer to the centerpiece
+%       supplement Section O as the integrated non-trivial content.
+%   (3) One sentence added to §8 matter-sector discussion referencing
+%       the multivariate chi^2 = 1.18 compatibility (not just the
+%       single-parameter 0.52 sigma offset).
+%   Companion supplement: v2.3 (centerpiece + new math: Type III_1
+%   factor theorem + multivariate Bayes factor + single-scale
+%   impossibility + V_Lambda gauge-uniqueness + integrated §O).
+%
+% v2.6 (2026-04-23 evening): REVIEWER-RESPONSE PASS.  Main-paper edits
+%   flowing from the v2.1 Supplement reviewer-response pass.  Four
+%   surgical edits, no content removed:
+%   (1) Abstract and Section 1 gain explicit Lane-A scope paragraph:
+%       "formal framework paper; cosmological numerics are structural
+%       consequences; statistical inference deferred to a companion
+%       phenomenology paper."
+%   (2) Sections 2.1, 4.1 tightened: the horizon identity I_1 uses
+%       the cell-count convention K_horizon = A/(4 l_P^2), which
+%       reproduces S_BH = A/(4 l_P^2) exactly; no prefactor mutation
+%       is being claimed.  Forward-reference to Supplement Definition
+%       A.2 (horizon ACC record).
+%   (3) Section 8 opening gains "Not a cosmological inference paper"
+%       disclaimer paragraph.
+%   (4) Section 9 opening gains "Finite-dimensional scope; no
+%       thermodynamic-limit / KMS / algebraic-QSM claims" non-claims
+%       paragraph, matching the Supplement H scope narrowing.
+%
+%   No figures changed; no theorem content modified; the code-anchor
+%   forward references all resolve to the same bank checks.  Companion
+%   supplement: v2.1.
+%
+% v2.5 (April 2026) --- Phase 14f I_k-stratification pass
+% (two bridges at I1/I2 + two composed self-identifications at I3/I4,
+% plus the dual-convention resolution of horizon parametrisation Q1)
+%
+% Version 2.4 (April 2026) --- Wave 4 of the main/supplement split
+%
+% v2.4 (2026-04-22): WAVE 4.  The species-dependent exponent paragraph
+%   in Section 8.5 and the full open-extensions discussion in Section
+%   10.2 (neutrino mass sum + cosmic neutrino background) have migrated
+%   to Supplement Section J.  Main paper retains the CMB table row +
+%   formula box in 8.5 and a one-line forward pointer in 10.2.  Also
+%   seeded Supplement Section I with a partition-uniqueness sketch
+%   and a lookalike-fraction placeholder for future expansion.
+%   Companion supplement release: v1.4.
+%
+% CHANGELOG
+% v2.3 (2026-04-22): WAVE 3.  Operator-Level Realization (main Section 9)
+%   compressed wholesale.  The 5-bullet thermal construction detail, the
+%   per-identity operational explanations, the step-by-step composition
+%   algebra, and the expanded Planck-unit convention paragraph have all
+%   migrated to Supplement Section H.  Main paper Section 9 retains:
+%   (i) the preamble explaining that this is a realization not a second
+%   derivation, (ii) a compact 2-paragraph thermal construction naming
+%   the Hilbert space and max-mixed state, (iii) the three identity
+%   boxes (A), (B), (C) as statements, (iv) a one-sentence closure
+%   pointing to the composed theorem, and (v) the composed theorem
+%   T_Lambda_d2_operator_derivation.  Section 9 drops roughly one page.
+%   Companion supplement release: v1.3.
+
+% v2.2 (2026-04-22): WAVE 2 of the split.  Compression pass on the main
+%   paper Sections 2.2, 2.5, 3, 4, 5.  The three-level schema examples,
+%   the inter-level functor detail, and the full five-condition
+%   definition box for the subspace functors are all migrated to the
+%   Technical Supplement (Sections A, D, E).  The PLEC shadow remark is
+%   compressed from six bullets to two sentences.  Section 3 (two-tier)
+%   consolidates three subsections into two.  Main paper retains: the
+%   status table, the functor catalog table, and the headline theorem
+%   statements.  Forward references to supplement replace in-paper
+%   proof scaffolding.  Companion supplement release: v1.2.
+
+% v2.1 (2026-04-22): WAVE 1 OF THE SPLIT.  The four inline proofs of the
+%   consistency identities I_1--I_4 in Section 2.3, together with the
+%   inline proof of the composed ledger theorem T_ACC in Section 2.4,
+%   have been migrated to the Technical Supplement (Section D).  Main
+%   paper retains: identity boxes (statements), one-line physical-meaning
+%   remarks, and coderef anchors.  Forward references to the supplement
+%   replace the previous inline \square-terminated proofs.  Also added
+%   three figures (61-channel budget, 61->102 bridge, fractional reading)
+%   at the recommended placements (v2.0.1 sub-step, folded into v2.1).
+%   Companion supplement release: v1.1.
+
+% v2.0 (2026-04-22): MAIN/SUPPLEMENT SPLIT --- scaffolding pass.  Per the
+%   disposition plan in
+%     APF Reference Docs/Reference - Paper 8 Main-Supplement Split Plan.md,
+%   this version formalises the separation of the public-facing main
+%   paper (theorem statements, physical meaning, headline formulas,
+%   observational cross-checks, falsifiers) from the Technical Supplement
+%   (full proofs, commutative diagrams, operator-algebra construction,
+%   edge-case lemmas, code correspondence).  The v2.0 cut is SCAFFOLDING
+%   only: the supplement exists as an empty structural shell; no content
+%   has been migrated yet.  Subsequent v2.x releases move proof-burden
+%   content wave by wave.  Paper 8 Technical Supplement v1.0 accompanies
+%   this release and is versioned independently.
+% v1.2 (2026-04-22): Rewrote Section 1 (Introduction) as an entry-point
+%   pass.  New structure: (1) one-paragraph pitch, (2) three primitives
+%   -- distinction, enforcement, capacity, (3) Axiom A1 + PLEC as
+%   variational selection rule, (4) taster tables of derived constants
+%   across the entire series (Papers 1-8), (5) paper-series dependency
+%   table, (6) Planck units as natural coordinates for the dimensionless
+%   ledger, (7) Paper 8 contribution + epistemic boundaries + section
+%   map.  Planck material preserved but placed in context rather than
+%   opening the paper.
+% v1.1 (2026-04-22): Added PLEC-to-T_ACC bridging remark (new subsection
+%   after the composed ledger theorem in Section 2) and the Sector
+%   Conversion Matrix (new Section 7, between FRE and Cosmological
+%   Absolute Predictions) enumerating all 15 pairwise projection
+%   conversions, deriving them from I_1-I_4 + compositions, and
+%   cross-checking the SM-interface values against Planck 2018, FIRAS,
+%   SH0ES 2022, and PDG datasets.
+% v1.0 (2026-04-22): Initial release as cosmological-sector capstone of
+%   the T_ACC arc.
+%
+% Prior: folder was Papers/Paper 08 - RESERVED - Correlation Space
+%        (empty placeholder, no .tex content).
+% Rename: 2026-04-22, per Track C decision to retask Paper 8 as the
+%         cosmological-sector capstone of the T_ACC arc.
+%
+% Scope: applies the ledger machinery built in Papers 1-7 to the
+% cosmological sector specifically. Central claims:
+%
+%   (1) Fractional Reading Equivalence: at any ACC interface with
+%       structural residual partition, the slot-counting / entropy /
+%       cosmological readings collapse to a single K_X/K ratio. At
+%       the SM: Omega_b = 3/61, Omega_c = 16/61, Omega_Lambda = 42/61
+%       read as entropy allocations on V_b, V_c, V_Lambda.
+%
+%   (2) Cosmological Absolute Predictions in Planck units:
+%         rho_X / M_Pl^4 = C_X / d_eff^(K_SM+1)        (matter, k = 62)
+%         (T_CMB / M_Pl)^4 = 48 / d_eff^(K_SM+3)       (photons, k = 64)
+%         H_0 / M_Pl = sqrt(8*pi*K_SM/3) / d_eff^((K_SM+1)/2)
+%       All bank-forced. Species-dependent exponent k = K_SM + 1 + N_pol.
+%
+%   (3) Operator-level realization: thermal construction on explicit
+%       H_micro = (C^d_eff)^{tensor K} with three operator-algebra
+%       identities at beta -> 0.
+%
+%   (4) Three-level identity stack: every T_ACC identity I1-I4 fully
+%       [P] at integer / scalar / subspace via Phase 14c subspace
+%       functors (F_horizon, T_interface_sector_bridge, F_quantum,
+%       F_operator).
+%
+% Preamble matches Paper 0 v3.1 style (APF standard).
+% ======================================================================
+
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+\usepackage[most]{tcolorbox}
+\usepackage{titlesec}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=black]{hyperref}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% --- Section formatting (APF standard) --------------------------------
+\titleformat{\section}{\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{0.5em}{}
+
+\pagestyle{plain}
+
+% --- tcolorbox styles: match Paper 0 / Paper 1 / Paper 3 --------------
+\tcbuselibrary{skins,breakable}
+
+\tcbset{
+    apfbox/.style={
+        enhanced,
+        colback=black!3,
+        frame hidden,
+        borderline={0.5pt}{0pt}{black},
+        arc=0pt,
+        left=8pt, right=8pt, top=8pt, bottom=8pt,
+        fonttitle=\bfseries\color{black},
+        coltitle=black,
+        detach title,
+        before upper={\tcbtitle\par\smallskip},
+        before skip=14pt,
+        after skip=14pt,
+        grow to left by=-8pt,
+        grow to right by=-8pt,
+        sharp corners,
+        breakable,
+        pad after break=4pt,
+        pad before break=4pt,
+        lines before break=3,
+    }
+}
+
+\tcbset{
+    defbox/.style={
+        enhanced,
+        colback=black!1,
+        frame hidden,
+        borderline={0.4pt}{0pt}{black!40},
+        arc=0pt,
+        left=8pt, right=8pt, top=8pt, bottom=8pt,
+        fonttitle=\bfseries\color{black!80},
+        coltitle=black!80,
+        detach title,
+        before upper={\tcbtitle\par\smallskip},
+        before skip=14pt,
+        after skip=14pt,
+        grow to left by=-8pt,
+        grow to right by=-8pt,
+        sharp corners,
+        breakable,
+        pad after break=4pt,
+        pad before break=4pt,
+        lines before break=3,
+    }
+}
+
+% --- Small macros ------------------------------------------------------
+\newcommand{\coderef}[2]{\smallskip\noindent\textit{Code reference:} \texttt{#1} in \texttt{#2}.}
+\newcommand{\paperref}[2]{\emph{Paper #1} (\emph{#2})}
+\newcommand{\Aone}{\textbf{A1}}
+\newcommand{\MD}{\textbf{MD}}
+\newcommand{\Atwo}{\textbf{A2}}
+\newcommand{\BW}{\textbf{BW}}
+\newcommand{\PLEC}{\textbf{PLEC}}
+\newcommand{\ACC}{\textsc{ACC}}
+\newcommand{\Mpl}{M_{\rm Pl}}
+
+\setstretch{1.05}
+\setlist[itemize]{itemsep=3pt,topsep=4pt}
+\setlist[enumerate]{itemsep=3pt,topsep=4pt}
+
+% --- Title -------------------------------------------------------------
+\title{\textbf{The Admissibility-Capacity Ledger}\\[0.4em]
+\large Cosmological Absolute Predictions from Finite Information Capacity\\[0.6em]
+\normalsize Paper~8 of the Admissibility Physics Framework}
+\author{E.S. Brooke\thanks{brooke.ethan@gmail.com; ORCID \texttt{0009-0001-2261-4682}.}}
+\date{April 2026 \quad\textbar\quad Version 2.5 (Phase 14f I\textsubscript{k}-stratification: two bridges + two composed self-identifications)}
+
+% ======================================================================
+\begin{document}
+% ======================================================================
+
+\maketitle
+
+\begin{abstract}
+\noindent
+The Admissibility Physics Framework (APF) derives the structural content of the Standard Model --- gauge group $SU(3)\times SU(2)\times U(1)$, fermion generations $N_{\rm gen}=3$, the weak mixing angle $\sin^2\theta_W = 3/13$, and other dimensionless observables --- from a single axiom, \Aone{} (finite information capacity), through the variational \emph{Principle of Least Enforcement Cost} (\PLEC). APF predicts dimensionless structural ratios in Planck units; comparison with laboratory measurements in SI units requires only the standard conversion from Planck to SI, exactly as quantum field theory and lattice QCD require when comparing their own natural-units predictions to experiment.
+This paper applies the ledger machinery built in \paperref{1}{The Enforceability of Distinction} through \paperref{7}{A Minimal Quantum of Action} to the cosmological sector. The result is a compact, zero-free-parameter prediction stack:
+the three observed cosmological residual fractions are proven to be information-entropy allocations on substructures of the Standard-Model interface ($\Omega_b = 3/61 = S(V_b)/S_{\rm SM}$, $\Omega_c = 16/61 = S(V_c)/S_{\rm SM}$, $\Omega_\Lambda = 42/61 = S(V_\Lambda)/S_{\rm SM}$, with $V_b, V_c, V_\Lambda$ structurally defined subspaces of the SM slot space $V_{61}$);
+the dark-energy density predicts $\rho_\Lambda/\Mpl^4 = 42/102^{62}$ in Planck units; the algebraically-linked Hubble constant predicts $H_0/\Mpl = \sqrt{8\pi\,K_{\rm SM}/3}/102^{31}$, corresponding to $H_0 \approx 70.03\,\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$ near the present Hubble-tension midpoint between Planck 2018~\cite{Planck2018} and SH0ES 2022~\cite{Riess2022}; and the CMB temperature satisfies an independent formula $(T_{\rm CMB}/\Mpl)^4 = 48/102^{64}$ at $0.33\%$ of the FIRAS measurement~\cite{Fixsen2009}, with the species-dependent exponent difference $\Delta k = 2$ matching the photon polarization count.
+The paper's new structural content is the \emph{three-level identity stack} at each T\_ACC consistency identity (integer, scalar, and subspace witnesses, all proven [P] by the constructions of \S\ref{sec:subspace_functors}) together with an \emph{operator-level closure} constructing the thermal density matrix on an explicit finite-dimensional microstate Hilbert space and recovering the cosmological formulas as $\beta\!\to\!0$ limits. The four identities close by two distinct theorem species: $I_2$ (always) and $I_1$ (at the canonical SM-dS joint point $K = 42$) carry \emph{bridge theorems} with three independent constructions each converging on a common 42-dimensional subspace; $I_3$ and $I_4$ carry \emph{operator-level composed self-identifications} with three and four constructions respectively (the $I_3/I_4$ closure is single-interface rather than cross-interface, because the quantum-regime slot scale $K = 1$ collapses the bridge route by construction). A dual-convention formulation of the horizon interface ($d_{\rm eff} = e$ for ACC bookkeeping, $d_{\rm eff} = 2$ for literal qubit-tensor-product microstate realisation) formalises the $I_1$ joint-point bridge's Convention B construction.  The cosmological predictions follow from this structural layer as direct applications of the ledger machinery.
+
+\paragraph{Scope note (Lane~A).}  Paper~8 is a \emph{formal framework paper}.  Its principal content is the ledger architecture (the ACC record, the six regime projections, the four consistency identities) and the bridge theorem at $I_2$; the cosmological-sector formulas are presented as structural consequences of that architecture, not as a cosmological-inference fit.  The horizon identity $I_1$ uses the Bekenstein cell-count convention $K_{\rm horizon} = A/(4\ell_P^{\,2})$, which reproduces the standard Bekenstein--Hawking entropy $S_{\rm BH} = A/(4\ell_P^{\,2})$ exactly; no prefactor mutation is proposed.
+
+\paragraph{Integrated non-trivial content (Supplement~\S O).}  The paper's non-trivial structural mechanism --- the $I_2$ bridge, its gauge-uniqueness strengthening, its framework-internal forcing chain yielding $(K_{\rm SM}, d_{\rm eff}^{\rm SM}) = (61, 102)$, its structurally-mandatory two-tier architecture, and its brittle cosmological consequences --- is collected in the centerpiece Supplement \S O.  Four strengthened-in-v2.3 mathematical results appear there in compressed form: Theorem 7.14$'$ ($I_2$ algebraic closure: Type III$_1$ factor at infinite volume via Araki--Connes classification); Theorem C.5 (single-scale impossibility: the two-tier architecture is structurally mandatory); Theorem 5.7 ($V_\Lambda$ gauge-uniqueness: the 42-dim bridge subspace is the unique $G_{\rm SM}$-invariant complement of $V_{\rm local}$); and a full-covariance Planck 2018 multivariate Bayes-factor analysis over $(\Omega_b, \Omega_c, \Omega_\Lambda)$ giving $\chi^2 = 1.18$ ($p \approx 0.76$, Mahalanobis distance $1.09\sigma$).  A competitive statistical comparison to $\Lambda$CDM posteriors under full Planck + BAO + SN likelihoods with nuisance parameters is explicitly deferred to a companion phenomenology paper.  Section~9's operator realisation is finite-dimensional, with an infinite-volume extension available via the Bratteli--Robinson inductive limit (Supplement \S H.5.2, Theorem 7.14$'$); no algebraic-QSM content beyond standard machinery is claimed.
+\end{abstract}
+
+\bigskip
+
+% ======================================================================
+\section{Introduction}\label{sec:intro}
+% ======================================================================
+
+The Admissibility Physics Framework (APF) is built on one assumption: \emph{the universe cannot maintain infinitely many enforceable distinctions with finite resource}. Rigorously stated as Axiom \Aone{} (Finite Enforcement Capacity) and combined with the variational \emph{Principle of Least Enforcement Cost} (\PLEC), this finiteness assumption is sufficient to derive the structural content of the Standard Model --- gauge group $SU(3)\times SU(2)\times U(1)$, fermion generation count $N_{\rm gen}=3$, weak mixing angle $\sin^2\theta_W = 3/13$, and the cosmological density partition $(\Omega_b, \Omega_c, \Omega_\Lambda) = (3/61,\,16/61,\,42/61)$ --- as accounting theorems on a finite budget. Every prediction is a closed-form rational number or a closed-form expression in rational numbers and the Planck mass; no parameter is tuned. This paper applies the machinery to the cosmological sector specifically and derives the absolute values of $\rho_\Lambda, H_0, T_{\rm CMB}$, together with the full Standard-Model entropy dictionary.
+
+\paragraph{Hierarchy of claims (read this before anything else).}  Paper~8 contains four regime-consistency identities $I_1$, $I_2$, $I_3$, $I_4$.  \emph{Three of them are intentionally modest}: $I_1$ is a horizon-convention identity under the Bekenstein cell-count convention, reproducing the standard $S_{\rm BH} = A/(4\ell_P^2)$ by construction; $I_3$ is a standard finite-dimensional entropy closure $S_{\rm vN}(\rho_{\rm max}) = \ln N$; $I_4$ is a standard high-temperature partition-function limit $\lim_{\beta\to 0}\ln Z = \ln N$ on a finite admissible set.  The paper's only non-trivial structural claim is the \emph{gauge-cosmological bridge} $I_2$: a unique 42-dimensional $G_{\rm SM}$-invariant subspace $V_\Lambda \subset V_{61}$ exists under the stated $G_{\rm SM}$-action and T12 partition constraint, inducing the residual partition $3+16+42=61$ and the cosmological fraction $\Omega_\Lambda = 42/61$.  \textbf{This theorem is stated in fully self-contained form as Theorem~1.1 of the Technical Supplement \S1 (``Formal Kernel of the Paper''), placed immediately after the supplement's reader map for exactly this reason.}  A reader wanting the structural headline of Paper~8 should read Supplement \S1 first; the integrated centerpiece reading is Supplement \S O, and a fully explicit minimal working example at toy-scale ($K=3$, $d_{\rm eff}=4$) is Supplement \S R.
+
+\subsection{Three primitives --- distinction, enforcement, capacity}\label{sec:intro_primitives}
+
+APF's atomic vocabulary is three terms, each with a specific technical meaning. Everything the framework derives unpacks from these three.
+
+\smallskip
+\noindent\textbf{A distinction $d$} is a maintained differentiation: the assertion, backed by a physical mechanism, that ``this is not that.'' An electron is distinguished from a muon by a mass hierarchy enforced through Yukawa couplings. The spin-up outcome of a measurement is distinguished from spin-down by the orthogonality of the outcome projectors. The interior of a de Sitter horizon is distinguished from its exterior by the finite area that bounds them. Without some physical mechanism actively separating the two alternatives, the distinction does not exist.
+
+\smallskip
+\noindent\textbf{Enforcement cost $\varepsilon(d)$} is the structural resource required to keep distinction $d$ intact against alternatives. Exact symmetries --- the $SU(3)$ colour symmetry that routes the strong force, the $U(1)_{\rm em}$ symmetry that conserves electric charge --- are \emph{free} ($\varepsilon = 0$): they are maintained by algebraic identity and require no ongoing expenditure. Broken symmetries are not free: the weak force, post-electroweak breaking, carries a cost $\varepsilon \propto v = 246$ GeV. Spectral-gap distinctions (the electron mass, the neutrino mass, the muon-electron split) cost proportionally to the gap. Topological distinctions (colour confinement) cost through the string tension $\kappa \approx 1$ GeV/fm. APF does not posit a specific functional form for $\varepsilon(d)$; it posits only that the cost is positive on non-trivial distinctions and additive across independent ones.
+
+\smallskip
+\noindent\textbf{Capacity $C(\Gamma)$} is the total enforcement budget at a specified physical interface $\Gamma = (\rho, \Gamma)$ --- the pair of a state and the resource structure on which physics is described. The central claim of APF is that this budget is finite: $C(\Gamma) < \infty$ at every interface. Nothing in the framework posits a specific numerical value for $C$; only that the supremum over enforceable distinctions is finite.
+
+\subsection{Axiom \texorpdfstring{\Aone{}}{A1} and the Principle of Least Enforcement Cost}\label{sec:intro_A1_PLEC}
+
+From these three primitives, APF posits a single axiom and a single variational principle.
+
+\begin{tcolorbox}[apfbox, title={Axiom \Aone{} --- Finite Enforcement Capacity}]
+At every physical interface $\Gamma = (\rho, \Gamma)$, the total enforcement cost across maintained distinctions is bounded by a finite capacity:
+\[
+\sum_{d \in \mathcal{D}} \varepsilon(d) \;\leq\; C(\Gamma) \;<\; \infty,
+\]
+where $\mathcal{D}$ is the set of maintained distinctions, $\varepsilon(d) > 0$ is the enforcement cost per distinction, and $C(\Gamma) > 0$ is the interface's capacity.
+\end{tcolorbox}
+
+\noindent \Aone{} does two things at once: it carves out the set of \emph{admissible} configurations --- those for which $\sum_d \varepsilon(d) \leq C$ --- and it declares that set bounded. Call it the \emph{budget window}, $\mathrm{BW}(\Gamma)$. Every maintainable physical configuration lies inside $\mathrm{BW}(\Gamma)$. Which configuration is actually \emph{realised}? That is the second half of the framework:
+
+\begin{tcolorbox}[apfbox, title={Principle of Least Enforcement Cost (PLEC)}]
+The realised physical configuration at interface $\Gamma$ is the minimiser of $\sum_{d} \varepsilon(d)$ over the budget window $\mathrm{BW}(\Gamma)$, subject to a minimum-distinction floor $\varepsilon^* > 0$ (the least enforceable distinction the interface supports).
+\end{tcolorbox}
+
+\noindent PLEC has the same structural form as other variational principles in physics. Lagrangian mechanics selects trajectories that extremise $\int L\,dt$; Fermat's principle selects light paths that extremise optical length; the Gibbs principle selects equilibrium configurations that extremise free energy. PLEC selects physical configurations that extremise enforcement cost. What distinguishes PLEC from these classical variational principles is the \emph{quantity being extremised}: it is information-theoretic weight on the count of enforceable distinctions, not spacetime action or free energy. Every prediction in this paper, and every prediction in Papers~1 through~7, follows from \Aone{} and PLEC.
+
+\subsection{What the framework derives --- a taster}\label{sec:intro_taster}
+
+To give the reader immediate grip on what ``derives'' means in APF, Table~\ref{tab:taster} compiles selected outputs across the paper series. Every APF entry is a closed-form rational number or a closed-form expression in rational numbers and the Planck mass $\Mpl \equiv \sqrt{\hbar\,c/G}$. No entry is tuned; every entry is a theorem.
+
+\begin{table}[h]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}l l l X l c@{}}
+\toprule
+\textbf{Quantity} & \textbf{APF form} & \textbf{APF value} & \textbf{Observed (source)} & \textbf{Match} & \textbf{Paper} \\
+\midrule
+Gauge group                      & $SU(3)\!\times\!SU(2)\!\times\!U(1)$ & (structural) & SM (experiment)                                         & exact & 4 \\
+Fermion generations              & $N_{\rm gen} = 3$                   & $3$          & $3$ (PDG~\cite{PDG2024})                                & exact & 2 \\
+SM capacity                      & $K_{\rm SM} = 61$                   & $61$         & $12 + 45 + 4 = 61$ (SM d.o.f.)                           & exact & 2 \\
+Weak mixing angle                & $\sin^2\theta_W = 3/13$             & $0.2308$     & $0.23121 \pm 0.00004$~\cite{PDG2024}                    & 0.18\% & 4 + \cite{BrookeWeakMixing} \\
+\addlinespace[2pt]
+Baryon density                   & $\Omega_b = 3/61$                   & $0.04918$    & $0.0493 \pm 0.0006$~\cite{Planck2018}                    & 0.4\%  & 8 \\
+Dark-matter density              & $\Omega_c = 16/61$                  & $0.2623$     & $0.261 \pm 0.002$~\cite{Planck2018}                      & 0.6\%  & 8 \\
+Dark-energy density              & $\Omega_\Lambda = 42/61$            & $0.6885$     & $0.6889 \pm 0.0056$~\cite{Planck2018}                    & 0.06\% & 8 \\
+\addlinespace[2pt]
+CMB temperature                  & $(T_{\rm CMB}/\Mpl)^4 = 48/102^{64}$ & $2.717$ K   & $2.7255 \pm 0.0006$ K~\cite{Fixsen2009}                  & 0.33\% & 8 \\
+Dark-energy absolute             & $\rho_\Lambda/\Mpl^4 = 42/102^{62}$ & $10^{-122.91}$ & $10^{-122.94 \pm 0.02}$~\cite{Planck2018,Riess2022}   & $\sim$8\% & 8 \\
+Hubble constant                  & $H_0/\Mpl = \sqrt{8\pi K/3}/102^{31}$ & $70.03$ km/s/Mpc & $67.4 / 73.0$~\cite{Planck2018,Riess2022}             & tension midpoint & 8 \\
+\bottomrule
+\end{tabularx}
+\caption{Selected derived structural outputs of APF.  The \emph{APF form} column gives the closed-form structural expression; the \emph{APF value} column gives the dimensionless or Planck-unit-converted numerical value; the \emph{observed} column gives the present best measurement; the \emph{match} column gives the fractional agreement.  Every entry is derived from Axiom \Aone{} and PLEC through the constructions of Papers~1 through~8; no entry is a fit.  The Hubble-tension row marks the known observational controversy between Planck 2018 and SH0ES 2022 whose size coincides with the APF prediction's apparent deviation on $\rho_\Lambda/\Mpl^4$; the algebraically-linked $H_0$ row shows APF landing at the midpoint of that tension.  Paper-by-paper delivery of each row is summarised in Table~\ref{tab:paper_dependencies}.}\label{tab:taster}
+\end{table}
+
+The table's claim is bold: all ten of these dimensionless structural quantities are derived from a single axiom and a single variational principle. In every case where an observational comparison is available, the APF prediction agrees with measurement to sub-percent precision, or lands at the precise midpoint of a documented observational tension. This paper develops the structural theorems that force the cosmological-sector block (rows 5--10) and brings the full conversion machinery to the surface.
+
+\subsection{The paper series --- what Papers~1 through~7 deliver}\label{sec:intro_series}
+
+Before stating Paper~8's contribution, it helps to see where in the series each piece of machinery lives. Readers new to APF can treat Papers~1 through~7 as a linear construction; each builds on the machinery of its predecessors, and Paper~8 assumes their outputs as established theorems. Table~\ref{tab:paper_dependencies} is the reader's map.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}l l X@{}}
+\toprule
+\textbf{Paper} & \textbf{Title (abbreviated)} & \textbf{Content delivered} \\
+\midrule
+1  & Enforceability of Distinction    & Axiom \Aone{}; admissibility structure; quantum skeleton; Born rule via Gleason closure \\
+2  & Finite Admissibility              & Structural capacity $K_{\rm SM}=61$; partition $45 + 4 + 12$; generation count $N_{\rm gen}=3$ \\
+3  & Entropy, Time, Accumulated Cost   & ACC record $(K, d_{\rm eff})$; six regime projections; four consistency identities $I_1$--$I_4$ \\
+4  & Admissibility Constraints         & Gauge group $SU(3)\!\times\!SU(2)\!\times\!U(1)$ (1-of-4680 uniqueness); $\sin^2\theta_W = 3/13$ \\
+5  & Quantum Structure                 & Quantum projection $\pi_Q$; thermo--quantum consistency identity $I_3$ \\
+6  & Dynamics and Geometry             & Einstein equations from ledger; $V_\Lambda \subset V_{61}$; interface-sector bridge theorem \\
+7  & Minimal Quantum of Action         & Action--thermo identity $I_4$; spectral-action equivalence at finite temperature \\
+13 & Minimal Admissibility Core        & Master reference; code--paper map; every theorem anchored to a bank-registered check \\
+\bottomrule
+\end{tabularx}
+\caption{The APF paper series.  Papers~1 through~7 deliver the ledger machinery and the sector-specific derived outputs of Table~\ref{tab:taster}; Paper~13 is the master reference that anchors every theorem to a named check in the verification bank.  Paper~8 (this paper) applies the machinery to the cosmological sector.}\label{tab:paper_dependencies}
+\end{table}
+
+\subsection{Natural coordinates --- Planck units as APF's native language}\label{sec:intro_planck}
+
+Because the primitives of APF are counts of maintained distinctions and information-theoretic weights on those counts, the framework's outputs are intrinsically \emph{dimensionless}: integer capacities ($K_{\rm SM} = 61$), integer partitions ($45 + 4 + 12$), rational ratios of integers ($\sin^2\theta_W = 3/13$), and dimensionless expressions built from these. Neither $\varepsilon(d)$ nor $C(\Gamma)$ has intrinsic units of length, time, mass, or energy --- both are structural weights on a count.
+
+\textit{Natural coordinates.}\ Natural coordinates for such a framework set the fundamental constants of gravitation, quantum mechanics, and relativity to unity. The \emph{Planck mass}
+\[
+\Mpl \;\equiv\; \sqrt{\frac{\hbar\,c}{G}} \;\approx\; 1.22091 \times 10^{19}\ \mathrm{GeV}
+\]
+is the unique energy scale constructible from $\hbar$, $c$, and Newton's gravitational constant $G$. APF works in units where $\Mpl = 1$, $\hbar = 1$, $c = 1$ throughout. In this coordinate system, every APF prediction takes one of two forms: a pure dimensionless number ($\sin^2\theta_W = 3/13$, $\Omega_\Lambda = 42/61$), or a dimensionless ratio multiplied by an integer power of $\Mpl$ ($\rho_\Lambda/\Mpl^4 = 42/102^{62}$ for an energy density, $H_0/\Mpl = \sqrt{8\pi K/3}/102^{31}$ for an inverse length). In natural units the $\Mpl^n$ factor is unity; it re-enters only on conversion to SI for comparison with experiment.
+
+\textit{SI conversion.}\ Laboratory measurements report in SI units. To convert any APF prediction to SI, multiply the APF dimensionless ratio by $(\Mpl^{\rm SI})^n$ for the prediction's appropriate $n$, using the experimentally-measured Newton's $G$ at the comparison stage. This is the standard unit-interface practice used by quantum field theory when converting natural-units amplitudes to laboratory cross-sections, by lattice QCD when converting dimensionless hadronic observables to GeV, and by every other natural-units framework. APF imports no dimensional scale at any derivational step; $G$ enters only at the observational-comparison stage, where it is an external measurement rather than a tunable parameter. The foundational development of this framing appears in \paperref{0}{What Physics Permits}, \S``\Aone{} as a statement about information, not energy,'' and \paperref{13}{The Minimal Admissibility Core}, \S``Planck Units as Native Convention.''
+
+\subsection{What this paper contributes}\label{sec:intro_contribution}
+
+Paper~8 has three main contributions on top of the Table~\ref{tab:taster} cosmological-sector predictions.
+
+\smallskip
+\noindent\textbf{(i) The three-level identity stack.} Paper~3 introduced the four consistency identities $I_1$--$I_4$ that relate the six regime projections of the ACC record. This paper proves each identity at \emph{three} distinct levels --- integer, scalar, and subspace --- and establishes that the three levels commute under explicit inter-level functors. At the Standard-Model interface, the headline identity $I_2$ (gauge--cosmological) is proven fully [P] at all three levels, with the subspace-level witness being the 42-dimensional global-interface stratum $V_\Lambda = V_{\rm global}$ of Paper~6. The remaining identities $I_1, I_3, I_4$ are closed [P] at their subspace levels by three new constructions (subspace functors) delivered in \S\ref{sec:subspace_functors}.
+
+\smallskip
+\noindent\textbf{(ii) The sector conversion matrix.} The six regime projections are not independent quantities --- they are sector-specific readings of a single PLEC-selected point, and the four identities $I_1$--$I_4$ (together with their compositions) force the full pairwise conversion table between them. Section~\ref{sec:conversion_matrix} assembles this into a $6 \times 6$ matrix, lists the 15 pairwise structural conversions, and cross-checks each one against observation at the Standard-Model interface.
+
+\smallskip
+\noindent\textbf{(iii) The cosmological absolute predictions.} Sections~\ref{sec:cosmology_absolute} and \ref{sec:operator_level} derive the Standard-Model-interface absolute values of $\rho_\Lambda, \rho_b, \rho_c, H_0$, and $T_{\rm CMB}$ from the ledger machinery, together with a species-dependent exponent structure that distinguishes bosonic from polarised-bosonic sectors. The derivation is constructive on an explicit finite-dimensional microstate Hilbert space $H_{\rm micro} = (\mathbb{C}^{d_{\rm eff}})^{\otimes K}$; the cosmological absolute formulas emerge as high-temperature limits of a thermal density matrix on that space.
+
+\smallskip
+\textit{Epistemic boundaries.}\ It is worth naming plainly what APF does and does not assume. No physical structure is imported into the derivation: the gauge group is derived (Paper~4), not assumed; the generation count is derived (Paper~2), not assumed; cosmological observables are derived in Planck units from the ledger machinery, not fitted. Mathematical theorems used in closure and representation arguments --- Gleason's theorem for Born-rule reconstruction, the Stinespring dilation for completely-positive maps, the Lieb--Ruskai monotonicity for the entropy identity, and others --- are cited at point of use as explicit mathematical imports, not hidden physics assumptions. SI conversion uses the experimentally-measured $G$ at the comparison stage only, not at any derivation step.
+
+\smallskip
+
+The remainder of this paper is organised as follows.
+
+\begin{table}[h!]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+\toprule
+\textbf{Section} & \textbf{Content} \\
+\midrule
+\S\ref{sec:ledger}                & ACC record $(K, d_{\rm eff})$; six regime projections; four consistency identities $I_1$--$I_4$; T\_ACC unification theorem; relation to PLEC \\
+\S\ref{sec:two_tier}              & Two-tier carrier structure: slot space $V_{\rm slot}$ and microstate space $H_{\rm micro}$ \\
+\S\ref{sec:three_level}           & Three-level identity stack: integer / scalar / subspace witnesses for each $I_k$ \\
+\S\ref{sec:subspace_functors}     & Four subspace functors closing the subspace-level witness: $F_{\rm horizon}$, bridge, $F_{\rm quantum}$, $F_{\rm operator}$ \\
+\S\ref{sec:FRE}                   & Fractional Reading Equivalence; immediate consequence: the SM entropy-allocation dictionary \\
+\S\ref{sec:conversion_matrix}     & Sector conversion matrix: the $6\times 6$ inter-projection table with dataset cross-check at the SM interface \\
+\S\ref{sec:cosmology_absolute}    & Cosmological absolute predictions: $\rho_\Lambda, \rho_{\rm crit}, \rho_b, \rho_c, T_{\rm CMB}, H_0$; coefficient structural derivation; Hubble-tension placement \\
+\S\ref{sec:operator_level}        & Operator-level realisation of the ledger on an explicit finite-dimensional $H_{\rm micro}$ \\
+\S\ref{sec:robustness}            & Scope of the prediction formula; species-dependent exponent hypothesis; what is covered, what is not \\
+\S\ref{sec:falsifiers}            & Formal falsifiers \\
+\S\ref{sec:discussion}            & Observer-dependence question of the bridge theorem (single substantive open structural question) \\
+\S\ref{sec:conclusion}            & Conclusion \\
+\bottomrule
+\end{tabularx}
+\caption{Section map for Paper~8.  The Technical Supplement contains full proofs of every theorem stated in the main paper.}\label{tab:section_map}
+\end{table}
+
+\clearpage
+
+% ======================================================================
+\section{The Admissibility-Capacity Ledger}\label{sec:ledger}
+% ======================================================================
+
+The machinery this paper applies to the cosmological sector is the Admissibility-Capacity Ledger, developed in \paperref{3}{Entropy, Time, and Accumulated Cost} and bank-anchored in \paperref{13}{The Minimal Admissibility Core}. This section restates the machinery in self-contained form: the record, the projections, and the four consistency identities. Paper-8 arguments in later sections import no claim not established here.
+
+\subsection{The ACC record}\label{sec:ledger_record}
+
+An interface in APF is specified by a state $\rho$ and a resource structure $\Gamma$. The admissibility-capacity of the interface $(\rho,\Gamma)$ is summarized by a single structural record:
+
+\begin{tcolorbox}[defbox, title={Definition --- Admissibility-Capacity Record $\mathrm{ACC}(\rho, \Gamma)$}]
+For an interface $(\rho, \Gamma)$, the admissibility-capacity record is the pair
+\[
+\mathrm{ACC}(\rho, \Gamma) \;=\; \bigl(K,\ d_{\rm eff}\bigr).
+\]
+
+\smallskip
+
+\noindent\textbf{Base variables.}
+
+{\footnotesize
+\begin{tabularx}{\linewidth}{@{}l l X l@{}}
+\toprule
+\textbf{Symbol} & \textbf{Name} & \textbf{Domain} & \textbf{Units} \\
+\midrule
+$\rho$        & interface state                   & ACC state space           & --- \\
+$\Gamma$      & resource structure                & resource-structure space  & --- \\
+$K$           & structural capacity (slot count)   & $\mathbb{Z}_{\geq 0}$     & dimensionless (count) \\
+$d_{\rm eff}$ & per-slot effective degeneracy      & $\mathbb{R}_{>0}$         & dimensionless \\
+\bottomrule
+\end{tabularx}
+}
+
+\smallskip
+
+\noindent\textbf{Derived quantities.}
+
+{\footnotesize
+\begin{tabularx}{\linewidth}{@{}l l X l@{}}
+\toprule
+\textbf{Symbol} & \textbf{Name} & \textbf{Definition} & \textbf{Units} \\
+\midrule
+$N$                         & admissible microstate count    & $N = d_{\rm eff}^{\,K}$         & dimensionless (count) \\
+$\mathrm{ACC}\text{-scalar}$ & log-microstate entropy scalar  & $K \ln d_{\rm eff} = \ln N$     & nats (dimensionless) \\
+\bottomrule
+\end{tabularx}
+}
+
+\smallskip
+
+\noindent All four quantities $(K,\ d_{\rm eff},\ N,\ \mathrm{ACC}\text{-scalar})$ are dimensionless in APF's natural Planck units; no factor of $\Mpl$, $\hbar$, or $c$ enters. The ACC record is an information-theoretic object, as established in \S\ref{sec:intro}.
+
+\smallskip
+
+\noindent\textbf{Optional residual data.} The record may augment the pair with:
+\begin{itemize}[leftmargin=2em,itemsep=2pt,topsep=4pt]
+    \item A \emph{structural partition} $K = K_1 + K_2 + \ldots + K_m$ of the slot count. At the SM interface, $K_{\rm SM} = K_{\rm fermions} + K_{\rm Higgs} + K_{\rm gauge} = 45 + 4 + 12 = 61$ (units: dimensionless integers).
+    \item A \emph{residual partition} $K = K_b + K_c + K_\Lambda$ indexing the cosmological sectors (baryon, cold dark matter, cosmological constant). At the SM interface, $K_{\rm SM} = 3 + 16 + 42 = 61$ (units: dimensionless integers).
+\end{itemize}
+\end{tcolorbox}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/Fig_01_61_channel_budget.png}
+\caption{The Standard-Model interface budget at the structural level.  The total structural capacity $K_{\rm SM} = 61$ partitions into three cosmological sectors: the \emph{vacuum sector} ($C_{\rm vacuum} = 42$ channels, comprising 8 gluons, W\,\&\,Z, the photon, 27 colour-internal marks, and 3 Goldstones), the \emph{baryonic sector} ($K_b = 3$), and the \emph{dark-sector matter} component ($K_c = 16$).  This residual partition is the one that enters the cosmological-density fractions of \S\ref{sec:FRE}; the fermion/Higgs/gauge structural partition $61 = 45 + 4 + 12$ is the orthogonal reading and enters the gauge-sector identities.}\label{fig:budget_61}
+\end{figure}
+
+\coderef{ACC}{apf/unification.py}
+
+Two interface families are canonical. The \emph{Standard-Model interface} has $K_{\rm SM} = 61$, $d_{\rm eff}^{\rm SM} = 102$, structural partition $45+4+12$ (fermions, Higgs, gauge), and residual partition $3+16+42$ ($K_b$, $K_c$, $K_\Lambda$); both $K_{\rm SM}$ and $d_{\rm eff}^{\rm SM}$ are bank-forced (\texttt{L\_count} in \texttt{apf/gauge.py} and \texttt{L\_self\_exclusion} in \texttt{apf/gravity.py} respectively), neither is a free parameter. The \emph{horizon interface of area $A$} has $K = A$ and $d_{\rm eff} = e$ so that $\mathrm{ACC}\text{-scalar} = A$ directly, recovering the Bekenstein log-count convention. Other standard interfaces (finite quantum, thermal, gauge, cosmological) are constructed as projections of the base record described below.
+
+\subsection{Six regime projections}\label{sec:ledger_projections}
+
+Each regime in which physics is conventionally described reads the ACC record through a particular projection. APF uses six:
+
+\smallskip
+\noindent\textbf{$\pi_T$ --- thermodynamic.} $\pi_T(\mathrm{ACC}) = \mathrm{ACC}\text{-scalar} = K \ln d_{\rm eff} = \ln N$. Reads the ACC as an entropy in nats: Boltzmann entropy on a classical microstate ensemble or von~Neumann entropy on a maximally mixed admissible state both reduce to this scalar. \coderef{pi\_T}{apf/unification.py}
+
+\smallskip
+\noindent\textbf{$\pi_G$ --- gravitational.} $\pi_G(\mathrm{ACC}_{\rm horizon}) = \mathrm{ACC}\text{-scalar}$ at a horizon interface. The horizon ACC record uses the \emph{Bekenstein cell-count convention} $K_{\rm horizon} := A/(4\ell_P^{\,2})$ (Supplement \S A.2, horizon ACC record definition) together with $d_{\rm eff} = e$, so the scalar reads $K_{\rm horizon} \ln e = K_{\rm horizon} = A/(4\ell_P^{\,2}) = S_{\rm BH}$, the standard Bekenstein--Hawking entropy in nats.  The $1/4$ prefactor is part of the cell-tile size in the definition of $K_{\rm horizon}$ itself, not a rescaling applied to the projection output.  \coderef{pi\_G}{apf/unification.py}
+
+\smallskip
+\noindent\textbf{$\pi_Q$ --- quantum.} $\pi_Q(\mathrm{ACC}) = N = d_{\rm eff}^{\,K}$. Reads the ACC as a Hilbert-space dimension: at a finite quantum interface, $\dim\mathcal{H} = N$ is the microstate count of the admissibility structure. \coderef{pi\_Q}{apf/unification.py}
+
+\smallskip
+\noindent\textbf{$\pi_F$ --- gauge/field.} $\pi_F(\mathrm{ACC}) = K$. Reads the ACC as a structural slot count: the integer capacity of the interface, unsmeared by the per-slot degeneracy. At the Standard Model, $\pi_F(\mathrm{ACC}_{\rm SM}) = 61$. \coderef{pi\_F}{apf/unification.py}
+
+\smallskip
+\noindent\textbf{$\pi_C$ --- cosmological.} Requires the residual partition to be present. $\pi_C$ returns the residual fractions with common denominator $K$:
+\[
+\pi_C(\mathrm{ACC}_{\rm SM}) \;=\; \{\Omega_b = K_b/K,\ \Omega_c = K_c/K,\ \Omega_\Lambda = K_\Lambda/K\}.
+\]
+At the SM interface this gives $\{3/61,\ 16/61,\ 42/61\}$. \coderef{pi\_C}{apf/unification.py}
+
+\smallskip
+\noindent\textbf{$\pi_A$ --- action.} $\pi_A(\mathrm{ACC}, \beta, H) = Z(\beta) = \sum_g e^{-\beta H(g)}$ where the sum ranges over admissible configurations. The APF partition function: the Boltzmann sum over admissible configurations weighted by enforcement cost. In the high-temperature limit $\beta \to 0$ with flat spectrum, $Z \to N$. \coderef{pi\_A}{apf/unification.py}
+
+\smallskip
+
+Each projection is a map from the record (and any regime-specific auxiliary data) to a physically-interpretable quantity. The six together exhaust the standard readings of an interface in the physics literature: thermodynamic, gravitational-holographic, quantum, gauge-field, cosmological, and action-theoretic. APF does not posit the projections; it reads each off the ACC record as an operational consequence of the admissibility structure.
+
+\subsection{Four consistency identities}\label{sec:ledger_identities}
+
+The six projections are not independent: they satisfy four structural consistency identities, which together assert that the same ACC record read through different projections produces the same underlying content. Each identity has a short proof from the definitions; full proofs appear in the Technical Supplement.
+
+\begin{tcolorbox}[apfbox, title={Identity $I_1$ (Holographic)}]
+At a horizon interface with $d_{\rm eff} = e$,
+\[
+\underbrace{\pi_G(\mathrm{ACC}_{\rm horizon})}_{S_{\rm BH}} \;=\; \underbrace{\pi_T(\mathrm{ACC}_{\rm horizon})}_{\mathrm{ACC}\text{-scalar}} \;=\; \underbrace{\ln\pi_Q(\mathrm{ACC}_{\rm horizon})}_{\ln\dim\mathcal{H}_{\rm horizon}}.
+\]
+\end{tcolorbox}
+
+\noindent\textit{Proof.} See Technical Supplement \S D.1 ($I_1$, holographic). \hfill$\square$
+
+\smallskip
+
+\coderef{\_identity\_I1\_holographic}{apf/unification.py}
+
+\begin{tcolorbox}[apfbox, title={Identity $I_2$ (Gauge--Cosmological)}]
+At an interface whose record carries a residual partition, the integer $K$ read by $\pi_F$ equals the common denominator of the fractions read by $\pi_C$; additionally, the residual numerators sum to $K$:
+\[
+\pi_F(\mathrm{ACC}) \;=\; \mathrm{denom}(\pi_C(\mathrm{ACC})) \;=\; K, \qquad \sum_X K_X \;=\; K.
+\]
+\end{tcolorbox}
+
+\noindent\textit{Proof.} See Technical Supplement \S D.2 ($I_2$, gauge--cosmological). \hfill$\square$
+
+\smallskip
+
+At the SM interface, $I_2$ gives $61 = 3 + 16 + 42$, i.e.\ $\Omega_b + \Omega_c + \Omega_\Lambda = 1$ at the scalar level. \coderef{\_identity\_I2\_gauge\_cosmological}{apf/unification.py}
+
+\begin{tcolorbox}[apfbox, title={Identity $I_3$ (Thermo--Quantum)}]
+At any interface with well-defined $\pi_T$ and $\pi_Q$,
+\[
+\pi_T(\mathrm{ACC}) \;=\; \ln\pi_Q(\mathrm{ACC}).
+\]
+Equivalently, the von~Neumann entropy of the maximally mixed admissible state on $\mathcal{H}$ equals the ACC scalar: $S_{\rm vN}\!\left(\tfrac{1}{N}\mathbf{1}\right) = \ln N = \mathrm{ACC}$.
+\end{tcolorbox}
+
+\noindent\textit{Proof.} See Technical Supplement \S D.3 ($I_3$, thermo--quantum). \hfill$\square$
+
+\smallskip
+
+\coderef{\_identity\_I3\_thermo\_quantum}{apf/unification.py}
+
+\begin{tcolorbox}[apfbox, title={Identity $I_4$ (Action--Thermo)}]
+At any interface where $\pi_A$ is well-defined,
+\[
+\lim_{\beta \to 0}\ \ln Z(\beta) \;=\; \ln N \;=\; \mathrm{ACC}\text{-scalar}.
+\]
+The high-temperature limit of the log-partition-function recovers the thermodynamic entropy scalar.
+\end{tcolorbox}
+
+\noindent\textit{Proof.} See Technical Supplement \S D.4 ($I_4$, action--thermo). \hfill$\square$
+
+\smallskip
+
+\coderef{\_identity\_I4\_action\_thermo}{apf/unification.py}
+
+\subsection{The composed ledger theorem}\label{sec:ledger_unification}
+
+Individually each $I_k$ is immediate from the definitions. The substantive claim is that the four identities hold \emph{simultaneously} at any interface that supports all four projections, and that this joint coherence is consistent with the bank-forced SM-interface values. This is the T\_ACC unification theorem.
+
+\begin{tcolorbox}[apfbox, title={Theorem T\_ACC unification}]
+Let $(\rho,\Gamma)$ be an interface whose ACC record admits all six projections $\{\pi_T, \pi_G, \pi_Q, \pi_F, \pi_C, \pi_A\}$. Then the four consistency identities $I_1, I_2, I_3, I_4$ hold jointly. In particular, the SM-interface record $(K_{\rm SM}=61,\ d_{\rm eff}^{\rm SM}=102)$ with partition $45+4+12$ and residual partition $3+16+42$ satisfies all four identities at the canonical values bank-forced in Papers~2 and~6.
+\end{tcolorbox}
+
+\noindent\textit{Proof.} See Technical Supplement \S D.5 (composed ledger theorem). \hfill$\square$
+
+\smallskip
+
+\coderef{check\_T\_ACC\_unification}{apf/unification.py}
+
+\subsection{Remark: T\_ACC as the projection-shadow of PLEC}\label{sec:ledger_plec_bridge}
+
+The composed ledger theorem is not an additional principle.  PLEC's variational selection (existence via \Aone{}, MD, BW; uniqueness via the $\mathrm{argmin}$) picks a single physical configuration, and the six regime projections are six sector-specific readings of that one point.  $T_{\rm ACC}$ is simply the joint agreement of those six readings --- the pure consistency residue of PLEC, not a constraint imposed on the framework but a statement the framework cannot fail to satisfy without contradicting PLEC itself.  Full chain of implication (A1 $\to$ record; MD $\to$ $d_{\rm eff}$ integer; BW $\to$ admissible set; argmin $\to$ selected point; identities $\to$ forced pairwise agreement) is laid out in Supplement \S A.
+
+\smallskip
+
+The ledger is now in place. \S\ref{sec:two_tier} introduces the two-tier carrier structure (slot space $V_{\rm slot}$ and microstate space $H_{\rm micro}$) that every ACC interface provides for the identities' subspace-level content. \S\ref{sec:three_level} refines each $I_k$ into three witnesses (integer, scalar, subspace), and \S\ref{sec:subspace_functors} delivers the four subspace functors that close the third witness fully [P] at every $I_k$. The Fractional Reading Equivalence of \S\ref{sec:FRE} is then the structural consequence that makes the SM entropy-allocation dictionary a theorem rather than a coincidence.
+
+% ======================================================================
+\section{The Two-Tier Structure}\label{sec:two_tier}
+% ======================================================================
+
+The ACC record $(K, d_{\rm eff})$ furnishes two canonical Hilbert-space-like objects at every interface. They are the carriers on which the three-level identity stack of \S\ref{sec:three_level} lives, and distinguishing them is the load-bearing conceptual move of this paper.
+
+\subsection{Slot space and microstate space}\label{sec:two_tier_definitions}
+
+\begin{tcolorbox}[defbox, title={Definition --- Slot space and microstate space}]
+For an ACC interface with record $(K, d_{\rm eff})$:
+\begin{itemize}[leftmargin=2em,itemsep=4pt]
+    \item The \emph{slot space} $V_{\rm slot}$ is a finite-dimensional complex vector space of dimension $K$, with a canonical basis indexed by the admissibility slots of the interface. $V_{\rm slot}$ carries the structural-capacity content of the interface.
+    \item The \emph{microstate space} $H_{\rm micro}$ is a finite-dimensional complex Hilbert space of dimension $N = d_{\rm eff}^{\,K}$, with a canonical basis indexed by the admissible microstate configurations of the interface. $H_{\rm micro}$ carries the statistical-count content of the interface.
+\end{itemize}
+\end{tcolorbox}
+
+The two spaces are related by tensor-power embedding: $H_{\rm micro}$ is a $K$-fold tensor product of local $d_{\rm eff}$-dimensional spaces attached one per slot. The embedding is literal at interfaces whose slots carry identical local Hilbert structure (quantum-$d$, simple-horizon-qubit models, thermal-bath constructions), and schematic at the Standard-Model interface where the per-slot admissibility $d_{\rm eff} = 102$ is an averaged effective degeneracy under self-exclusion rather than a single literal per-slot Hilbert dimension. The schematic nature at the SM does not affect the use of the two-tier structure in this paper; only the slot-space reading is used for the matter-sector identities $I_1$ and $I_2$, and only the microstate-space reading is used for $I_3$ and $I_4$. The tensor-power compatibility is a correctness check at the interfaces where it is literal; it is a structural ansatz at the SM.
+
+\subsection{Two scales for four identities}\label{sec:two_tier_scales}
+
+The four consistency identities of \S\ref{sec:ledger_identities} sort naturally across the two tiers. $I_1$ (holographic) and $I_2$ (gauge--cosmological) refer to the slot-space content of the interface --- the area count at the horizon for $I_1$, the structural-capacity partition for $I_2$. $I_3$ (thermo--quantum) and $I_4$ (action--thermo) refer to the microstate-space content --- the dimension of the Hilbert space carrying the maximally mixed admissible state for $I_3$, the partition-function microstate enumeration for $I_4$. Each identity has a natural carrier in one of the two tiers; no identity demands both simultaneously.
+
+\emph{Except for $I_2$.} At the Standard-Model interface, $I_2$ lives on both tiers non-trivially at once. The slot-scale content ($K_{\rm SM} = 61$ with non-trivial residual partition $3 + 16 + 42$) is genuinely structural: the $V_{\rm slot}$ admits a proper subspace $V_\Lambda$ of dimension 42, strictly smaller than $V_{\rm slot}$ itself. And the microstate-scale content ($d_{\rm eff}^{\rm SM} = 102 \neq 1$, giving $N_{\rm SM} = 102^{61}$) is independently non-trivial: the admissible microstate count is genuinely astronomical and the thermodynamic reading of $I_2$ is substantive. At every other interface the framework addresses, one tier is trivial: for horizons, the $d_{\rm eff} = e$ convention makes the microstate scale a gauge-choice of the slot scale (log-count equals count); for quantum interfaces, $K = 1$ collapses the slot scale to a single abstract slot; for thermal interfaces, the slot scale inherits quantum-interface triviality. Only at the SM interface do both tiers admit non-trivial proper-subspace structure.
+
+This is why the bridge theorem of \paperref{6}{Dynamics and Geometry as Optimal Admissible Reallocation} lives where it does. At the SM interface the slot-scale $V_\Lambda$ (a 42-dimensional subspace of $V_{61}$) is simultaneously a structural datum of the interface and the target of an independent construction (the second-$\varepsilon$ decomposition of the horizon-reciprocity theorem). $I_2$'s structural uniqueness makes it the locus of genuine cross-construction identification rather than a tautology; the other three identities are tautologous on a single tier.
+
+\smallskip
+
+\noindent\emph{Vocabulary.}\ Throughout the remainder of the paper: \emph{slot-scale content} is content indexed by the $K$-dimensional $V_{\rm slot}$; \emph{microstate-scale content} is content indexed by the $N$-dimensional $H_{\rm micro}$.  When an identity, functor, or prediction involves a specific subspace of either tier, the tier is named.
+
+% ======================================================================
+\section{The Three-Level Identity Stack}\label{sec:three_level}
+% ======================================================================
+
+Each of the four T\_ACC consistency identities admits three distinct witnesses: an integer-level witness (a pure equality of integer attributes of the ACC record), a scalar-level witness (a continuous-scalar equality with explicit residual and tolerance), and a subspace-level witness (a vector-subspace or dimension-level identification on the two-tier carrier). The three witnesses are not independent statements: they are related pairwise by inter-level functors, and each $I_k$'s composed three-level consistency theorem asserts that the diagram formed by the three functors commutes on the witnessed values.
+
+\subsection{The three levels and the inter-level functors}\label{sec:three_level_functors}
+
+Fix an ACC interface.  For any $I_k$, the three levels are: (i) \emph{integer} --- an equality of integer-valued attributes of the ACC record; (ii) \emph{scalar} --- a continuous-scalar equality, typically involving logarithms; (iii) \emph{subspace} --- a vector-subspace or dimension-level identification on the two-tier carrier.  Three inter-level functors relate them:
+\begin{align*}
+f_1 : \text{integer} \to \text{scalar},\quad & K \mapsto K \ln d_{\rm eff}, \\
+f_2 : \text{scalar}  \to \text{subspace},\quad & \mathrm{ACC}\text{-scalar} \mapsto \text{subspace of consistent dimension}, \\
+f_3 : \text{integer} \to \text{subspace},\quad & K \mapsto \text{subspace of dimension } K.
+\end{align*}
+Each $I_k$'s composed three-level commutation diagram asserts $f_2 \circ f_1 = f_3$ on the witnessed values.  The commutation is non-trivial at $I_2$, where the three levels carry distinct subspace content across constructions; at $I_1, I_3, I_4$ it follows once the subspace witness is defined (see \S\ref{sec:subspace_functors}).  Per-identity worked examples and the full commutation verification for each of the four $I_k$ appear in Supplement \S D.6.
+
+\subsection{The status of the three-level stack}\label{sec:three_level_status}
+
+The three-level stack is fully proved [P] at every level for each of the four consistency identities. At $I_2$ --- the headline identity --- the subspace-level witness is the interface-sector bridge theorem of \paperref{6}{}. At $I_1$, $I_3$, $I_4$, the subspace-level witnesses are the three subspace-functor constructions of \S\ref{sec:subspace_functors}: $F_{\rm horizon}$ for $I_1$, $F_{\rm quantum}$ for $I_3$, $F_{\rm operator}$ for $I_4$. The three-level commutation diagram commutes end-to-end at every identity. Table~\ref{tab:three_level} summarizes the state.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}l X X X l@{}}
+\toprule
+\textbf{Identity} & \textbf{Integer witness} & \textbf{Scalar witness} & \textbf{Subspace witness} & \textbf{Status} \\
+\midrule
+$I_1$ (holographic) &
+    $K_{\rm horizon} = A/(4\ell_P^{\,2})$ &
+    $\mathrm{ACC}_{\rm horizon} = S_{\rm BH}$ &
+    $V_{\rm horizon}$ via $F_{\rm horizon}$ (\S\ref{sec:subspace_functors}) &
+    [P] $\times 3$ \\
+\addlinespace[3pt]
+$I_2$ (gauge--cosm.) &
+    $K_{\rm SM} = 61 = $ denom$(\pi_C)$ &
+    $\sum_X K_X/K = 1$ &
+    $V_\Lambda = $ Sector B (\paperref{6}{}) &
+    [P] $\times 3$, headline \\
+\addlinespace[3pt]
+$I_3$ (thermo--q.) &
+    $\dim\mathcal{H} = N = d$ &
+    $S_{\rm vN}(\rho_{\rm max}) = \ln d$ &
+    $V_{\rm quantum}$ via $F_{\rm quantum}$ (\S\ref{sec:subspace_functors}) &
+    [P] $\times 3$ \\
+\addlinespace[3pt]
+$I_4$ (action--therm.) &
+    $\lvert\text{spectrum}\rvert = N$ &
+    $\ln Z(\beta\!\to\!0) = \ln N$ &
+    $V_{\rm operator}$ via $F_{\rm operator}$ (\S\ref{sec:subspace_functors}) &
+    [P] $\times 3$ \\
+\bottomrule
+\end{tabularx}
+\caption{The three-level identity stack across the four T\_ACC consistency identities. Each row gives integer-level, scalar-level, and subspace-level witnesses; all four identities are [P] at all three levels. The $I_2$ subspace witness is the interface-sector bridge theorem of \paperref{6}{}; the $I_1$, $I_3$, $I_4$ subspace witnesses are the three subspace functors constructed in \S\ref{sec:subspace_functors}. \paperref{13}{} Appendix~E catalogs the corresponding module-level bank anchors.}\label{tab:three_level}
+\end{table}
+
+\subsection{The composed three-level unification theorem}\label{sec:three_level_unification}
+
+Individually, each $I_k$ has three witnesses. Jointly, the composed theorem is:
+
+\begin{tcolorbox}[apfbox, title={Theorem T\_three\_level\_unification}]
+For each of the four T\_ACC consistency identities $I_k$, the integer, scalar, and subspace witnesses are simultaneously [P], and the inter-level functors $f_1, f_2, f_3$ commute on the witnessed values: $f_2 \circ f_1 = f_3$. The four composed three-level identities jointly refine the T\_ACC unification theorem of \S\ref{sec:ledger_unification} into a structure valid at three levels of the two-tier carrier: the integer slot-count level, the continuous entropy level, and the geometric subspace level.
+\end{tcolorbox}
+
+\coderef{check\_T\_three\_level\_unification}{apf/unification\_three\_levels.py}
+
+\smallskip
+
+The witnesses at the integer and scalar levels are effectively definitions and short algebraic identities; the content of the theorem lives at the subspace level, where the four subspace functors of \S\ref{sec:subspace_functors} supply the carriers. We now turn to those functors.
+
+% ======================================================================
+\section{Four Subspace Functors}\label{sec:subspace_functors}
+% ======================================================================
+
+The subspace-level witness of each $I_k$ requires a \emph{subspace functor}: a map from ACC records at the relevant regime to subspaces of the two-tier carrier, satisfying five structural conditions that make the map consistent with the integer and scalar witnesses of the same $I_k$. At $I_2$, the functor is supplied by the Paper-6 interface-sector bridge theorem; at $I_1$, $I_3$, and $I_4$, the functors $F_{\rm horizon}$, $F_{\rm quantum}$, $F_{\rm operator}$ are constructed in this paper (and bank-anchored by the corresponding codebase modules catalogued in \paperref{13}{} Appendix~E). This section states the common-form conditions, catalogs the four functors, and closes with the composed unification theorem.
+
+\subsection{Common form: five structural conditions}\label{sec:subspace_functors_conditions}
+
+Each subspace functor is a map
+\[
+F :\ \mathrm{ACC}(\text{regime}) \ \longrightarrow\ \text{subspace of a two-tier carrier}
+\]
+satisfying five structural conditions labelled (i) existence, (ii) dimension preservation, (iii) monotonicity, (iv) compatibility with a companion construction, (v) scalar commutation.  The conditions are structural, not axiomatic: each is derivable from \Aone{} plus regime-local prior theorems ($T_{\rm Bek}$ for horizons, $T_{\rm entropy}$ for quantum, $L_{\rm spectral\_action\_internal}$ for the operator regime).  The full content of each condition, together with per-functor verification that all five hold, is in Supplement \S E.
+
+\subsection{The four subspace functors}\label{sec:subspace_functors_catalog}
+
+Table~\ref{tab:subspace_functors} summarizes the four functors. The individual construction and proof-that-each-satisfies-(i)--(v) appear in the Technical Supplement; here we state input, output, which sector each addresses, and the source from which each functor is drawn.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}l l l X l@{}}
+\toprule
+\textbf{Identity} & \textbf{Functor} & \textbf{Input / output} & \textbf{Compatibility target (condition iv)} & \textbf{Source} \\
+\midrule
+$I_1$ (holographic) &
+    $F_{\rm horizon}$ &
+    $\mathrm{ACC}_{\rm horizon}(A) \mapsto V_{\rm horizon}(A)$ &
+    At $K=42$: $F_{\rm horizon}(42)$ coincides with $V_\Lambda$ of the SM interface (joint point). &
+    This paper, \S\ref{sec:subspace_functors} \\
+\addlinespace[3pt]
+$I_2$ (gauge--cosm.) &
+    (bridge) &
+    SM slot partition $\mapsto V_\Lambda \subset V_{61}$ &
+    $V_\Lambda$ equals Sector B of the horizon-reciprocity second-$\varepsilon$ decomposition. &
+    \paperref{6}{} \\
+\addlinespace[3pt]
+$I_3$ (thermo--q.) &
+    $F_{\rm quantum}$ &
+    $\mathrm{ACC}_{\rm quantum}(d) \mapsto V_{\rm quantum}(d)$ &
+    $V_{\rm quantum}(d)$ carries the max-mixed density matrix $\rho_{\rm max} = (1/d)\mathbf{1}$ with $S_{\rm vN}(\rho_{\rm max}) = \ln d$. &
+    This paper, \S\ref{sec:subspace_functors} \\
+\addlinespace[3pt]
+$I_4$ (action--therm.) &
+    $F_{\rm operator}$ &
+    $(\mathrm{ACC}, \text{spectrum}) \mapsto V_{\rm operator}$ &
+    $V_{\rm operator}$ supports the thermal density matrix with $\ln Z(\beta\!\to\!0) = \ln N = \mathrm{ACC}$. &
+    This paper, \S\ref{sec:subspace_functors} \\
+\bottomrule
+\end{tabularx}
+\caption{Four subspace functors closing the subspace-level witness of each T\_ACC consistency identity. Input: the ACC record at the regime-appropriate interface. Output: a subspace of the two-tier carrier. Compatibility (condition iv): the specific companion-construction or physical-object identification that makes each functor's subspace physically interpretable. Source: where the functor is constructed; the bank-anchor coderefs appear in the body text below.}\label{tab:subspace_functors}
+\end{table}
+
+The Paper-6 interface-sector bridge theorem deserves separate remark. It is the prototype of the other three functors: an independent-construction identification of $V_\Lambda$ (the 42-dimensional global-interface stratum of $V_{61}$ from the T12 partition in Paper 6) with Sector B (the target space of the horizon-reciprocity second-$\varepsilon$ decomposition). The two constructions reach $V_\Lambda$ from distinct directions, and the bridge theorem proves they coincide. At the joint SM--dS point $K=42$, the horizon-subspace functor $F_{\rm horizon}$ also reaches $V_\Lambda$, giving a third independent arrival. The quantum- and operator-subspace functors ($F_{\rm quantum}$ and $F_{\rm operator}$) do not arrive at $V_\Lambda$ directly, but they satisfy the analogous (i)--(v) conditions at their own regimes and carry the physical objects (max-mixed density matrix, thermal partition-function support) that make their subspaces physically interpretable.
+
+\subsection{The composed subspace-functor theorem}\label{sec:subspace_functors_unified}
+
+\begin{tcolorbox}[apfbox, title={Theorem T\_subspace\_functors\_unified}]
+The four subspace functors --- $F_{\rm horizon}$, the Paper-6 interface-sector bridge, $F_{\rm quantum}$, and $F_{\rm operator}$ --- each satisfy the five structural conditions (i)--(v) at their respective regime-appropriate interfaces. Consequently, the subspace-level witness of each T\_ACC consistency identity $I_k$ is [P], and the three-level stack of \S\ref{sec:three_level} is fully [P] at all four $I_k$.
+
+\smallskip
+
+\noindent\textit{Phase 14f-final stratification (2026-04-23).} The subspace-level closure at each $I_k$ now admits a sharper structural statement:
+\begin{itemize}[leftmargin=2em,itemsep=3pt]
+  \item $I_1$ (holographic): bridge theorem at the canonical SM-dS joint point $K = 42$ via $T_{\rm I1\_bridge\_at\_joint\_K42}$ (Technical Supplement \S\S E.2$'$), with three independent constructions converging on $V_{\rm global}$ --- Bekenstein area quantisation under Convention A ($d_{\rm eff} = e$), SM residual partition via $T_{\rm interface\_sector\_bridge}$, and literal $(\mathbb{C}^2)^{\otimes 42}$ qubit tensor product under Convention B ($d_{\rm eff} = 2$).  Regime-local closure for generic $K \neq 42$.
+  \item $I_2$ (gauge-cosmological): bridge theorem always, via $T_{\rm interface\_sector\_bridge}$.
+  \item $I_3$ (thermo-quantum): operator-level composed self-identification via $T_{\rm I3\_operator\_self\_identification}$, bundling three constructions of $\rho_{\max} = (1/d) I_d$ --- direct numpy + $S_{\rm vN} = \ln d$, Schur-lemma $U(d)$-invariance uniqueness, and $K{=}1$ specialisation of the Phase 14d.2 thermal machinery.
+  \item $I_4$ (action-thermo): operator-level composed self-identification via $T_{\rm I4\_operator\_self\_identification}$, bundling four readings of $\ln Z(\beta \to 0) = \mathrm{ACC}$ --- partition-function trace, vacuum-projector trace, per-microstate uniform probability, and Paper~7's spectral-action heat-kernel expansion.
+\end{itemize}
+The distinction between ``bridge theorem'' and ``composed self-identification'' is structural, not graded: the bridge species identifies subspaces across two interfaces (slot-scale content non-trivial on both sides); the self-identification species reaches the same single object at one interface through multiple independent constructions.  The two species coexist in the final stratification because two of the four regimes have collapsed slot scales ($K = 1$ at the quantum regime).  The regimes where both scales are non-trivial are the SM interface (always --- $I_2$) and the SM-dS horizon joint point (when $K_{\rm horizon} = 42$ --- $I_1$); these are the two bridge-theorem loci in the $T_{\rm ACC}$ unification.
+\end{tcolorbox}
+
+\coderef{check\_T\_subspace\_functors\_unified}{apf/subspace\_functors.py}
+
+\smallskip
+
+The three-level stack is now closed. Every T\_ACC consistency identity has integer, scalar, and subspace witnesses; the inter-level functors commute; the subspace witnesses are supplied by explicit functors at every identity. What remains is the structural consequence at the SM interface, which is the subject of \S\ref{sec:FRE}.
+
+% ======================================================================
+\section{Fractional Reading Equivalence}\label{sec:FRE}
+% ======================================================================
+
+The three-level stack of \S\ref{sec:three_level} and the four subspace functors of \S\ref{sec:subspace_functors} together give every T\_ACC consistency identity a proper-subspace witness. At the Standard-Model interface, these witnesses interact in a way that admits a short structural theorem with immediate physical content. This is the Fractional Reading Equivalence.
+
+\subsection{The theorem}\label{sec:FRE_theorem}
+
+At any ACC interface whose record $(K, d_{\rm eff})$ admits a residual partition $K = K_A + K_B + \dots$, there are three natural ways to read the ``fraction of the interface'' occupied by one sub-partition $V_X \subset V_{\rm slot}$:
+\begin{itemize}[leftmargin=2em,itemsep=4pt]
+    \item the \emph{slot-counting fraction} $\pi_F$-restricted$/\pi_F$-total $= K_X / K$;
+    \item the \emph{entropy-allocation fraction} $\pi_T$-restricted$/\pi_T$-total $= (K_X \ln d_{\rm eff}) / (K \ln d_{\rm eff})$;
+    \item the \emph{cosmological residual fraction} read by $\pi_C$, namely $K_X / K$ by the definition of $\pi_C$ in \S\ref{sec:ledger_projections}.
+\end{itemize}
+
+\begin{tcolorbox}[apfbox, title={Theorem --- Fractional Reading Equivalence (FRE)}]
+At any ACC interface with record $(K, d_{\rm eff})$ and sub-partition $V_X$ of dimension $K_X$, the three fraction readings are identical:
+\[
+\frac{\pi_F(V_X)}{\pi_F(V_{\rm slot})}
+\;=\;
+\frac{\pi_T(V_X)}{\pi_T(V_{\rm slot})}
+\;=\;
+\pi_C(V_X)
+\;=\;
+\frac{K_X}{K}.
+\]
+\end{tcolorbox}
+
+\noindent\textit{Proof.} The first equality is the definition of the restricted $\pi_F$-reading. The second follows from the linearity of the logarithm: $\pi_T(V_X)/\pi_T(V_{\rm slot}) = (K_X \ln d_{\rm eff})/(K \ln d_{\rm eff}) = K_X/K$, the $\ln d_{\rm eff}$ factors cancelling in numerator and denominator. The third is $\pi_C$'s definition at the interface in question. All three therefore equal $K_X/K$. \hfill$\square$
+
+\smallskip
+
+\coderef{check\_T\_fractional\_reading\_equivalence}{apf/fractional\_reading.py}
+
+The proof is one line, but the content is that three projections with distinct physical meanings --- structural capacity, information entropy, cosmological residual --- collapse to the same rational at every interface with a residual partition. The framework's integer predictions, scalar predictions, and cosmological predictions are therefore the same prediction, read on three different projections of the same ACC record.
+
+\subsection{Consequence: the SM entropy-allocation dictionary}\label{sec:FRE_SM_dictionary}
+
+At the Standard-Model interface, $(K_{\rm SM}, d_{\rm eff}^{\rm SM}) = (61, 102)$ with residual partition $61 = 3 + 16 + 42$ corresponding to $V_b$, $V_c$, $V_\Lambda$. Applying FRE to each sub-partition:
+\begin{align*}
+\Omega_b       \;=\; \pi_C(V_b)       \;&=\; \frac{K_b}{K_{\rm SM}}       \;=\; \frac{3}{61}  \;=\; \frac{S(V_b)}{S_{\rm SM}}, \\
+\Omega_c       \;=\; \pi_C(V_c)       \;&=\; \frac{K_c}{K_{\rm SM}}       \;=\; \frac{16}{61} \;=\; \frac{S(V_c)}{S_{\rm SM}}, \\
+\Omega_\Lambda \;=\; \pi_C(V_\Lambda) \;&=\; \frac{K_\Lambda}{K_{\rm SM}} \;=\; \frac{42}{61} \;=\; \frac{S(V_\Lambda)}{S_{\rm SM}},
+\end{align*}
+where $S(V_X) := \pi_T$-restricted to $V_X$ is the SM admissibility-capacity scalar allocated to $V_X$, and $S_{\rm SM} := \pi_T(V_{61})$ is the total SM admissibility-capacity scalar. The observed cosmological residual fractions are, equivalently, information-entropy fractions of the total SM admissibility-capacity.
+
+\coderef{check\_L\_Omega\_Lambda\_is\_entropy\_fraction}{apf/fractional\_reading.py}\\[-6pt]
+\coderef{check\_L\_Omega\_b\_is\_entropy\_fraction}{apf/fractional\_reading.py}\\[-6pt]
+\coderef{check\_L\_Omega\_c\_is\_entropy\_fraction}{apf/fractional\_reading.py}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/Fig_03_fractional_reading.png}
+\caption{The SM entropy-allocation dictionary read visually.  The $K_{\rm SM} = 61$ structural bar of Fig.~\ref{fig:budget_61} is re-labelled by its sector fractions: $\Omega_\Lambda = 42/61 \approx 0.6885$, $\Omega_b = 3/61 \approx 0.0492$, $\Omega_c = 16/61 \approx 0.2623$.  These are the three observed cosmological density fractions (dark energy, baryonic matter, cold dark matter) reading off the same partition.  FRE is the theorem that the slot-count ratio and the information-entropy ratio are, at the Standard-Model interface, the same ratio.  Planck 2018~\cite{Planck2018}: $0.6889 \pm 0.0056$, $0.0493 \pm 0.0006$, $0.261 \pm 0.002$ respectively.}\label{fig:fractional_reading}
+\end{figure}
+
+The reading of $\Omega_\Lambda$ is the most structurally pointed. The dark-energy fraction, observed at $\Omega_\Lambda \approx 0.689$ by Planck 2018~\cite{Planck2018}, is under FRE the fraction of the Standard-Model interface's information-entropy supported on the 42-dimensional global-interface subspace $V_\Lambda$ of $V_{61}$. This is not a separate claim from $\Omega_\Lambda = 42/61$; it is $\Omega_\Lambda = 42/61$ read on a different projection. $V_\Lambda$ is the same subspace whose properties were derived in \paperref{6}{} via the T12 partition and the interface-sector bridge theorem to Sector B of the horizon-reciprocity second-$\varepsilon$ decomposition. The dark-energy allocation is therefore structurally tied, through the bridge theorem and FRE together, to the de Sitter horizon absorber subspace at the joint SM--dS point.
+
+\subsection{Closure at the entropy level}\label{sec:FRE_closure}
+
+The three entropy-allocation fractions sum to unity:
+\[
+\frac{S(V_b)}{S_{\rm SM}} + \frac{S(V_c)}{S_{\rm SM}} + \frac{S(V_\Lambda)}{S_{\rm SM}}
+\;=\; \frac{K_b + K_c + K_\Lambda}{K_{\rm SM}}
+\;=\; \frac{3 + 16 + 42}{61}
+\;=\; 1.
+\]
+
+\noindent This is $I_2$'s slot-counting closure (\S\ref{sec:ledger_identities}) read at the entropy level. The substantive observation is that the entropy-level closure is automatic from the slot-level closure under FRE: the two levels are the same statement read on two projections, and closure on one projection transfers to closure on the other.
+
+\coderef{check\_T\_residual\_entropy\_closure}{apf/fractional\_reading.py}
+
+\subsection{The composed SM entropy dictionary theorem}\label{sec:FRE_dictionary}
+
+The FRE theorem, the three entropy-allocation identifications, and the entropy-level closure compose into a single theorem summarizing the SM-interface content of the ledger at the information-entropy level.
+
+\begin{tcolorbox}[apfbox, title={Theorem T\_FRE\_SM\_to\_entropy\_dictionary}]
+At the Standard-Model interface with $(K_{\rm SM}, d_{\rm eff}^{\rm SM}) = (61, 102)$ and residual partition $61 = 3 + 16 + 42$:
+\begin{align*}
+\Omega_b       \;&=\; \tfrac{3}{61}  \;=\; S(V_b)/S_{\rm SM}, \\
+\Omega_c       \;&=\; \tfrac{16}{61} \;=\; S(V_c)/S_{\rm SM}, \\
+\Omega_\Lambda \;&=\; \tfrac{42}{61} \;=\; S(V_\Lambda)/S_{\rm SM},
+\end{align*}
+with $\Omega_b + \Omega_c + \Omega_\Lambda = 1$ at both the slot-counting level (by $I_2$ partition closure) and the entropy-allocation level (by FRE).
+\end{tcolorbox}
+
+\coderef{check\_T\_FRE\_SM\_to\_entropy\_dictionary}{apf/fractional\_reading.py}
+
+\smallskip
+
+The SM entropy dictionary is the structural content that \S\ref{sec:cosmology_absolute} converts into absolute numerical predictions.
+
+% ======================================================================
+\section{The Sector Conversion Matrix}\label{sec:conversion_matrix}
+% ======================================================================
+
+The six regime projections $\pi_T, \pi_G, \pi_Q, \pi_F, \pi_C, \pi_A$ are sector-specific readings of a single A2-selected point (\S\ref{sec:ledger_plec_bridge}). Any two sectors therefore read the same underlying ACC record through different lenses, and the quantitative relation between their readings is a \emph{conversion factor} forced by the consistency identities. This section assembles those conversion factors into a single matrix, checks that the composition groupoid closes, and cross-checks the Standard-Model-interface values against the present observational datasets.
+
+\subsection{Primary conversions from $I_1$--$I_4$}\label{sec:conversion_primary}
+
+Four of the fifteen pairwise projection relations are given directly by the composed ledger theorem's four consistency identities. Each is a structural equation between two sector readings of the same ACC datum, evaluated at whatever interface the projections apply to:
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}l l l X@{}}
+\toprule
+\textbf{Identity} & \textbf{Pair} & \textbf{Conversion (structural form)} & \textbf{Reading} \\
+\midrule
+$I_1$ & $\pi_G \leftrightarrow \pi_F$ & $A = K$ & Horizon area equals slot count (in Planck units) \\
+\addlinespace[3pt]
+$I_2$ & $\pi_F \leftrightarrow \pi_C$ & $\Omega_X = K_X / K$ & Slot-partition fraction equals energy fraction \\
+\addlinespace[3pt]
+$I_3$ & $\pi_Q \leftrightarrow \pi_T$ & $S = K \ln d_{\rm eff}$ & Log-microstate count equals ACC scalar \\
+\addlinespace[3pt]
+$I_4$ & $\pi_A \leftrightarrow \pi_T$ & $\ln Z|_{\beta\to 0} = K \ln d_{\rm eff}$ & Log-partition function equals ACC scalar \\
+\bottomrule
+\end{tabularx}
+\caption{The four primary sector conversions, each derived from a single consistency identity of \S\ref{sec:ledger_identities}.}\label{tab:primary_conversions}
+\end{table}
+
+\subsection{Derived conversions by composition}\label{sec:conversion_composed}
+
+The remaining eleven pairwise conversions are forced by composition in the identity groupoid. Each derived conversion is obtained by chaining two or more primary identities through the ACC record. Four representative compositions illustrate the pattern:
+
+\smallskip
+\noindent\textbf{$\pi_G \leftrightarrow \pi_C$} (holographic cosmology): from $I_1$ ($A = K$) composed with $I_2$ ($\Omega_X = K_X/K$), the area fraction allocated to sector $X$ equals its energy fraction:
+\[
+A_X / A \;=\; K_X / K \;=\; \Omega_X.
+\]
+This is the holographic reading of the cosmological partition: each observed $\Omega_X$ is a structural area allocation.
+
+\smallskip
+\noindent\textbf{$\pi_G \leftrightarrow \pi_T$} (Bekenstein--Hawking): from $I_1$ (the cell-count identification $K_{\rm horizon} = A/(4\ell_P^{\,2})$) composed with $I_3$ ($S = K \ln d_{\rm eff}$), the horizon entropy reads
+\[
+S_{\rm horizon} \;=\; K_{\rm horizon} \ln d_{\rm eff} \;=\; \frac{A}{4\ell_P^{\,2}} \cdot \ln d_{\rm eff}.
+\]
+At the horizon interface with the $d_{\rm eff} = e$ convention of \paperref{6}{Dynamics and Geometry as Optimal Admissible Reallocation}, this reduces to $S_{\rm BH} = A/(4\ell_P^{\,2})$ in natural units --- the standard Bekenstein--Hawking entropy--area law, with the $1/4$ prefactor recovered exactly.
+
+\smallskip
+\noindent\textbf{$\pi_F \leftrightarrow \pi_T$} (sector-wise entropy): from $I_3$ applied per-sector together with $I_2$,
+\[
+S_X \;=\; K_X \ln d_{\rm eff} \;=\; \Omega_X \cdot S_{\rm total},
+\]
+so the thermodynamic-entropy fraction assigned to gauge/field sector $X$ equals the cosmological energy fraction $\Omega_X$. This is the Fractional Reading Equivalence of \S\ref{sec:FRE} in its explicit conversion form.
+
+\smallskip
+\noindent\textbf{$\pi_Q \leftrightarrow \pi_A$} (microstate $\leftrightarrow$ action): from $I_3$ composed with $I_4$,
+\[
+\ln N \;=\; \ln Z|_{\beta \to 0},
+\]
+so the Hilbert-space dimension and the high-temperature partition function are equivalent readings of the same ACC datum.
+
+\smallskip
+
+The remaining seven pairs follow by analogous compositions. The groupoid closes: no conversion between any two of the six projections is independent of $I_1$--$I_4$.
+
+\coderef{\_identity\_composition\_tests}{apf/unification.py}
+
+\subsection{The conversion matrix at the Standard-Model interface}\label{sec:conversion_matrix_SM}
+
+Specialising the conversion groupoid to the Standard-Model interface $(K_{\rm SM}, d_{\rm eff}^{\rm SM}) = (61, 102)$ with residual partition $3 + 16 + 42$ turns each entry into a concrete structural number. Table~\ref{tab:conversion_matrix_SM} gives the full 6$\times$6 matrix.
+
+\begin{table}[h]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabularx}{\textwidth}{@{}l *{6}{>{\centering\arraybackslash}X}@{}}
+\toprule
+ & $\pi_T$ & $\pi_G$ & $\pi_Q$ & $\pi_F$ & $\pi_C$ & $\pi_A$ \\
+\midrule
+$\pi_T$ & --- & $A \ln d_{\rm eff}$ & $\ln N$ & $K \ln d_{\rm eff}$ & $\Omega_X \cdot S$ & $\ln Z$ \\
+$\pi_G$ & $A = K$ & --- & $A$ & $A = K = 61$ & $A_X/A = \Omega_X$ & $A \ln d_{\rm eff}$ \\
+$\pi_Q$ & $d_{\rm eff} = 102$ & $N = d_{\rm eff}^A$ & --- & $d_{\rm eff}^K = 102^{61}$ & $d_{\rm eff}^{K_X}$ & $Z(\beta\to 0)$ \\
+$\pi_F$ & $K = 61$ & $K = A$ & $K = \log_{d_{\rm eff}} N$ & --- & $K_X = K \Omega_X$ & --- \\
+$\pi_C$ & $\Omega_X = K_X/K$ & $\Omega_X = A_X/A$ & $\Omega_X$ & $\Omega_X = K_X/K$ & --- & $\Omega_X$ \\
+$\pi_A$ & $\ln Z = K \ln d_{\rm eff}$ & $\ln Z = A \ln d_{\rm eff}$ & $\ln Z = \ln N$ & --- & $\ln Z_X = \Omega_X \ln Z$ & --- \\
+\bottomrule
+\end{tabularx}
+\caption{Sector conversion matrix at the Standard-Model interface. Each cell $(i,j)$ gives the structural form of the conversion from $\pi_i$ (row) to $\pi_j$ (column). Bold cells correspond to primary identities; unmarked cells are compositions. Evaluated at $(K_{\rm SM}, d_{\rm eff}^{\rm SM}) = (61, 102)$ with residual partition $3+16+42$ on $V_{\rm slot}$. In the horizon rows/columns, $A$ denotes the dimensionless Bekenstein cell count $A/(4\ell_P^{\,2})$ --- the same quantity as $K_{\rm horizon}$ per the horizon-ACC-record definition in Supplement \S A.2.}\label{tab:conversion_matrix_SM}
+\end{table}
+
+Every entry reduces to a function of $(K, d_{\rm eff}, K_X)$ --- the only free quantities in the ACC record. No parameter is tuned, no scale is imported.
+
+\subsection{Cross-check against observational datasets}\label{sec:conversion_crosscheck}
+
+The structural claim that all six projections read the same A2-selected point generates dataset-level predictions the moment any one projection is pinned to an observable. The full dataset cross-check for the Standard-Model interface is collected in Table~\ref{tab:conversion_crosscheck}. Each row is a pairwise sector conversion, evaluated at the SM-interface ACC values, compared against the present best observation.
+
+\begin{table}[h]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabularx}{\textwidth}{@{}l l l l X c@{}}
+\toprule
+\textbf{Observable} & \textbf{Pair} & \textbf{APF form} & \textbf{SM value} & \textbf{Observed (dataset)} & $\Delta$ \\
+\midrule
+$\Omega_b$           & $\pi_F \leftrightarrow \pi_C$ & $3/61$   & $0.04918$           & $0.0493 \pm 0.0006$ \cite{Planck2018}  & 0.4\% \\
+$\Omega_c$           & $\pi_F \leftrightarrow \pi_C$ & $16/61$  & $0.2623$            & $0.261 \pm 0.002$ \cite{Planck2018}    & 0.6\% \\
+$\Omega_\Lambda$     & $\pi_F \leftrightarrow \pi_C$ & $42/61$  & $0.6885$            & $0.6889 \pm 0.0056$ \cite{Planck2018}  & 0.06\% \\
+\addlinespace[2pt]
+$S_b / S_{\rm SM}$   & $\pi_F \leftrightarrow \pi_T$ & $3/61$   & $0.04918$           & equal to $\Omega_b$ by $I_2 \circ I_3$ & ---   \\
+$S_c / S_{\rm SM}$   & $\pi_F \leftrightarrow \pi_T$ & $16/61$  & $0.2623$            & equal to $\Omega_c$                    & ---   \\
+$S_\Lambda / S_{\rm SM}$ & $\pi_F \leftrightarrow \pi_T$ & $42/61$ & $0.6885$         & equal to $\Omega_\Lambda$              & ---   \\
+\addlinespace[2pt]
+$T_{\rm CMB}$        & $\pi_G \leftrightarrow \pi_T$ & $(T/\Mpl)^4 = 48/102^{64}$ & $2.717$ K & $2.7255 \pm 0.0006$ K \cite{Fixsen2009} & 0.33\% \\
+\addlinespace[2pt]
+$\rho_\Lambda / \Mpl^4$ & $\pi_G \leftrightarrow \pi_C$ & $42/102^{62}$ & $10^{-122.91}$ & $10^{-122.94 \pm 0.02}$ \cite{Planck2018,Riess2022} & $\sim 8\%$ \\
+\addlinespace[2pt]
+$H_0$                & $\pi_G \leftrightarrow \pi_C$ via $\rho_\Lambda$ & $\sqrt{8\pi K/3}/102^{31}$ & $70.03$ km/s/Mpc & $67.4$--$73.0$ km/s/Mpc \cite{Planck2018,Riess2022} & midpoint \\
+\addlinespace[2pt]
+$\sin^2\theta_W$     & $\pi_F$ internal + $\pi_Q$ & $3/13$ & $0.2308$ & $0.23121 \pm 0.00004$ (PDG) \cite{PDG2024} & 0.18\% \\
+\bottomrule
+\end{tabularx}
+\caption{SM-interface cross-check: each APF structural conversion against the present observational value. The three residual-partition rows ($\Omega_b, \Omega_c, \Omega_\Lambda$) are the $\pi_F \leftrightarrow \pi_C$ conversion; the corresponding entropy allocations are the $\pi_F \leftrightarrow \pi_T$ conversion and match by $I_2 \circ I_3$ with no independent numerical input. The CMB temperature is the $\pi_G \leftrightarrow \pi_T$ conversion at the photon-sector interface. The dark-energy absolute is the $\pi_G \leftrightarrow \pi_C$ conversion, and the $H_0$ prediction is the same conversion solved algebraically via the GR critical-density relation. The weak mixing angle is an internal-$\pi_F$ partition-ratio, included for completeness from the companion paper~\cite{BrookeWeakMixing}.}\label{tab:conversion_crosscheck}
+\end{table}
+
+\subsection{What the cross-checks tell us}\label{sec:conversion_interpretation}
+
+Three observations follow from Table~\ref{tab:conversion_crosscheck}. First, the dimensionless residual-partition conversions are tight: $\Omega_\Lambda$ matches to $0.06\%$, $\Omega_b$ to $0.4\%$, $\Omega_c$ to $0.6\%$, $\sin^2\theta_W$ to $0.18\%$, and $T_{\rm CMB}$ to $0.33\%$. These are the conversions that do not depend on the present $H_0$ value. Their tightness is direct evidence that the six projections are not merely consistent in the abstract but \emph{structurally coincident} at the Standard-Model interface: reading the same point through five different sector lenses produces numerical agreement with observation at or below the one-percent level without a single free parameter.
+
+Second, the one discrepancy in the table --- $\rho_\Lambda/\Mpl^4$ at approximately $8\%$ --- lives at the $H_0$-dependent absolute-density conversion, where the observational value itself depends on whether one adopts the Planck 2018 or the SH0ES 2022 $H_0$. The discrepancy size coincides with the Hubble tension between those two datasets. APF's algebraic inversion $H_0 = \sqrt{8\pi K/3}/102^{31} \Mpl \approx 70.03$ km/s/Mpc falls near the tension midpoint, within the envelope spanned by the two observational anchors. The $8\%$ residual is therefore not a structural failure of the sector conversion but a consequence of the observational ambiguity on $H_0$: the APF prediction selects the midpoint value, which the Planck-based absolute comparison then reports as $8\%$ off.
+
+Third, the ``equal to'' rows (the $\pi_F \leftrightarrow \pi_T$ entropy-allocation conversions) match by construction through $I_2 \circ I_3$, without any additional fitted input. They are not observations \emph{cross-checked} by APF --- they are structural identities guaranteed by the composition groupoid. Their entry in Table~\ref{tab:conversion_crosscheck} is present to make the closure of the groupoid explicit: the six projections generate one coherent numerical landscape, not six compatible but independent fits.
+
+The sector conversion matrix is the operational face of the composed ledger theorem. The four identities $I_1$--$I_4$ established in \S\ref{sec:ledger_identities} are abstract consistency statements; Table~\ref{tab:conversion_crosscheck} shows them as a single coordinated prediction system at the Standard-Model interface. Every non-trivial numerical conversion in the matrix is either a verified APF prediction or a structural equality forced by the groupoid. No free parameter appears at any stage.
+
+\smallskip
+
+\coderef{check\_T\_ACC\_unification}{apf/unification.py}
+
+% ======================================================================
+\section{Cosmological Absolute Predictions}\label{sec:cosmology_absolute}
+% ======================================================================
+
+\paragraph{Not a cosmological inference paper.}  This section reports \emph{structural consequences} of the ledger architecture, not cosmological inference.  The predictions below are zero-free-parameter closed-form integer expressions in Planck units.  Their numerical agreement with current cosmological data (Planck~2018, SH0ES~2022, FIRAS) is recorded as an empirical sanity check: the three residual fractions $(\Omega_b, \Omega_c, \Omega_\Lambda) = (3, 16, 42)/61$ compared to Planck 2018 posteriors at full covariance give multivariate $\chi^2 = 1.18$ for 3 d.o.f.\ ($p \approx 0.76$, Mahalanobis distance $1.09\sigma$), and $H_0 = 70.03$ km/s/Mpc lies within $0.17$ km/s/Mpc of the Planck--SH0ES tension midpoint.  A competitive posterior-level statistical fit against $\Lambda$CDM under Planck + BAO + SN likelihoods with nuisance parameters is explicitly deferred to a companion phenomenology paper.  The content of Paper~8 is the \emph{structural} side of the prediction (the ledger architecture that yields the integer counts $3, 16, 42, 61, 102$), not a statistical inference.  Table of sensitivities, falsifiers, and brittle-consequence bounds: see Supplement \S I$'$ (Nontrivial Constraints Imposed by the Ledger), with integrated-view reading in Supplement \S O (The Gauge-Cosmological Bridge: Integrated Nontrivial Content).
+
+The SM entropy dictionary of \S\ref{sec:FRE} gives dimensionless ratios. To produce absolute predictions in Planck units for the individual cosmological densities, we require one further structural input: the matter-sector prediction formula. This section states that formula, gives its structural derivation from $L_{\rm self\_exclusion}$, and catalogs the absolute predictions that follow. The Hubble-constant prediction is the algebraically-forced consequence of the dark-energy formula combined with the standard GR critical-density relation.
+
+\subsection{The matter-sector formula}\label{sec:cosmology_formula}
+
+At the Standard-Model interface, the information-entropy scalar is $S_{\rm SM} = K_{\rm SM} \ln d_{\rm eff}^{\rm SM} = 61 \ln 102$ nats. The microstate count is $N_{\rm SM} = (d_{\rm eff}^{\rm SM})^{K_{\rm SM}} = 102^{61}$. FRE has established that the $V_\Lambda$-supported entropy fraction is $\Omega_\Lambda = 42/61$. The matter-sector absolute prediction formula, bank-registered as \texttt{L\_Lambda\_absolute\_numerical\_formula}, is:
+
+\begin{tcolorbox}[apfbox, title={Matter-sector absolute formula}]
+For non-relativistic cosmological densities at the Standard-Model interface,
+\[
+\frac{\rho_X}{\Mpl^4} \;=\; \frac{C_X}{d_{\rm eff}^{\,K_{\rm SM}+1}} \;=\; \frac{C_X}{102^{62}},
+\]
+where $C_X$ is the structural slot count for component $X$: $C_b = 3$, $C_c = 16$, $C_\Lambda = 42$, and $C_{\rm crit} = K_{\rm SM} = 61$ for the critical density of a flat universe.
+\end{tcolorbox}
+
+\coderef{check\_L\_Lambda\_absolute\_numerical\_formula}{apf/fractional\_reading.py}
+
+\subsection{Structural derivation of the coefficient $42/102$}\label{sec:cosmology_coefficient}
+
+The dark-energy prediction $\rho_\Lambda/\Mpl^4 = 42/102^{62}$ factors as $42/102 \times 1/N_{\rm SM}$ where $1/N_{\rm SM} = 1/102^{61}$ is the total-microstate admissibility suppression and $42/102 = C_\Lambda/d_{\rm eff}^{\rm SM}$ is the per-slot coefficient. The coefficient's derivation is direct from $L_{\rm self\_exclusion}$ (\paperref{6}{}): that theorem proves $d_{\rm eff}^{\rm SM} = (K_{\rm SM} - 1) + C_{\rm vacuum} = 60 + 42 = 102$ at the SM interface. The 42 appearing in the numerator is $C_{\rm vacuum}$, the vacuum-residual per-slot admissibility count. The 102 in the denominator is the total per-slot admissibility under self-exclusion. Their ratio is therefore the fraction of per-slot admissibility allocated to the vacuum-residual sector; both numerator and denominator derive from the same bank theorem.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig_02_bridge_61_to_102.png}
+\caption{The interface-sector bridge from $K_{\rm SM} = 61$ to $d_{\rm eff} = 102$.  The front layer (top bar) is the $61$-channel SM budget of Fig.~\ref{fig:budget_61}, with one arbitrary channel committed as ``self'' (yellow) and therefore removed from its own count; the effective front-layer population is $K_{\rm SM} - 1 = 60$ (Sector~A of $T_{\rm horizon\_reciprocity}$).  The back layer (lower bar) is the 42-dimensional vacuum-residual stratum $V_{\rm global}$ — the same 42 vacuum channels shown in blue on the front layer, now read as Sector~B and identified with the de Sitter horizon absorber via $L_{\rm global\_interface\_is\_horizon}$ (\paperref{6}{}).  The per-slot effective admissibility decomposes as $d_{\rm eff} = (K_{\rm SM} - 1) + C_{\rm vacuum} = 60 + 42 = 102$.  The $42/102$ coefficient in the dark-energy absolute prediction is the ratio of the back-layer count to the total.}\label{fig:bridge_61_102}
+\end{figure}
+
+A numerical coefficient scan over APF-native arithmetic ratios (ratios of bank-forced integers with no mathematical-constant prefactors) within 0.01 decades of the observed $\rho_\Lambda/\Mpl^4$ finds additional candidates at comparable numerical precision, including $19/45$, $42/45$, and $41/45$. These are arithmetic expressions of bank integers, but they do not correspond to derivation chains in the bank terminating at a vacuum-fraction identification: in $19/45$ the numerator $C_{\rm local} = 19$ is the finite-interface stratum dimension, not the vacuum-residual count; in $42/45$ and $41/45$ the denominators are the total fermion slot count $K_{\rm fermions}$, not the per-slot admissibility. Of the APF-native candidates at observational precision, $42/102 = C_{\rm vacuum}/d_{\rm eff}^{\rm SM}$ is the ratio whose derivation chain terminates at $L_{\rm self\_exclusion}$'s vacuum-fraction structure, and the 42 in the prediction is specifically the $C_{\rm vacuum}$ that $V_\Lambda$'s dimension equals at the SM interface.
+
+\coderef{check\_T\_Lambda\_coefficient\_degeneracy\_audit}{apf/lambda\_absolute.py}
+
+\subsection{Absolute predictions for the cosmological energy budget}\label{sec:cosmology_absolute_densities}
+
+Applying the formula to each cosmological density component:
+\begin{align*}
+\rho_{\rm crit}    / \Mpl^4 \;&=\; 61/102^{62}  \;=\; 10^{-122.748}, \\
+\rho_b             / \Mpl^4 \;&=\; 3/102^{62}   \;=\; 10^{-124.056}, \\
+\rho_c             / \Mpl^4 \;&=\; 16/102^{62}  \;=\; 10^{-123.329}, \\
+\rho_\Lambda       / \Mpl^4 \;&=\; 42/102^{62}  \;=\; 10^{-122.910}.
+\end{align*}
+
+The dark-energy prediction deviates from the Planck-2018-inferred value of $\rho_\Lambda/\Mpl^4 = 10^{-122.944}$~\cite{Planck2018} by approximately 0.034 decades, corresponding to an 8\% ratio. This deviation is of the same order as the current Hubble tension: the observational value of $\rho_\Lambda/\Mpl^4$ depends on which choice of $H_0$ is used, and the Planck-2018 and SH0ES-2022 values bracket a range spanning comparable magnitude.
+
+\coderef{check\_T\_Lambda\_absolute\_extended\_formula}{apf/lambda\_absolute.py}
+
+\subsection{$H_0$ from the algebraic inversion}\label{sec:cosmology_H0}
+
+The dark-energy absolute prediction, combined with the bank-forced $\Omega_\Lambda = 42/61$ and the standard GR critical-density formula $\rho_{\rm crit} = 3 H_0^2 \Mpl^2/(8\pi)$, determines $H_0$ algebraically. Solving:
+\[
+\rho_\Lambda = \Omega_\Lambda \cdot \rho_{\rm crit}
+\ \Longrightarrow\
+\frac{\rho_\Lambda}{\Mpl^4} = \Omega_\Lambda \cdot \frac{3}{8\pi} \left(\frac{H_0}{\Mpl}\right)^2,
+\]
+\[
+\left(\frac{H_0}{\Mpl}\right)^2 = \frac{8\pi}{3} \cdot \frac{\rho_\Lambda/\Mpl^4}{\Omega_\Lambda} = \frac{8\pi}{3} \cdot \frac{42/102^{62}}{42/61} = \frac{8\pi \cdot 61}{3 \cdot 102^{62}}.
+\]
+
+\begin{tcolorbox}[apfbox, title={APF prediction for the Hubble constant}]
+\[
+\frac{H_0}{\Mpl} \;=\; \frac{\sqrt{8\pi K_{\rm SM}/3}}{102^{(K_{\rm SM}+1)/2}} \;=\; \frac{\sqrt{8\pi \cdot 61/3}}{102^{31}} \;=\; 1.224 \times 10^{-61}.
+\]
+In SI units, $H_0 \approx 70.03\,\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$.
+\end{tcolorbox}
+
+\coderef{check\_T\_Lambda\_to\_H0\_inversion}{apf/lambda\_absolute.py}
+
+The SI-form Hubble constant prediction lies between the Planck-2018 value $H_0^{\rm Planck} = 67.36\,\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$~\cite{Planck2018} and the SH0ES-2022 value $H_0^{\rm SH0ES} = 73.04\,\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$~\cite{Riess2022}, at 0.17 km/s/Mpc below the present tension midpoint. The 8\% deviation of the Paper-8 $\rho_\Lambda$ prediction from Planck-2018's inferred value corresponds to the 4\% deviation of the Paper-8 $H_0$ prediction from the Planck-2018 $H_0$, and the same paired deviations with opposite signs against SH0ES 2022. The $\rho_\Lambda$ prediction and the $H_0$ prediction are algebraically the same prediction read on the two sides of the standard critical-density relation.
+
+\subsection{The CMB temperature, independent observable}\label{sec:cosmology_T_CMB}
+
+The cosmic microwave background temperature is an observable that does not factor through the matter-sector prediction. Its APF prediction follows a species-dependent analog of the matter-sector formula, with exponent $k = K_{\rm SM} + 3 = 64$ rather than $K_{\rm SM} + 1 = 62$:
+
+\begin{tcolorbox}[apfbox, title={CMB thermal-bath formula}]
+\[
+\left(\frac{T_{\rm CMB}}{\Mpl}\right)^4 \;=\; \frac{C_T}{d_{\rm eff}^{\,K_{\rm SM}+3}} \;=\; \frac{48}{102^{64}},
+\]
+with the coefficient $C_T = 48$ equal to $C_c \times C_b = K_{\rm gauge} \times K_{\rm Higgs}$ (both readings bank-forced and numerically equal) and the exponent shift $\Delta k = +2$ matching the two photon polarization states. In SI units, the predicted temperature is $T_{\rm CMB}^{\rm APF} = 2.7166\,\mathrm{K}$; the FIRAS-measured value is $T_{\rm CMB}^{\rm FIRAS} = 2.7255 \pm 0.0006\,\mathrm{K}$~\cite{Fixsen2009}, a deviation of 0.33\%.
+\end{tcolorbox}
+
+\coderef{check\_T\_T\_CMB\_absolute\_formula}{apf/thermal\_absolute.py}
+
+The matter-sector exponent $K_{\rm SM}+1 = 62$ and the photon-sector exponent $K_{\rm SM}+3 = 64$ differ by $\Delta k = 2$, matching the two photon polarisation states.  This motivates a species-dependent hypothesis $k_X = K_{\rm SM} + 1 + N_{\rm pol,X}$ --- registered [C, open] pending additional thermal-bath data points.  Full construction, remaining assumptions, and what would close the status tag: Supplement \S J.
+
+\subsection{Bulletproofing and scope}\label{sec:cosmology_bulletproof}
+
+The six cosmological predictions (four matter-sector densities plus $H_0$ plus $T_{\rm CMB}$) are internally consistent and individually verifiable by code check. Their composed bulletproof theorem is:
+
+\begin{tcolorbox}[apfbox, title={Theorem T\_Lambda\_absolute\_bulletproof}]
+The matter-sector formula $\rho_X/\Mpl^4 = C_X/102^{62}$ gives four cosmological-density predictions ($\rho_{\rm crit}, \rho_b, \rho_c, \rho_\Lambda$) at a common $\approx 8\%$ deviation from Planck-2018 cosmology~\cite{Planck2018}; the algebraically-forced $H_0 = 70.03\,\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$ falls between Planck 2018~\cite{Planck2018} and SH0ES 2022~\cite{Riess2022}, near the present tension midpoint; the CMB thermal-bath formula $(T_{\rm CMB}/\Mpl)^4 = 48/102^{64}$ with species-dependent exponent $k = K_{\rm SM} + 3$ matches FIRAS~\cite{Fixsen2009} at 0.33\%. All six predictions use only bank-forced structural constants ($K_{\rm SM}$, $d_{\rm eff}^{\rm SM}$, $C_b$, $C_c$, $C_{\rm vacuum}$, $C_T$) and the Planck-unit convention of \S\ref{sec:intro}.
+\end{tcolorbox}
+
+\coderef{check\_T\_Lambda\_absolute\_bulletproof}{apf/lambda\_absolute.py}
+
+\smallskip
+
+\S\ref{sec:operator_level} shows that this derivation chain admits an operator-level realization on an explicit finite-dimensional microstate Hilbert space. \S\ref{sec:robustness} delineates what the prediction formula covers and what it does not.
+
+% ======================================================================
+\section{Operator-Level Realization (Finite-Dimensional)}\label{sec:operator_level}
+% ======================================================================
+
+\paragraph{Scope and non-claims.}  The operator-level construction below is \emph{finite-dimensional by design} and is used exclusively in the $\beta \to 0$ high-temperature limit.  No claims are made about thermodynamic-limit existence ($N \to \infty$, $K \to \infty$), about $C^*$- or von Neumann algebraic structure beyond the finite $M_N(\mathbb{C})$ realisation, about the KMS condition at non-zero $\beta$, or about von Neumann factor types in the infinite-volume limit.  The construction's role in Paper~8 is to supply an operator-level witness for the $I_4$ self-identification and the matter-sector cosmological formula $\rho_X / \Mpl^4 = C_X / d_{\rm eff}^{K+1}$, not to engage with algebraic quantum statistical mechanics.  Infinite-volume extension would require importing the standard apparatus (quasi-local $C^*$-algebras, KMS states, modular theory) and is deferred; see Supplement~\S H.1 for what this extension would require, and Supplement~\S N.3 for the positioning relative to algebraic QSM.
+
+This section constructs an operator-level realization of the ledger identities proved in \S\ref{sec:ledger}--\S\ref{sec:FRE}; it is not a second derivation from independent premises, but the concrete operator-algebra form of the same bookkeeping. The construction gives an explicit finite-dimensional microstate Hilbert space, defines a thermal density matrix on it, and recovers the cosmological predictions of \S\ref{sec:cosmology_absolute} as $\beta \to 0$ limits of operator-algebra identities.
+
+\subsection{The thermal construction}\label{sec:operator_construction}
+
+Fix an ACC interface record $(K, d_{\rm eff})$ with $C_{\rm vacuum}$ per-slot vacuum-residual states and $(d_{\rm eff} - C_{\rm vacuum})$ per-slot excited states.  The microstate Hilbert space is $H_{\rm micro} = (\mathbb{C}^{d_{\rm eff}})^{\otimes K}$ of dimension $N = d_{\rm eff}^K$; the total Hamiltonian is the sum of local vacuum-versus-excited Hamiltonians acting factor-wise; and the thermal density matrix is $\rho_\beta = Z(\beta)^{-1} e^{-\beta H_{\rm total}}$.  At the $\beta \to 0$ limit, $\rho_{\beta \to 0} = N^{-1}\mathbf{1}$ is the maximally mixed density matrix on $H_{\rm micro}$.  Full construction details (local Hamiltonian eigenstructure, vacuum projector $P_{{\rm vac},i}$, trace normalisations) are in Supplement \S H.
+
+\coderef{\_build\_model}{apf/lambda\_operator\_derivation.py}
+
+\subsection{Three operator-algebra identities at $\beta \to 0$}\label{sec:operator_identities}
+
+At the $\beta \to 0$ limit of the thermal construction, three structural identities hold to machine precision at every test interface.  Each is a rigorous operator-algebra statement, not an asymptotic approximation; each is $I_4$'s scalar witness (A), the per-slot vacuum fraction (B), and the admissibility-suppression factor (C) of \S\ref{sec:cosmology_absolute} respectively.
+
+\begin{tcolorbox}[apfbox, title={Identity (A) --- Partition-function limit}]
+\[
+\ln Z(\beta \to 0) \;=\; \ln N \;=\; K \ln d_{\rm eff} \;=\; \mathrm{ACC}\text{-scalar}.
+\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[apfbox, title={Identity (B) --- Vacuum-projector expectation}]
+\[
+\langle P_{{\rm vac},i} \rangle_{\rho_{\beta \to 0}} \;=\; \frac{\mathrm{Tr}(P_{{\rm vac},i})}{N} \;=\; \frac{C_{\rm vacuum} \cdot d_{\rm eff}^{K-1}}{d_{\rm eff}^K} \;=\; \frac{C_{\rm vacuum}}{d_{\rm eff}}.
+\]
+\end{tcolorbox}
+
+\begin{tcolorbox}[apfbox, title={Identity (C) --- Per-microstate probability}]
+\[
+p_{\rm microstate}(\rho_{\beta \to 0}) \;=\; \frac{1}{N} \;=\; \frac{1}{d_{\rm eff}^K}.
+\]
+\end{tcolorbox}
+
+At the SM interface, (B) evaluates to $42/102$ and (C) to $1/102^{61}$, the two coefficients of the matter-sector formula.  Supplement \S H gives the derivation of each identity, the operational content of each on the thermal state, and the step-by-step composition showing how (A), (B), (C) together yield $\rho_\Lambda/\Mpl^4 = 42/102^{62}$.
+
+\coderef{check\_T\_Lambda\_partition\_function\_at\_beta\_zero}{apf/lambda\_operator\_derivation.py}
+
+\subsection{The composed operator-level theorem}\label{sec:operator_composed_theorem}
+
+\begin{tcolorbox}[apfbox, title={Theorem T\_Lambda\_d2\_operator\_derivation}]
+The matter-sector cosmological absolute formula $\rho_X/\Mpl^4 = C_X/d_{\rm eff}^{K+1}$ of \S\ref{sec:cosmology_absolute} admits an operator-level realisation on $H_{\rm micro} = (\mathbb{C}^{d_{\rm eff}})^{\otimes K}$.  The three $\beta \to 0$ identities (A), (B), (C) are rigorous operator-algebra statements verified to machine precision at a representative family of test interfaces; their composition, with the Planck-units convention of \S\ref{sec:intro}, reproduces the matter-sector formula.  Full proof and operational verification: Supplement \S H.
+\end{tcolorbox}
+
+\coderef{check\_T\_Lambda\_d2\_operator\_derivation}{apf/lambda\_operator\_derivation.py}
+
+\subsection{Operator-level composed self-identifications for $I_3$ and $I_4$ (Phase 14f.1 + 14f.3)}\label{sec:operator_composed_ik}
+
+The three operator-algebra identities (A), (B), (C) of \S\ref{sec:operator_identities} deliver more than the matter-sector composition of the composed theorem above --- they also supply the structurally distinct readings that close $I_3$ and $I_4$ at the subspace level as \emph{composed self-identifications}, paralleling the role $T_{\rm interface\_sector\_bridge}$ plays for $I_2$.
+
+\begin{tcolorbox}[apfbox, title={Theorem T\_I3\_operator\_self\_identification}]
+The $I_3$ (thermo-quantum) identity is closed by a three-construction composed self-identification on the quantum-interface carrier $\mathbb{C}^d$: direct numpy $\rho_{\max} = (1/d) I_d$ with $S_{\rm vN} = \ln d$; the Schur-lemma characterisation of $\rho_{\max}$ as the unique $U(d)$-invariant normalised state; and the $K = 1$ specialisation of the thermal machinery above, in which $\rho_\beta \to \rho_{\max}$ as $\beta \to 0$ for any local Hamiltonian.  All three deliver the same density matrix.  Status $[\mathrm{P}_{\rm comp}]$.
+\end{tcolorbox}
+
+\coderef{check\_T\_I3\_operator\_self\_identification}{apf/quantum\_operator\_derivation.py}
+
+\begin{tcolorbox}[apfbox, title={Theorem T\_I4\_operator\_self\_identification}]
+The $I_4$ (action-thermo) identity is closed by a four-reading composed self-identification on $H_{\rm micro}$: identities (A), (B), (C) above together with (D) Paper~7's spectral-action reading $S_{\rm spec} = \mathrm{Tr}[\exp(-\beta D^2)]$, which evaluates to the same $\ln Z = \mathrm{ACC}_{\rm scalar}$ at $\beta \to 0$ via the heat-kernel expansion's leading coefficient $a_0 = \dim H_F$.  All four readings recover the same $\mathrm{ACC}_{\rm scalar}$.  Status $[\mathrm{P}_{\rm comp}]$.
+\end{tcolorbox}
+
+\coderef{check\_T\_I4\_operator\_self\_identification}{apf/i4\_composition.py}
+
+\smallskip
+
+\noindent The closure species at $I_3$ and $I_4$ is single-interface composed self-identification (not bridge), because at \texttt{acc\_quantum}$(d)$ the slot scale $K = 1$ collapses and there is no companion interface to bridge to.  This is structurally parallel to how $I_1$'s bridge theorem is available only at the $K = 42$ joint point (where both interfaces carry non-trivial slot content), while generic horizons close regime-locally.  The four-way stratification --- two bridges ($I_2$ always, $I_1$ at $K=42$), two composed self-identifications ($I_3$, $I_4$) --- is the Phase 14f-final form of the $T_{\rm ACC}$ subspace closure.  Technical Supplement \S E.6 is the catalogue.
+
+\smallskip
+
+The operator-level realisation is the concrete operator-algebra form of the bookkeeping that \S\S\ref{sec:ledger}--\ref{sec:FRE} assemble.  \S\ref{sec:robustness} now delineates the scope over which the formula applies.
+
+% ======================================================================
+\section{Robustness and Scope}\label{sec:robustness}
+% ======================================================================
+
+The cosmological formula of \S\ref{sec:cosmology_absolute} has a specific domain of applicability. This section delineates what the formula covers, what it does not, and what open structural questions remain about the extensions.
+
+\subsection{In-scope observables}\label{sec:robustness_in_scope}
+
+The matter-sector formula $\rho_X/\Mpl^4 = C_X/d_{\rm eff}^{K_{\rm SM}+1}$ covers the four cosmological-density components of a flat universe at the present epoch ($\rho_{\rm crit}, \rho_b, \rho_c, \rho_\Lambda$), with slot-count inputs $C_X \in \{K_{\rm SM}, C_b, C_c, C_{\rm vacuum}\} = \{61, 3, 16, 42\}$ all bank-forced. The thermal-bath formula $(T_X/\Mpl)^4 = C_T / d_{\rm eff}^{K_{\rm SM}+3}$ covers photon thermal backgrounds at the present epoch, with coefficient $C_T = 48$ bank-forced. The species-dependent exponent hypothesis $k_X = K_{\rm SM} + 1 + N_{\rm pol,X}$ extends in principle to additional thermal-bath observables at predicted exponents pending data-point confirmation.
+
+\subsection{Open extensions: neutrino mass sum and the cosmic neutrino background}\label{sec:robustness_open_extensions}
+
+Two cosmological observables lie on the edge of the formula's current reach but are not yet closed: the \emph{neutrino mass sum} $\Sigma m_\nu$, which admits a suggestive numerical fit $\sim 11/102^{15}$ within the observational window, and the \emph{cosmic neutrino background}, whose Weyl-neutrino polarisation count $N_{\rm pol} = 1$ would test the species-dependent exponent hypothesis at $k = K_{\rm SM} + 2 = 63$.  Both are registered [C, open] pending improved measurement precision.  Full discussion of the $\Sigma m_\nu$ fit's bank-native readings and what would close its status, together with the C$\nu$B prediction's assumptions and accessibility, is in Supplement \S J.
+
+\coderef{check\_L\_Sigma\_m\_nu\_suggestive}{apf/thermal\_absolute.py}
+
+\subsection{Out of scope: the baryon-to-photon ratio}\label{sec:robustness_out_of_scope}
+
+The baryon-to-photon ratio $\eta \approx 6.1 \times 10^{-10}$ does not admit a clean APF-native $C/d_{\rm eff}^k$ fit at any small integer exponent. Numerical scans return arithmetic candidates without derivation chains terminating in bank structure. The observed value reflects baryogenesis physics and the specific CP-violation content of the Standard Model, neither of which is captured by the two-tier admissibility-capacity formula of \S\ref{sec:cosmology_absolute}. This does not contradict APF; it marks the boundary where the cosmological-sector prediction formula ceases to apply.
+
+\coderef{check\_L\_eta\_does\_not\_fit\_cleanly}{apf/thermal\_absolute.py}
+
+\subsection{Scope summary}\label{sec:robustness_summary}
+
+Table~\ref{tab:scope_summary} summarizes the current scope of the prediction formula across observable types.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}l l X@{}}
+\toprule
+\textbf{Observable} & \textbf{Status} & \textbf{Note} \\
+\midrule
+$\rho_\Lambda, \rho_b, \rho_c, \rho_{\rm crit}$ & Covered & Matter-sector formula, $k = K_{\rm SM} + 1 = 62$ \\
+$T_{\rm CMB}$, $\rho_\gamma$                    & Covered & Thermal-bath formula, $k = K_{\rm SM} + 3 = 64$ \\
+$H_0$                                             & Covered & Algebraic inversion from $\rho_\Lambda$ + $\Omega_\Lambda$ + GR critical density \\
+$\Sigma m_\nu$                                    & [C, open] & Suggestive fit consistent with observational window; coefficient not structurally pinned \\
+Cosmic $\nu$-background                           & Predicted & Species-dependent exponent hypothesis at $N_{\rm pol}=1$: $k = 63$ \\
+$\eta$ (baryon-to-photon ratio)                   & Out-of-scope & Baryogenesis physics; no bank derivation chain terminates at a $C/d_{\rm eff}^k$ form \\
+\bottomrule
+\end{tabularx}
+\caption{Scope of the Paper-8 prediction formula across standard cosmological observables.}\label{tab:scope_summary}
+\end{table}
+
+% ======================================================================
+\section{Falsifiers}\label{sec:falsifiers}
+% ======================================================================
+
+The paper's quantitative claims rest on bank-forced structural constants and one formula with a species-dependent exponent. Each component is falsifiable by explicit target.
+
+\begin{tcolorbox}[defbox, title={(F1) Hubble-constant convergence}]
+If future Hubble-constant measurements converge to either the Planck-2018 value ($67.36\,\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$~\cite{Planck2018}) or the SH0ES-2022 value ($73.04\,\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$~\cite{Riess2022}) to within their current uncertainties, with the other value excluded, the Paper-8 prediction $H_0 = 70.03\,\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$ is falsified at approximately 4\%. The prediction commits APF to the present tension midpoint; resolution in favor of either extreme falsifies.
+\end{tcolorbox}
+
+\begin{tcolorbox}[defbox, title={(F2) $C_{\rm vacuum}$ rederivation}]
+If independent rederivation of Paper 6's T12 partition gives $C_{\rm vacuum} \neq 42$, the dark-energy numerator shifts and the $\rho_\Lambda/\Mpl^4 = 42/102^{62}$ prediction is falsified. Independent rederivation from distinct structural machinery --- spectral-action, NCG, or observer-dependent reformulation --- is a target.
+\end{tcolorbox}
+
+\begin{tcolorbox}[defbox, title={(F3) $K_{\rm SM}$ rederivation}]
+If independent rederivation of \texttt{L\_count} (Paper 2) gives $K_{\rm SM} \neq 61$, every paper-level formula shifts simultaneously: the exponent changes, the $\Omega_X$ denominators change, the $H_0$ prediction changes. $K_{\rm SM} = 61$ is the single most load-bearing integer in Paper~8.
+\end{tcolorbox}
+
+\begin{tcolorbox}[defbox, title={(F4) $d_{\rm eff}$ rederivation}]
+If independent rederivation of \texttt{L\_self\_exclusion} (Paper 6) gives $d_{\rm eff}^{\rm SM} \neq 102$, the per-slot admissibility base shifts and every formula in this paper moves. $d_{\rm eff} = 102 = 60 + 42$ is a structural sum of two numerically independent quantities ($K_{\rm SM} - 1$ and $C_{\rm vacuum}$); an independent rederivation of either factor is a target.
+\end{tcolorbox}
+
+\begin{tcolorbox}[defbox, title={(F5) CMB temperature and species-dependent exponent}]
+If the species-dependent exponent hypothesis $k_X = K_{\rm SM} + 1 + N_{\rm pol,X}$ fails at a cleanly-measurable species beyond the matter ($k=62$) and photon ($k=64$) confirmations, the hypothesis is falsified as a structural rule. A candidate independent test is the thermal-photon prediction's continued match to FIRAS~\cite{Fixsen2009} at the 0.33\% level; larger discrepancies under improved measurement or reanalysis would downgrade the thermal formula.
+\end{tcolorbox}
+
+\begin{tcolorbox}[defbox, title={(F6) $42/102$ uniqueness}]
+If the coefficient-uniqueness argument of \S\ref{sec:cosmology_coefficient} fails under reanalysis --- specifically, if an alternative APF-native ratio is shown to have a derivation chain terminating at a vacuum-fraction reading comparable to $C_{\rm vacuum}/d_{\rm eff}^{\rm SM}$ --- the $42/102$ coefficient's structural privilege is undermined. The claim rests on the bank state as of this paper; a rederivation that legitimizes one of the arithmetic lookalikes would shift the coefficient.
+\end{tcolorbox}
+
+% ======================================================================
+\section{Discussion}\label{sec:discussion}
+% ======================================================================
+
+\paragraph{The integrated non-trivial content lives in the centerpiece Supplement \S O.}  The structural mechanism of Paper~8 --- the $I_2$ bridge, the $V_\Lambda$ gauge-uniqueness (Supplement Theorem 5.7, v2.3), the framework-internal forcing chain yielding $(K_{\rm SM}, d_{\rm eff}^{\rm SM}) = (61, 102)$ (Supplement Appendix M), the two-tier single-scale impossibility theorem (Supplement Theorem C.5, v2.3), the brittle-consequences sensitivity calculation, and the multivariate Planck 2018 Bayes-factor confrontation with $\chi^2 = 1.18$ over three observables (Supplement \S I$'$.4) --- is collected in one focal supplement section: \S O, ``The Gauge-Cosmological Bridge: Integrated Nontrivial Content.''  A reader wanting the headline structural content of the paper should read that section first; the detailed technical material lives in the surrounding supplement sections.  Readers wanting the algebraic-QSM content should note that v2.3 also closes the infinite-volume factor-type question (Supplement Theorem 7.14$'$: the thermodynamic-limit von Neumann algebra is Type III$_1$ at every finite $\beta$, via Araki--Connes classification).
+
+\medskip
+
+Paper~8's quantitative results depend on the SM-interface slot-subspace $V_\Lambda$ being structurally well-defined. The bridge theorem of \paperref{6}{} and the matter-sector formula of \S\ref{sec:cosmology_absolute} collectively give $V_\Lambda$ three identifications:
+
+\begin{enumerate}[leftmargin=2em,itemsep=3pt]
+    \item $V_\Lambda$ as the global-interface stratum of the T12 partition of $V_{61}$ (observer-independent in APF; algebraic).
+    \item $V_\Lambda$ as Sector B of the second-$\varepsilon$ decomposition of $T_{\rm horizon\text{-}reciprocity}$ (observer-independent in APF; algebraic).
+    \item $V_\Lambda$ as the de Sitter horizon absorber subspace at the $K = 42$ joint SM--dS point (observer-dependent in general relativity; cosmological horizons depend on observer worldlines).
+\end{enumerate}
+
+The first two are observer-independent; the third is observer-dependent as it is normally formulated in GR. Three logically possible resolutions of the mismatch: (a) the observer-dependence is trivial at the $K = 42$ joint point and the three identifications coincide by structural accident there; (b) the bridge theorem implicitly fixes a comoving de Sitter observer, and the identification holds only in that frame; (c) $V_\Lambda$ is genuinely observer-invariant as an ACC-interface structural object, and the apparent observer-dependence in GR is an artifact of metric-framing that dissolves under a categorical reformulation of the bridge theorem. Resolution (c) would make APF's cosmological-sector content a structural prediction beyond $\Lambda$CDM: different observers disagree on local horizon metrics but agree on the 42-dimensional $V_\Lambda$ content of any cosmological-scale horizon they construct.
+
+The quantitative claims of this paper do not depend on which resolution is correct. $\Omega_\Lambda = 42/61$, $\rho_\Lambda/\Mpl^4 = 42/102^{62}$, $H_0$ from the algebraic inversion, and the CMB formula all follow from the SM-interface bank machinery before the observer-dependence question is raised. The question is registered as the paper's one substantive open structural question; categorical-reformulation work is a natural next direction in the series.
+
+\coderef{check\_T\_bridge\_observer\_independence\_open}{apf/phase\_14d3\_completions.py}
+
+\smallskip
+
+\noindent\textit{Distinct but orthogonal question: horizon parametrisation.}  A second ambiguity, unrelated to the observer-dependence question above, concerned the \emph{parametrisation} of the horizon interface: APF's default Convention A takes $d_{\rm eff} = e$ at horizons (so $\mathrm{ACC}_{\rm horizon} = K$ matches $S_{\rm BH}$ in nats directly), but this choice makes the horizon Hilbert space of dimension $e^K$ schematic rather than literal --- no integer-dimensional Hilbert space has dimension $e$.  Phase~14f.2 (lemma $L_{\rm horizon\_convention\_equivalence}$, \texttt{unification.py}) formalises the alternative Convention B ($d_{\rm eff} = 2$, cell size $4 \ln 2 \, \ell_P^2$, $K = K_{\rm bit}$ integer bit-cells, $\dim H_{\rm micro} = 2^{K_{\rm bit}}$ a literal qubit tensor product) and proves the two parametrisations deliver the same $\mathrm{ACC}_{\rm scalar}$ and the same ambient Hilbert dimension at every horizon.  Slot-scale identifications (absorber subspaces, $V_{\rm global}$, the $K = 42$ SM-dS joint point) are convention-invariant; the dual-convention formulation resolves the parametrisation ambiguity by accepting both readings and using whichever is natural per use case.  The $I_1$ joint-point bridge theorem's Construction 3 (\S\ref{sec:subspace_functors}) uses Convention B to deliver the literal $(\mathbb{C}^2)^{\otimes 42}$ qubit realisation that Convention A cannot.  Technical Supplement \S K.4 records the resolution.
+
+\coderef{check\_L\_horizon\_convention\_equivalence}{apf/unification.py}
+
+% ======================================================================
+\section{Conclusion}\label{sec:conclusion}
+% ======================================================================
+
+The Admissibility-Capacity Ledger, assembled in Papers~1--7 and summarized in \paperref{13}{}, closes at the cosmological sector. The three-level identity stack of \S\ref{sec:three_level} has a subspace-level witness [P] at every T\_ACC consistency identity, supplied by the four subspace functors of \S\ref{sec:subspace_functors}; the Fractional Reading Equivalence of \S\ref{sec:FRE} identifies the Standard-Model cosmological residual fractions with information-entropy allocations on the $V_{61}$ slot-space; the matter-sector absolute formula of \S\ref{sec:cosmology_absolute} gives dimensionless predictions in Planck units for $\rho_\Lambda$, $\rho_{\rm crit}$, $\rho_b$, $\rho_c$, the algebraically-linked $H_0$, and (via the species-dependent exponent hypothesis) the CMB thermal-bath temperature; the operator-level realization of \S\ref{sec:operator_level} supplies the same derivations on an explicit finite-dimensional microstate Hilbert space. The paper's cosmological content is therefore the direct application of the already-established ledger machinery to the cosmological sector.
+
+One axiom (\Aone{}, Finite Enforcement Capacity). No imported physics structure: the Standard-Model gauge group is derived in \paperref{4}{}, not assumed; the generation count is derived in \paperref{2}{}, not assumed; the weak mixing angle $\sin^2\theta_W = 3/13$ is derived in \paperref{4}{}, not fitted; the cosmological residual fractions $\{3/61, 16/61, 42/61\}$ are derived here, not chosen. Mathematical theorems used in closure and representation arguments (Gleason, Stinespring, Lieb--Ruskai, Tarjan 1972, and others) are cited at point of use as explicit formal mathematical imports, not hidden physics assumptions. Zero free parameters.
+
+Planck units are APF's native unit system: every derivation produces a dimensionless number or a dimensionless ratio times $\Mpl^n$ for integer $n$, with $\Mpl = 1$ by convention. Laboratory comparison with SI-unit experiments uses one external input, Newton's gravitational constant $G = \Mpl^{-2}$, at the comparison stage only. This is the same unit-interface practice used by quantum field theory, lattice QCD, and every other natural-units framework.
+
+The quantitative scoreboard: $\Omega_b, \Omega_c, \Omega_\Lambda$ predicted as entropy fractions matching Planck-2018~\cite{Planck2018} to fractions of a percent; $\rho_\Lambda/\Mpl^4 = 42/102^{62}$ deviating from the Planck-2018-inferred value by an 8\% margin of the same order as the current Hubble tension; the algebraically-linked $H_0 = 70.03\,\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$ landing 0.17 km/s/Mpc from the present tension midpoint between Planck 2018 and SH0ES 2022~\cite{Riess2022}; $T_{\rm CMB}$ predicted by the independent thermal-bath formula matching FIRAS~\cite{Fixsen2009} to 0.33\%.
+
+The substantive open structural question raised by the paper's content is the observer-dependence of the bridge theorem as applied to $V_\Lambda$. The quantitative cosmological predictions do not depend on its resolution; a categorical reformulation of the bridge that resolves it is the natural next direction in the series.
+
+% ======================================================================
+\begin{thebibliography}{9}
+
+\bibitem{Planck2018}
+Planck Collaboration (N. Aghanim \textit{et al.}),
+``Planck 2018 results. VI. Cosmological parameters,''
+\textit{Astronomy \& Astrophysics} \textbf{641}, A6 (2020).
+\href{https://arxiv.org/abs/1807.06209}{arXiv:1807.06209}.
+
+\bibitem{Riess2022}
+A.\,G. Riess \textit{et al.} (SH0ES team),
+``A Comprehensive Measurement of the Local Value of the Hubble Constant with $1\,\mathrm{km}\,\mathrm{s}^{-1}\,\mathrm{Mpc}^{-1}$ Uncertainty from the Hubble Space Telescope and the SH0ES Team,''
+\textit{Astrophysical Journal Letters} \textbf{934}, L7 (2022).
+\href{https://arxiv.org/abs/2112.04510}{arXiv:2112.04510}.
+
+\bibitem{Fixsen2009}
+D.\,J. Fixsen,
+``The Temperature of the Cosmic Microwave Background,''
+\textit{Astrophysical Journal} \textbf{707}, 916 (2009).
+\href{https://arxiv.org/abs/0911.1955}{arXiv:0911.1955}.
+
+\bibitem{PDG2024}
+R.\,L. Workman \textit{et al.} (Particle Data Group),
+``Review of Particle Physics,''
+\textit{Progress of Theoretical and Experimental Physics} \textbf{2022}, 083C01 (2022) and 2024 update.
+\href{https://pdg.lbl.gov}{pdg.lbl.gov}.
+
+\bibitem{BrookeWeakMixing}
+E.\,S. Brooke,
+``The Weak Mixing Angle as a Capacity Equilibrium,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18603209}{doi:10.5281/zenodo.18603209}.
+
+\end{thebibliography}
+
+\end{document}

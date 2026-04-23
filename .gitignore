@@ -1,0 +1,28 @@
+# LaTeX build artifacts
+*.aux
+*.toc
+*.out
+*.log
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+
+# Editors / OS
+.DS_Store
+.vscode/
+.idea/
+desktop.ini
+Thumbs.db
+
+# Notebook checkpoints
+.ipynb_checkpoints/

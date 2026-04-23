@@ -1,0 +1,1154 @@
+{
+  "schema": "apf.repo_map.v1",
+  "generated_at": "2026-04-23T20:13:50.431021+00:00",
+  "paper": {
+    "number": 8,
+    "title": "The Admissibility-Capacity Ledger",
+    "current_version": "v2.9",
+    "zenodo_doi": "10.5281/zenodo.PENDING",
+    "zenodo_url": "https://doi.org/10.5281/zenodo.PENDING",
+    "github_slug": "APF-Paper-8-Admissibility-Capacity-Ledger",
+    "github_url": "https://github.com/Ethan-Brooke/APF-Paper-8-Admissibility-Capacity-Ledger"
+  },
+  "codebase_version": "v6.9",
+  "corpus": [
+    {
+      "number": 0,
+      "title": "What Physics Permits: An Ontology for Admissibility Physics",
+      "current_version": "v3.0",
+      "zenodo_doi": "10.5281/zenodo.18605692",
+      "zenodo_url": "https://doi.org/10.5281/zenodo.18605692",
+      "github_slug": "APF-Paper-0-What-Physics-Permits",
+      "github_url": "https://github.com/Ethan-Brooke/APF-Paper-0-What-Physics-Permits",
+      "github_status": "public",
+      "is_this_repo": false
+    },
+    {
+      "number": 1,
+      "title": "The Enforceability of Distinction: Quantum Structure from Finite Enforcement Capacity",
+      "current_version": "v4.0-PLEC",
+      "zenodo_doi": "10.5281/zenodo.18604678",
+      "zenodo_url": "https://doi.org/10.5281/zenodo.18604678",
+      "github_slug": "APF-Paper-1-The-Enforceability-of-Distinction",
+      "github_url": "https://github.com/Ethan-Brooke/APF-Paper-1-The-Enforceability-of-Distinction",
+      "github_status": "public",
+      "is_this_repo": false
+    },
+    {
+      "number": 2,
+      "title": "The Structure of Admissible Physics: Non-Closure, Gauge Origin, Capacity Counting, and the 61-Type Partition",
+      "current_version": "v5.3-PLEC",
+      "zenodo_doi": "10.5281/zenodo.18604839",
+      "zenodo_url": "https://doi.org/10.5281/zenodo.18604839",
+      "github_slug": "APF-Paper-2-The-Structure-of-Admissible-Physics",
+      "github_url": "https://github.com/Ethan-Brooke/APF-Paper-2-The-Structure-of-Admissible-Physics",
+      "github_status": "public",
+      "is_this_repo": false
+    },
+    {
+      "number": 3,
+      "title": "Ledgers: Admissible Dynamics, Entropy, and the Arrow of Time",
+      "current_version": "v3.2",
+      "zenodo_doi": "10.5281/zenodo.18604844",
+      "zenodo_url": "https://doi.org/10.5281/zenodo.18604844",
+      "github_slug": "APF-Paper-3-Ledgers-Entropy-Time-Cost",
+      "github_url": "https://github.com/Ethan-Brooke/APF-Paper-3-Ledgers-Entropy-Time-Cost",
+      "github_status": "public",
+      "is_this_repo": false
+    },
+    {
+      "number": 4,
+      "title": "Admissibility Constraints and Structural Saturation",
+      "current_version": "v2.0",
+      "zenodo_doi": "10.5281/zenodo.18604845",
+      "zenodo_url": "https://doi.org/10.5281/zenodo.18604845",
+      "github_slug": "APF-Paper-4-Admissibility-Constraints-Field-Content",
+      "github_url": "https://github.com/Ethan-Brooke/APF-Paper-4-Admissibility-Constraints-Field-Content",
+      "github_status": "public",
+      "is_this_repo": false
+    },
+    {
+      "number": 5,
+      "title": "Quantum Structure from Finite Enforceability",
+      "current_version": "v2.0-PLEC",
+      "zenodo_doi": "10.5281/zenodo.18604861",
+      "zenodo_url": "https://doi.org/10.5281/zenodo.18604861",
+      "github_slug": "APF-Paper-5-Quantum-Structure-Hilbert-Born",
+      "github_url": "https://github.com/Ethan-Brooke/APF-Paper-5-Quantum-Structure-Hilbert-Born",
+      "github_status": "public",
+      "is_this_repo": false
+    },
+    {
+      "number": 6,
+      "title": "Dynamics and Geometry as Optimal Admissible Reallocation",
+      "current_version": "v2.0-PLEC",
+      "zenodo_doi": "10.5281/zenodo.18604874",
+      "zenodo_url": "https://doi.org/10.5281/zenodo.18604874",
+      "github_slug": "APF-Paper-6-Dynamics-Geometry-Spacetime-Gravity",
+      "github_url": "https://github.com/Ethan-Brooke/APF-Paper-6-Dynamics-Geometry-Spacetime-Gravity",
+      "github_status": "public",
+      "is_this_repo": false
+    },
+    {
+      "number": 7,
+      "title": "Action, Internalization, and the Lagrangian",
+      "current_version": "v2.0",
+      "zenodo_doi": "10.5281/zenodo.18604875",
+      "zenodo_url": "https://doi.org/10.5281/zenodo.18604875",
+      "github_slug": "APF-Paper-7-Action-Internalization-Lagrangian",
+      "github_url": "https://github.com/Ethan-Brooke/APF-Paper-7-Action-Internalization-Lagrangian",
+      "github_status": "public",
+      "is_this_repo": false
+    },
+    {
+      "number": 13,
+      "title": "The Minimal Admissibility Core",
+      "current_version": "v8.3-PLEC",
+      "zenodo_doi": "10.5281/zenodo.18614663",
+      "zenodo_url": "https://doi.org/10.5281/zenodo.18614663",
+      "github_slug": "APF-Paper-13-The-Minimal-Admissibility-Core",
+      "github_url": "https://github.com/Ethan-Brooke/APF-Paper-13-The-Minimal-Admissibility-Core",
+      "github_status": "public",
+      "is_this_repo": false
+    },
+    {
+      "number": "engine",
+      "title": "Admissibility Physics: Unified Theorem Bank & Verification Engine",
+      "current_version": "v6.9",
+      "zenodo_doi": "10.5281/zenodo.18604548",
+      "zenodo_url": "https://doi.org/10.5281/zenodo.18604548",
+      "github_slug": "APF-Codebase",
+      "github_url": "https://github.com/Ethan-Brooke/APF-Codebase",
+      "github_status": "pending",
+      "is_this_repo": false
+    }
+  ],
+  "entry_points": {
+    "ai": "START_HERE.md",
+    "human": "README.md",
+    "verification": "run_checks.py",
+    "manuscript": "Paper_8_Admissibility_Capacity_Ledger_v2.9.pdf"
+  },
+  "read_order_for_ai": [
+    {
+      "order": 1,
+      "path": "START_HERE.md",
+      "purpose": "AI operational checklist; read-first for AI agents (7 steps + corpus inventory)"
+    },
+    {
+      "order": 1,
+      "path": "README.md",
+      "purpose": "Human-facing overview with verification quickstart, paper context, citation, and full APF corpus links"
+    },
+    {
+      "order": 2,
+      "path": "REVIEWERS_GUIDE.md",
+      "purpose": "Physics-first 9-section walkthrough for human reviewers (derivation, witness defense, attack surfaces)"
+    },
+    {
+      "order": 2,
+      "path": "ai_context/AGENTS.md",
+      "purpose": "Authoritative entry point for AI agents; trust hierarchy, failure modes, current canonical state, corpus inventory"
+    },
+    {
+      "order": 3,
+      "path": "ai_context/FRAMEWORK_OVERVIEW.md",
+      "purpose": "5-minute APF framework synthesis: A1, PLEC, 61-partition, derivation chain, 19 modules, 48 predictions, scope"
+    },
+    {
+      "order": 4,
+      "path": "ai_context/GLOSSARY.md",
+      "purpose": "Vocabulary reference: axioms (A1, MD, A2, BW), PLEC primitives, regime-exit taxonomy, epistemic tags"
+    },
+    {
+      "order": 5,
+      "path": "ai_context/theorems.json",
+      "purpose": "Machine-readable theorem catalog: name, module, epistemic tag, dependencies, summary; query with jq"
+    },
+    {
+      "order": 6,
+      "path": "ai_context/AUDIT_DISCIPLINE.md",
+      "purpose": "Engagement posture for critique/proposal: distinctions that matter, worked-example failure modes (Grok H0)"
+    },
+    {
+      "order": 7,
+      "path": "ai_context/OPEN_PROBLEMS.md",
+      "purpose": "Catalog of currently-open problems with verdict columns (escape routes, blocking [P] theorems, what would be required to close)"
+    }
+  ],
+  "files": {
+    "START_HERE.md": {
+      "purpose": "AI operational checklist; read-first for AI agents (7 steps + corpus inventory)",
+      "audience": "AI",
+      "read_order": 1,
+      "tier": "orientation",
+      "references": [
+        "ai_context/AGENTS.md",
+        "ai_context/FRAMEWORK_OVERVIEW.md",
+        "ai_context/GLOSSARY.md",
+        "ai_context/AUDIT_DISCIPLINE.md",
+        "ai_context/OPEN_PROBLEMS.md",
+        "ai_context/theorems.json",
+        "run_checks.py"
+      ]
+    },
+    "README.md": {
+      "purpose": "Human-facing overview with verification quickstart, paper context, citation, and full APF corpus links",
+      "audience": "human",
+      "read_order": 1,
+      "tier": "orientation",
+      "references": [
+        "REVIEWERS_GUIDE.md",
+        "APF_Reviewer_Walkthrough.ipynb",
+        "ai_context/AGENTS.md",
+        "run_checks.py"
+      ]
+    },
+    "REVIEWERS_GUIDE.md": {
+      "purpose": "Physics-first 9-section walkthrough for human reviewers (derivation, witness defense, attack surfaces)",
+      "audience": "human",
+      "read_order": 2,
+      "tier": "orientation",
+      "references": [
+        "apf/core.py",
+        "apf/bank.py"
+      ]
+    },
+    "ai_context/AGENTS.md": {
+      "purpose": "Authoritative entry point for AI agents; trust hierarchy, failure modes, current canonical state, corpus inventory",
+      "audience": "AI",
+      "read_order": 2,
+      "tier": "context",
+      "references": [
+        "ai_context/FRAMEWORK_OVERVIEW.md",
+        "ai_context/AUDIT_DISCIPLINE.md",
+        "ai_context/OPEN_PROBLEMS.md"
+      ]
+    },
+    "ai_context/FRAMEWORK_OVERVIEW.md": {
+      "purpose": "5-minute APF framework synthesis: A1, PLEC, 61-partition, derivation chain, 19 modules, 48 predictions, scope",
+      "audience": "AI",
+      "read_order": 3,
+      "tier": "context",
+      "references": [
+        "ai_context/THEOREMS.md",
+        "ai_context/GLOSSARY.md"
+      ]
+    },
+    "ai_context/GLOSSARY.md": {
+      "purpose": "Vocabulary reference: axioms (A1, MD, A2, BW), PLEC primitives, regime-exit taxonomy, epistemic tags",
+      "audience": "AI",
+      "read_order": 4,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/AUDIT_DISCIPLINE.md": {
+      "purpose": "Engagement posture for critique/proposal: distinctions that matter, worked-example failure modes (Grok H0)",
+      "audience": "AI",
+      "read_order": 6,
+      "tier": "context",
+      "references": [
+        "ai_context/OPEN_PROBLEMS.md"
+      ]
+    },
+    "ai_context/OPEN_PROBLEMS.md": {
+      "purpose": "Catalog of currently-open problems with verdict columns (escape routes, blocking [P] theorems, what would be required to close)",
+      "audience": "AI",
+      "read_order": 7,
+      "tier": "context",
+      "references": [
+        "ai_context/theorems.json"
+      ]
+    },
+    "ai_context/HOW_TO_VERIFY.md": {
+      "purpose": "On-demand reference: how to verify a specific claim by tracing coderefs to checks to source",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": [
+        "apf/bank.py",
+        "apf/core.py",
+        "ai_context/theorems.json"
+      ]
+    },
+    "ai_context/STARTING_PROMPTS.md": {
+      "purpose": "On-demand reference: prompt patterns for common AI tasks (verification, critique, derivation tracing)",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": [
+        "ai_context/AUDIT_DISCIPLINE.md"
+      ]
+    },
+    "ai_context/CITING.md": {
+      "purpose": "Citation reference: how to cite this paper, the codebase, the framework; full-corpus DOI table",
+      "audience": "both",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/PAPER_LINEAGE.md": {
+      "purpose": "Version lineage: Zenodo concept-DOI vs version-DOI semantics, local repo version, codebase version",
+      "audience": "both",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/THEOREMS.md": {
+      "purpose": "Human-readable theorem catalog (full bank); use theorems.json for machine queries",
+      "audience": "human",
+      "read_order": null,
+      "tier": "context",
+      "references": [
+        "ai_context/theorems.json"
+      ]
+    },
+    "ai_context/theorems.json": {
+      "purpose": "Machine-readable theorem catalog: name, module, epistemic tag, dependencies, summary; query with jq",
+      "audience": "AI",
+      "read_order": 5,
+      "tier": "data",
+      "references": []
+    },
+    "ai_context/derivation_graph.json": {
+      "purpose": "Theorem derivation DAG as JSON (nodes + edges); traversable for dependency reasoning",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "data",
+      "references": [
+        "ai_context/theorems.json"
+      ]
+    },
+    "ai_context/repo_map.json": {
+      "purpose": "This file: machine-readable map of the repo (purpose/audience/read-order per file, edges, corpus inventory)",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "data",
+      "references": []
+    },
+    "run_checks.py": {
+      "purpose": "Verification entry point: executes the bundled checks and prints pass/fail summary",
+      "audience": "code",
+      "read_order": null,
+      "tier": "code",
+      "references": [
+        "apf/bank.py"
+      ]
+    },
+    "apf/__init__.py": {
+      "purpose": "Package entry point",
+      "audience": "code",
+      "read_order": null,
+      "tier": "code",
+      "references": []
+    },
+    "apf/bank.py": {
+      "purpose": "Theorem registry; bundled checks register here at import time",
+      "audience": "code",
+      "read_order": null,
+      "tier": "code",
+      "references": [
+        "apf/core.py"
+      ]
+    },
+    "apf/core.py": {
+      "purpose": "Vendored check implementations bundled for this paper (subset of canonical apf/ from codebase)",
+      "audience": "code",
+      "read_order": null,
+      "tier": "code",
+      "references": [
+        "apf/apf_utils.py"
+      ]
+    },
+    "apf/apf_utils.py": {
+      "purpose": "Shared utility helpers used by check implementations",
+      "audience": "code",
+      "read_order": null,
+      "tier": "code",
+      "references": []
+    },
+    "pyproject.toml": {
+      "purpose": "Python package metadata for `pip install -e .`",
+      "audience": "code",
+      "read_order": null,
+      "tier": "code",
+      "references": []
+    },
+    "APF_Reviewer_Walkthrough.ipynb": {
+      "purpose": "Interactive Colab notebook: theorem-by-theorem walkthrough with executable cells (math + verification)",
+      "audience": "both",
+      "read_order": null,
+      "tier": "manuscript",
+      "references": [
+        "apf/core.py"
+      ]
+    },
+    "docs/index.html": {
+      "purpose": "Interactive D3.js DAG visualization of the theorem dependency graph (GitHub Pages)",
+      "audience": "human",
+      "read_order": null,
+      "tier": "manuscript",
+      "references": [
+        "ai_context/derivation_graph.json"
+      ]
+    },
+    "zenodo.json": {
+      "purpose": "Zenodo deposit metadata (auto-mints version-DOI on GitHub release)",
+      "audience": "code",
+      "read_order": null,
+      "tier": "code",
+      "references": []
+    },
+    "LICENSE": {
+      "purpose": "MIT license",
+      "audience": "human",
+      "read_order": null,
+      "tier": "code",
+      "references": []
+    },
+    ".gitignore": {
+      "purpose": "Git ignore patterns",
+      "audience": "code",
+      "read_order": null,
+      "tier": "code",
+      "references": []
+    },
+    "Paper_8_Admissibility_Capacity_Ledger_Supplement_v2.5.pdf": {
+      "purpose": "Technical Supplement compiled PDF (canonical truth for formal content)",
+      "audience": "human",
+      "read_order": null,
+      "tier": "manuscript",
+      "references": []
+    },
+    "Paper_8_Admissibility_Capacity_Ledger_Supplement_v2.5.tex": {
+      "purpose": "Technical Supplement LaTeX source (canonical truth for formal content)",
+      "audience": "human",
+      "read_order": null,
+      "tier": "manuscript",
+      "references": [
+        "apf/core.py"
+      ]
+    },
+    "Paper_8_Admissibility_Capacity_Ledger_v2.9.pdf": {
+      "purpose": "Main paper compiled PDF (Paper 8)",
+      "audience": "human",
+      "read_order": null,
+      "tier": "manuscript",
+      "references": []
+    },
+    "Paper_8_Admissibility_Capacity_Ledger_v2.9.tex": {
+      "purpose": "Main paper LaTeX source (Paper 8 v2.9)",
+      "audience": "human",
+      "read_order": null,
+      "tier": "manuscript",
+      "references": [
+        "apf/core.py"
+      ]
+    },
+    "ai_context/wiki/Index.md": {
+      "purpose": "Bundled wiki entry point: navigation map across concepts/papers/codebase pages",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/codebase/APF Codebase.md": {
+      "purpose": "Wiki codebase page: APF Codebase",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/codebase/Cosmological Predictions.md": {
+      "purpose": "Wiki codebase page: Cosmological Predictions",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/codebase/Open Problems.md": {
+      "purpose": "Wiki codebase page: Open Problems",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/codebase/Predictions Catalog.md": {
+      "purpose": "Wiki codebase page: Predictions Catalog",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/codebase/Red Team Tests.md": {
+      "purpose": "Wiki codebase page: Red Team Tests",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/concepts/Axiom A1.md": {
+      "purpose": "Wiki concept page: Axiom A1",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/concepts/Born Rule.md": {
+      "purpose": "Wiki concept page: Born Rule",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/concepts/Derivation Chain.md": {
+      "purpose": "Wiki concept page: Derivation Chain",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/concepts/Enforcement Budget.md": {
+      "purpose": "Wiki concept page: Enforcement Budget",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/concepts/Gauge Uniqueness.md": {
+      "purpose": "Wiki concept page: Gauge Uniqueness",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/concepts/Gram Matrix.md": {
+      "purpose": "Wiki concept page: Gram Matrix",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/concepts/Non-Closure Theorem.md": {
+      "purpose": "Wiki concept page: Non-Closure Theorem",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/concepts/PLEC Rollout Plan.md": {
+      "purpose": "Wiki concept page: PLEC Rollout Plan",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/concepts/Principle - Minimum-Cost Ontology.md": {
+      "purpose": "Wiki concept page: Principle - Minimum-Cost Ontology",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/concepts/Reconstruction Programs.md": {
+      "purpose": "Wiki concept page: Reconstruction Programs",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/concepts/Tensor Product Structure.md": {
+      "purpose": "Wiki concept page: Tensor Product Structure",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/papers/Paper 1 - Spine.md": {
+      "purpose": "Wiki page for Paper 1 - Spine (canonical per-paper summary)",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/papers/Paper 13 - Minimal Admissibility Core.md": {
+      "purpose": "Wiki page for Paper 13 - Minimal Admissibility Core (canonical per-paper summary)",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/papers/Paper 2 - Structure.md": {
+      "purpose": "Wiki page for Paper 2 - Structure (canonical per-paper summary)",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/papers/Paper 3 - Ledgers.md": {
+      "purpose": "Wiki page for Paper 3 - Ledgers (canonical per-paper summary)",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/papers/Paper 4 - Constraints.md": {
+      "purpose": "Wiki page for Paper 4 - Constraints (canonical per-paper summary)",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/papers/Paper 5 - Quantum.md": {
+      "purpose": "Wiki page for Paper 5 - Quantum (canonical per-paper summary)",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/papers/Paper 6 - Dynamics and Geometry.md": {
+      "purpose": "Wiki page for Paper 6 - Dynamics and Geometry (canonical per-paper summary)",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/papers/Paper 7 - Action.md": {
+      "purpose": "Wiki page for Paper 7 - Action (canonical per-paper summary)",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "ai_context/wiki/papers/What Physics Permits.md": {
+      "purpose": "Wiki page for What Physics Permits (canonical per-paper summary)",
+      "audience": "AI",
+      "read_order": null,
+      "tier": "context",
+      "references": []
+    },
+    "derivation_graph.json": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "interactive_dag.html": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "quick_demo.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "repo_map.json": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "SETUP.md": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "setup.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "theorems.json": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "verify_all.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/cosmology.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/crystal.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/crystal_axiom_roots.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/crystal_metrics.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/crystal_snapshot_v6.9.json": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/crystal_snapshot_v6.9_pre-Phase14f.json": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/extensions.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/fractional_reading.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/gauge.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/generations.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/gravity.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/horizon_joint_bridge.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/i4_composition.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/internalization.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/internalization_geo.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/killed_rivals.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/lambda_absolute.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/lambda_operator_derivation.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/majorana.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/phase_14d3_completions.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/plec.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/quantum_operator_derivation.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/red_team.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/session_cosmo_update.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/session_delta_pmns.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/session_nnlo.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/session_phase2_confrontation.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/session_qg.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/session_v63c.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/spacetime.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/subspace_functors.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/supplements.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/thermal_absolute.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/unification.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/unification_projection_essentiality.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/unification_three_levels.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/validation.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/standalone/L_Cauchy_uniqueness.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/standalone/L_CKM_resolution_limit.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/standalone/phase1_seesaw_closure.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/standalone/phase5_theorem_R_audit.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    },
+    "apf/standalone/__init__.py": {
+      "purpose": "(uncategorized; see file directly)",
+      "audience": "unknown",
+      "read_order": null,
+      "tier": "other",
+      "references": []
+    }
+  },
+  "edges": [
+    {
+      "from": "START_HERE.md",
+      "to": "ai_context/AGENTS.md",
+      "kind": "references"
+    },
+    {
+      "from": "START_HERE.md",
+      "to": "ai_context/FRAMEWORK_OVERVIEW.md",
+      "kind": "references"
+    },
+    {
+      "from": "START_HERE.md",
+      "to": "ai_context/GLOSSARY.md",
+      "kind": "references"
+    },
+    {
+      "from": "START_HERE.md",
+      "to": "ai_context/AUDIT_DISCIPLINE.md",
+      "kind": "references"
+    },
+    {
+      "from": "START_HERE.md",
+      "to": "ai_context/OPEN_PROBLEMS.md",
+      "kind": "references"
+    },
+    {
+      "from": "START_HERE.md",
+      "to": "ai_context/theorems.json",
+      "kind": "references"
+    },
+    {
+      "from": "START_HERE.md",
+      "to": "run_checks.py",
+      "kind": "references"
+    },
+    {
+      "from": "README.md",
+      "to": "REVIEWERS_GUIDE.md",
+      "kind": "references"
+    },
+    {
+      "from": "README.md",
+      "to": "APF_Reviewer_Walkthrough.ipynb",
+      "kind": "references"
+    },
+    {
+      "from": "README.md",
+      "to": "ai_context/AGENTS.md",
+      "kind": "references"
+    },
+    {
+      "from": "README.md",
+      "to": "run_checks.py",
+      "kind": "references"
+    },
+    {
+      "from": "REVIEWERS_GUIDE.md",
+      "to": "apf/core.py",
+      "kind": "references"
+    },
+    {
+      "from": "REVIEWERS_GUIDE.md",
+      "to": "apf/bank.py",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/AGENTS.md",
+      "to": "ai_context/FRAMEWORK_OVERVIEW.md",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/AGENTS.md",
+      "to": "ai_context/AUDIT_DISCIPLINE.md",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/AGENTS.md",
+      "to": "ai_context/OPEN_PROBLEMS.md",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/FRAMEWORK_OVERVIEW.md",
+      "to": "ai_context/THEOREMS.md",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/FRAMEWORK_OVERVIEW.md",
+      "to": "ai_context/GLOSSARY.md",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/AUDIT_DISCIPLINE.md",
+      "to": "ai_context/OPEN_PROBLEMS.md",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/OPEN_PROBLEMS.md",
+      "to": "ai_context/theorems.json",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/HOW_TO_VERIFY.md",
+      "to": "apf/bank.py",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/HOW_TO_VERIFY.md",
+      "to": "apf/core.py",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/HOW_TO_VERIFY.md",
+      "to": "ai_context/theorems.json",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/STARTING_PROMPTS.md",
+      "to": "ai_context/AUDIT_DISCIPLINE.md",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/THEOREMS.md",
+      "to": "ai_context/theorems.json",
+      "kind": "references"
+    },
+    {
+      "from": "ai_context/derivation_graph.json",
+      "to": "ai_context/theorems.json",
+      "kind": "references"
+    },
+    {
+      "from": "run_checks.py",
+      "to": "apf/bank.py",
+      "kind": "references"
+    },
+    {
+      "from": "apf/bank.py",
+      "to": "apf/core.py",
+      "kind": "references"
+    },
+    {
+      "from": "apf/core.py",
+      "to": "apf/apf_utils.py",
+      "kind": "references"
+    },
+    {
+      "from": "APF_Reviewer_Walkthrough.ipynb",
+      "to": "apf/core.py",
+      "kind": "references"
+    },
+    {
+      "from": "docs/index.html",
+      "to": "ai_context/derivation_graph.json",
+      "kind": "references"
+    },
+    {
+      "from": "Paper_8_Admissibility_Capacity_Ledger_Supplement_v2.5.tex",
+      "to": "apf/core.py",
+      "kind": "references"
+    },
+    {
+      "from": "Paper_8_Admissibility_Capacity_Ledger_v2.9.tex",
+      "to": "apf/core.py",
+      "kind": "references"
+    }
+  ],
+  "metadata": {
+    "total_files": 107,
+    "total_edges": 33,
+    "bundled_checks": 36,
+    "corpus_size": 10
+  }
+}
