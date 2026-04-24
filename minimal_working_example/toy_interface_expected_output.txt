@@ -1,0 +1,21 @@
+============================================================
+Paper 8 Minimal Working Example — K=3, d_eff=4
+============================================================
+Setup:   K=3, d_eff=4, N=d_eff^K=64
+ACC:     K ln d_eff = 4.158883
+
+Regime projections:
+  pi_F = 3   (field-content: integer count)
+  pi_Q = 64  (quantum: dim H_micro)
+  pi_T = 4.158883
+  pi_C = (Fraction(1, 3), Fraction(1, 3), Fraction(1, 3))   (cosmological fractions)
+
+Identities verified by hand:
+  [A] Z(beta=0) = N                  : True
+  [B] <P_vac> = 1/4 = C_vac/d_eff    : True
+  [C] pi_F = denom(pi_C)             : True
+  [D] fractional-reading equivalence : True
+
+Toy rho_Lambda = 1/256
+
+All identities pass: True

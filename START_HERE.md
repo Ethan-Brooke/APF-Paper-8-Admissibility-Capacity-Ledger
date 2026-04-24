@@ -56,6 +56,24 @@ You are reading the companion to **Paper 8** (this repo: https://github.com/Etha
 
 ---
 
+## §1.5 — The Phase 22 audit-native bundle (Tier 1)
+
+As of 2026-04-24, this repo ships a dedicated bundle of AI-onboarding files designed specifically to prevent the failure modes listed in `AGENTS.md`. If you are a cold AI agent, read these four files **before** attempting to summarise, criticise, or extend Paper 8. Each has a single clear purpose.
+
+1. **`ai_context/ARGUMENT_FLOW.md`** — one-page structural spine. A → B → C → D → E. If you read only one file in `ai_context/`, read this one. ~3 minutes.
+2. **`ai_context/LOCAL_VS_IMPORTED.md`** — five-category partition of every structurally meaningful result into *locally proved / imported from earlier APF / standard mathematical / empirical comparison / not claimed*. Prevents the most common AI failure mode (presenting imported APF-spine results as locally derived). ~3 minutes.
+3. **`ai_context/CLAIMS_LEDGER.md`** — row-by-row attack surface: every load-bearing claim maps to proof location, code check, status tag, and the specific failure mode a skeptical reviewer would attack. ~5 minutes.
+4. **`ai_context/DO_NOT_CLAIM.md`** — 20 pre-registered anti-hallucination guards harvested from three rounds of external review + internal audit. Consult before writing any summary, email, or reviewer response. ~3 minutes.
+
+Plus:
+
+- **`minimal_working_example/`** — self-contained toy interface at K=3, d_eff=4 with 10-line numpy reproduction and committed expected output. Run `python3 minimal_working_example/toy_interface_numpy.py` and compare to `toy_interface_expected_output.txt` to confirm the ledger machinery works on your machine. ~30 seconds.
+- **`apf/test_no_smuggling.py`** — anti-smuggling mutation test suite. Proves (i) `acc_SM()` honours upstream DAG values, (ii) $I_2$ fails on sum-violating mutations (not a rubber stamp), (iii) CANON constants agree with `L_equip`'s derivation at v6.9 (no drift). Run `python3 -m apf.test_no_smuggling`.
+
+These files are the Paper 8 pilot of Phase 21 (AI-Onboarding Audit) and Phase 22 (Code-level Anti-Smuggling Discipline) from the canonical APF work plan. Corpus-wide rollout across Papers 0/1/2/3/4/5/6/7/13 follows.
+
+---
+
 ## §2 — Operational loading (Tier 2): the seven steps
 
 ### Step 1 — Verify the code runs (30 seconds)

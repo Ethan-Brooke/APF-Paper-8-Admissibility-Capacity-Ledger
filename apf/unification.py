@@ -373,6 +373,23 @@ def acc_SM(K=None, d_eff=None):
             )
         d_eff = dag_get('d_eff', default=_CANON_D_EFF_SM,
                         consumer='T_ACC_unification')
+    # Residual partition: pull from the DAG when upstream derivations
+    # have populated it, else fall back to canonical values. Upstream
+    # sources: n_baryon + n_dark + n_vacuum are populated by L_equip
+    # in apf/cosmology.py (matter-sector equipartition). This is
+    # Phase 22 anti-smuggling discipline: never hardcode a residual
+    # partition into an ACC record when the bank has a derivation for
+    # it. The fallback keeps verify_all module ordering flexible.
+    # dag_get(..., default=X) runs chain-consistency verification
+    # against X and raises ChainInconsistency on disagreement — we
+    # want "DAG authoritative when populated, CANON bootstrap only",
+    # so guard with dag_has and omit default when key is present.
+    Omega_b_num = (dag_get('n_baryon', consumer='T_ACC_unification')
+                   if dag_has('n_baryon') else _CANON_OMEGA_B_NUM)
+    Omega_c_num = (dag_get('n_dark', consumer='T_ACC_unification')
+                   if dag_has('n_dark') else _CANON_OMEGA_C_NUM)
+    Omega_Lambda_num = (dag_get('n_vacuum', consumer='T_ACC_unification')
+                        if dag_has('n_vacuum') else _CANON_OMEGA_LAMBDA_NUM)
     return ACC(
         label='SM',
         K=int(K),
@@ -383,9 +400,9 @@ def acc_SM(K=None, d_eff=None):
             'gauge': _CANON_GAUGE_COUNT,
         },
         residuals={
-            'Omega_b': _CANON_OMEGA_B_NUM,
-            'Omega_c': _CANON_OMEGA_C_NUM,
-            'Omega_Lambda': _CANON_OMEGA_LAMBDA_NUM,
+            'Omega_b': int(Omega_b_num),
+            'Omega_c': int(Omega_c_num),
+            'Omega_Lambda': int(Omega_Lambda_num),
         },
     )
 
