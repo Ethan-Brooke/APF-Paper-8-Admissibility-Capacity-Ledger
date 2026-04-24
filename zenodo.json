@@ -11,7 +11,18 @@
   "upload_type": "software",
   "access_right": "open",
   "license": "MIT",
-  "keywords": ["admissibility-capacity ledger", "gauge-cosmological bridge", "cosmological constant", "Omega_Lambda", "V_Lambda subspace", "two-tier carrier", "representation theory", "KMS condition", "Type III_1 factor", "meta-theoretical consistency framework"],
+  "keywords": [
+    "admissibility-capacity ledger",
+    "gauge-cosmological bridge",
+    "cosmological constant",
+    "Omega_Lambda",
+    "V_Lambda subspace",
+    "two-tier carrier",
+    "representation theory",
+    "KMS condition",
+    "Type III_1 factor",
+    "meta-theoretical consistency framework"
+  ],
   "related_identifiers": [
     {
       "identifier": "https://github.com/Ethan-Brooke/APF-Paper-8-Admissibility-Capacity-Ledger",

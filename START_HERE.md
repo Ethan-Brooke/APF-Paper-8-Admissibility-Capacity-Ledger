@@ -16,7 +16,7 @@ This file is structured in three tiers. **Tier 1** (§0 below) is the 60-second 
 
 ## §0 — 60-second mental map (Tier 1)
 
-**What APF is.** APF is a single-axiom framework. The only axiom is that enforcement (the cost of maintaining physical distinction) is finite (Axiom A1). From A1 and its four-component structure (PLEC), 342 theorems derive the Standard Model gauge group SU(3)xSU(2)xU(1), 45 fermions, three generations, and 48 quantitative predictions with zero free parameters. Each paper contributes one layer: Paper 0 states the ontology; Papers 1-7 build the derivation chain; Paper 13 is the master reference. The codebase (v6.9) is the authoritative specification; the papers are prose guides to reading the code.
+**What APF is.** APF is a single-axiom framework. The only axiom is that enforcement (the cost of maintaining physical distinction) is finite (Axiom A1). From A1 and its four-component structure (PLEC), 420 theorems derive the Standard Model gauge group SU(3)xSU(2)xU(1), 45 fermions, three generations, and 48 quantitative predictions with zero free parameters. Each paper contributes one layer: Paper 0 states the ontology; Papers 1-7 build the derivation chain; Paper 13 is the master reference. The codebase (v6.9) is the authoritative specification; the papers are prose guides to reading the code.
 
 **What this paper contributes.** The Admissibility-Capacity Ledger: a unifying record (K, d_eff) read through six regime projections (pi_T, pi_G, pi_Q, pi_F, pi_C, pi_A) with four consistency identities I_1-I_4. Paper 8's only non-trivial structural claim is the gauge-cosmological bridge I_2 (Theorem 1.1 of the Technical Supplement Formal Kernel): a unique G_SM-invariant 42-dimensional subspace V_Lambda of V_61 exists under the Standard-Model gauge action and T12 partition constraint, inducing the residual partition 3+16+42=61 and cosmological fraction Omega_Lambda = 42/61. I_1 is definitional under the cell-count convention K_horizon = A/(4 l_P^2); I_3 and I_4 are standard finite-dimensional closures. Supplement contains self-contained proof via Maschke semisimplicity + minimal working example at toy interface K=3 d_eff=4 auditable in ≤10 lines numpy + Planck 2018 multivariate Bayes-factor restricted sanity check + finite-volume C*-algebra formulation with Type III_1 classification at infinite volume. Four Phase 16-20 reviewer-response passes culminated in v2.9 main + v2.5 supplement.
 
@@ -25,9 +25,9 @@ This file is structured in three tiers. **Tier 1** (§0 below) is the 60-second 
 **Scope — after reading only this repo:**
 
 - **You may:** summarize Paper 8's argument and results; explain the local 36-theorem subset; run all bundled checks to verify them; cite the paper by its DOI.
-- **You may not:** claim mastery of the full APF corpus on the basis of this repo alone; re-derive results that belong to other papers using only material here; present imported results as locally derived in this repo; treat the bundled check subset as the whole engine (the canonical bank is 342 theorems / 355 checks; this repo contains a subset).
+- **You may not:** claim mastery of the full APF corpus on the basis of this repo alone; re-derive results that belong to other papers using only material here; present imported results as locally derived in this repo; treat the bundled check subset as the whole engine (the canonical bank is 420 theorems / 437 checks; this repo contains a subset).
 
-**Canonical state (one source of truth).** Codebase **v6.9**, frozen 2026-04-20. Full engine: **355** verify_all checks, **342** bank-registered theorems, **48** quantitative predictions. This repo bundles 36 of those checks for Paper 8's dependency subset. If you see a different count anywhere, this line is canonical.
+**Canonical state (one source of truth).** Codebase **v6.9**, frozen 2026-04-20. Full engine: **437** verify_all checks, **420** bank-registered theorems across **34** registered modules + `apf/standalone/`, **48** quantitative predictions. This repo bundles **23 Paper-8-specific theorems** (see `ai_context/theorems.json`) on top of the full 420-theorem bank, all runnable via the bundled `apf/` subset. If you see a different count anywhere, this line is canonical.
 
 ---
 
@@ -70,6 +70,8 @@ Plus:
 - **`minimal_working_example/`** — self-contained toy interface at K=3, d_eff=4 with 10-line numpy reproduction and committed expected output. Run `python3 minimal_working_example/toy_interface_numpy.py` and compare to `toy_interface_expected_output.txt` to confirm the ledger machinery works on your machine. ~30 seconds.
 - **`apf/test_no_smuggling.py`** — anti-smuggling mutation test suite. Proves (i) `acc_SM()` honours upstream DAG values, (ii) $I_2$ fails on sum-violating mutations (not a rubber stamp), (iii) CANON constants agree with `L_equip`'s derivation at v6.9 (no drift). Run `python3 -m apf.test_no_smuggling`.
 
+**Theorem 1.1 executable status.** Paper proof complete (Maschke semisimplicity, Supplement §1.5). Standalone executable witness `check_T_FormalKernel_VLambda_uniqueness` landing Phase 22.2.a next session; toy rep-theory companion in Phase 22.2.b. Downstream witness `check_T_interface_sector_bridge` in `apf/gravity.py` already certifies the $V_{\rm global} \cong V_\Lambda$ identification at the DAG level.
+
 These files are the Paper 8 pilot of Phase 21 (AI-Onboarding Audit) and Phase 22 (Code-level Anti-Smuggling Discipline) from the canonical APF work plan. Corpus-wide rollout across Papers 0/1/2/3/4/5/6/7/13 follows.
 
 ---
@@ -96,7 +98,7 @@ Mandatory. This file establishes:
 - What this repo is (Paper 8 + vendored `apf/` subset)
 - Trust hierarchy (code > supplement > paper > README > wiki)
 - The seven specific failure modes AI agents have actually hit on this project
-- The current canonical state (v6.9, 342 theorems, four-parameter Planck match)
+- The current canonical state (v6.9, 420 theorems, four-parameter Planck match)
 - The H0 falsifier (so you don't reflexively try to "fix" it with the Grok-style mechanism already rejected)
 
 ### Step 3 — Absorb the framework in 5 minutes (`ai_context/FRAMEWORK_OVERVIEW.md`)
@@ -123,7 +125,7 @@ Skim, don't memorize. Must know by sight:
 
 ### Step 5 — Load the theorem catalog (`ai_context/theorems.json`)
 
-Not mandatory to read end-to-end, but make sure you know it exists and how to query it. The full bank has 342 entries; this paper bundles **36 of 342** for local execution. Each entry has name, module, epistemic tag, dependencies, and one-line summary.
+Not mandatory to read end-to-end, but make sure you know it exists and how to query it. The full bank has 420 entries; this paper bundles **23 Paper-8-specific additions** (and runs the full 420) for local execution. Each entry has name, module, epistemic tag, dependencies, and one-line summary.
 
 Querying examples (use when you need to cite a specific theorem):
 

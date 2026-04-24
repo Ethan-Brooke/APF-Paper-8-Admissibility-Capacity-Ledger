@@ -32,6 +32,7 @@ MODULES = [
     ("apf.plec",                       "plec.py"),
     ("apf.unification",                "unification.py"),
     ("apf.unification_three_levels",   "unification_three_levels.py"),
+    ("apf.formal_kernel",              "formal_kernel.py"),
     ("apf.unification_projection_essentiality", "unification_projection_essentiality.py"),
     ("apf.subspace_functors",          "subspace_functors.py"),
     ("apf.fractional_reading",         "fractional_reading.py"),

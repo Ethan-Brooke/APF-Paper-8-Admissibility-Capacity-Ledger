@@ -14,8 +14,8 @@ This file tracks the version history of Paper 8 (The Admissibility-Capacity Ledg
 
 ## Zenodo record
 
-- **Concept DOI:** 10.5281/zenodo.PENDING
-- **URL:** https://doi.org/10.5281/zenodo.PENDING
+- **Concept DOI:** 10.5281/zenodo.19721385
+- **URL:** https://doi.org/10.5281/zenodo.19721385
 - **Latest Zenodo version as of release:** varies by paper — see the Zenodo record directly.
 
 If the version in this repo is newer than the latest Zenodo version, a future GitHub release will trigger a new Zenodo deposit that supersedes the old one. The concept DOI points to the latest at any given time; the version DOI points to a specific deposit.

@@ -13,7 +13,7 @@ The **ACC record** is a two-scalar object $(K, \mathrm{ACC})$ where:
 - $K$ is the structural capacity — integer count of admissibility channels at an interface.
 - $\mathrm{ACC} = K \ln d_{\mathrm{eff}}$ is the log-count scalar; $d_{\mathrm{eff}}$ is the per-slot effective dimension.
 
-Six **regime projections** read the ACC record in six physical modes: $\pi_T$ (thermo), $\pi_G$ (gauge), $\pi_Q$ (quantum), $\pi_F$ (field content), $\pi_C$ (cosmological), $\pi_A$ (action).
+Six **regime projections** read the ACC record in six physical modes: $\pi_T$ (thermo), $\pi_G$ (gravitational), $\pi_Q$ (quantum), $\pi_F$ (gauge/field), $\pi_C$ (cosmological), $\pi_A$ (action).
 
 Three **canonical interface factories**: `acc_SM(K=61, d_eff=102)` for the Standard Model interface, `acc_horizon(A)` for a horizon of area $A$, `acc_quantum(d)` for a quantum interface of dimension $d$.
 
@@ -43,6 +43,8 @@ Front-loaded immediately after the reader map. Six subsections, one theorem, one
 5. **Consequence:** $\Omega_\Lambda = \dim V_\Lambda / \dim V_{61} = 42/61$ under the Fractional Reading Equivalence.
 
 **Honest uncertainty at this step.** The Maschke argument forces uniqueness of $V_\Lambda$ **given the irrep specification of $V_{\rm local}$**. If $V_{\rm local}$ is specified only by "everything that is not $V_\Lambda$", the proof is circular. The paper's resolution: Theorem 1.1 imports $V_{\rm local}$'s irrep content from Paper 4 / Paper 6, not from Paper 8. See `LOCAL_VS_IMPORTED.md` for the boundary.
+
+**Executable status (Phase 22.2, in progress).** Paper proof is complete. Standalone code witness `check_T_FormalKernel_VLambda_uniqueness` is landing Phase 22.2.a (next session) — constructs $V_{61}$ with explicit $G_{\rm SM}$ matrix reps, enumerates $V_{\rm local}$ by irrep content, computes the invariant complement, and verifies dim = 42 plus uniqueness via an adversarial dimension-only counterexample. Currently the downstream witness `check_T_interface_sector_bridge` certifies the $V_{\rm global} \cong V_\Lambda$ identification at the DAG level.
 
 ## D. Downstream predictions
 

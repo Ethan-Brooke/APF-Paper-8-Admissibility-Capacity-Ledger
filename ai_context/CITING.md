@@ -8,7 +8,7 @@ This release is one paper of a multi-paper series. There are three citation targ
 
 **APA-style:**
 
-> Brooke, E. S. (2026). *The Admissibility-Capacity Ledger*. Version v2.9. Zenodo. https://doi.org/10.5281/zenodo.PENDING
+> Brooke, E. S. (2026). *The Admissibility-Capacity Ledger*. Version v2.9. Zenodo. https://doi.org/10.5281/zenodo.19721385
 
 **BibTeX:**
 
@@ -19,12 +19,12 @@ This release is one paper of a multi-paper series. There are three citation targ
   year         = {2026},
   version      = {v2.9},
   publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.PENDING},
-  url          = {https://doi.org/10.5281/zenodo.PENDING}
+  doi          = {10.5281/zenodo.19721385},
+  url          = {https://doi.org/10.5281/zenodo.19721385}
 }
 ```
 
-The DOI `10.5281/zenodo.PENDING` is the concept DOI; it resolves to the latest version. Specific versions have their own version-DOIs (see the Zenodo record).
+The DOI `10.5281/zenodo.19721385` is the concept DOI; it resolves to the latest version. Specific versions have their own version-DOIs (see the Zenodo record).
 
 If this release includes a Technical Supplement, cite the supplement inline where the formal proof is referenced:
 

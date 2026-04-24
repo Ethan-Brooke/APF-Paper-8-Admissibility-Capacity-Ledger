@@ -26,7 +26,7 @@ dependencies = ["numpy>=1.20", "scipy>=1.7"]
 [project.urls]
 Homepage = "https://github.com/Ethan-Brooke/APF-Paper-8-Admissibility-Capacity-Ledger"
 "Bug Tracker" = "https://github.com/Ethan-Brooke/APF-Paper-8-Admissibility-Capacity-Ledger/issues"
-"Zenodo" = "https://doi.org/10.5281/zenodo.PENDING"
+"Zenodo" = "https://doi.org/10.5281/zenodo.19721385"
 
 [tool.setuptools.packages.find]
 include = ["apf*"]

@@ -10,7 +10,7 @@ If you are a cold AI onboarding this repo, read this file before attempting to s
 - Six regime projections $\pi_T, \pi_G, \pi_Q, \pi_F, \pi_C, \pi_A$ and their well-definedness on the ACC record.
 - Three canonical interface factories `acc_SM`, `acc_horizon`, `acc_quantum`.
 - The four-identity architecture $I_1, I_2, I_3, I_4$ as a stateable, falsifiable collection of consistency theorems.
-- **Theorem 1.1 (gauge-cosmological bridge) in Supplement §1.4:** existence and uniqueness of a 42-dim $G_{\rm SM}$-invariant $V_\Lambda \subset V_{61}$, via Maschke complete reducibility.
+- **Theorem 1.1 (gauge-cosmological bridge) in Supplement §1.4–1.5:** existence and uniqueness of a 42-dim $G_{\rm SM}$-invariant $V_\Lambda \subset V_{61}$, via Maschke complete reducibility. Paper proof complete; executable witness `check_T_FormalKernel_VLambda_uniqueness` landing Phase 22.2. Uniqueness depends on $V_{\rm local}$ being specified by irrep content (imported from Paper 4), not by dimension alone — see `CLAIMS_LEDGER.md` row 8 for the attack surface.
 - Integer-level closure $3 + 16 + 42 = 61$ as a corollary of Theorem 1.1 (demoted to §D.2 in v2.5).
 - **Theorem 5.6 (SM ACC record uniqueness)** under four stated upstream identifications (U1)–(U4).
 - Theorem 7.14' (Type III$_1$ factor at infinite volume) as a composition of the listed standard imports; APF-specific content is only the choice of algebra and the vacuum-residual projector structure.

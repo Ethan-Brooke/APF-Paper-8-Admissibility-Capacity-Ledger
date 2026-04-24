@@ -2,7 +2,7 @@
 
 ### Interactive Mathematical Appendix to Paper 8 of the Admissibility Physics Framework
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.PENDING.svg)](https://doi.org/10.5281/zenodo.PENDING) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Ethan-Brooke/APF-Paper-8-Admissibility-Capacity-Ledger/blob/main/APF_Reviewer_Walkthrough.ipynb)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19721385.svg)](https://doi.org/10.5281/zenodo.19721385) [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Ethan-Brooke/APF-Paper-8-Admissibility-Capacity-Ledger/blob/main/APF_Reviewer_Walkthrough.ipynb)
 
 [Interactive Derivation DAG](https://ethan-brooke.github.io/APF-Paper-8-Admissibility-Capacity-Ledger/) · [Theorem Map](#theorem-mapping-table) · [Reviewers' Guide](REVIEWERS_GUIDE.md) · [The full APF corpus](#the-full-apf-corpus) · [Citation](#citation)
 
@@ -14,9 +14,9 @@
 
 The Admissibility-Capacity Ledger: a unifying record (K, d_eff) read through six regime projections (pi_T, pi_G, pi_Q, pi_F, pi_C, pi_A) with four consistency identities I_1-I_4. Paper 8's only non-trivial structural claim is the gauge-cosmological bridge I_2 (Theorem 1.1 of the Technical Supplement Formal Kernel): a unique G_SM-invariant 42-dimensional subspace V_Lambda of V_61 exists under the Standard-Model gauge action and T12 partition constraint, inducing the residual partition 3+16+42=61 and cosmological fraction Omega_Lambda = 42/61. I_1 is definitional under the cell-count convention K_horizon = A/(4 l_P^2); I_3 and I_4 are standard finite-dimensional closures. Supplement contains self-contained proof via Maschke semisimplicity + minimal working example at toy interface K=3 d_eff=4 auditable in ≤10 lines numpy + Planck 2018 multivariate Bayes-factor restricted sanity check + finite-volume C*-algebra formulation with Type III_1 classification at infinite volume. Four Phase 16-20 reviewer-response passes culminated in v2.9 main + v2.5 supplement.
 
-This repository is the executable proof.
+This repository is the executable companion / verification layer for Paper 8's local claims and imported dependency subset.
 
-The codebase is a faithful subset of the canonical APF codebase v6.9 (frozen 2026-04-20; 355 verify_all checks, 342 bank-registered theorems across 19 modules + `apf/standalone/`). Each theorem in the manuscript traces to a named `check_*` function in `apf/core.py`, which can be called independently and returns a structured result.
+The codebase is a faithful subset of the canonical APF codebase v6.9 (2026-04-23; 437 verify_all checks, 420 bank-registered theorems across 34 modules + `apf/standalone/`). Each manuscript result traces to a named `check_*` function in the bundled `apf/` subset — see the theorem-mapping table for module paths.
 
 The codebase requires Python 3.8+ and NumPy / SciPy (some numerical lemmas use them; see `pyproject.toml`).
 
@@ -98,7 +98,7 @@ This table maps every result in the manuscript to its executable verification.
 | `check_T_bridge_observer_independence_open` | Theorem | T_bridge_observer_independence_open [C, open] — |
 | `check_L_horizon_convention_equivalence` | Lemma | L_horizon_convention_equivalence [P] — Conventions A and B agree. |
 
-All check functions reside in `apf/core.py`. Every function listed above can be called independently and returns a structured result including its logical dependencies and the mathematical content it verifies.
+Each manuscript claim traces to a `check_*` function in the bundled `apf/` subset; modules include `core.py`, `gauge.py`, `gravity.py`, `unification.py`, `unification_three_levels.py`, `subspace_functors.py`, `fractional_reading.py`, `lambda_absolute.py`, `lambda_operator_derivation.py`, and others. See `ai_context/theorems.json` for the full module-to-check mapping. Every function can be called independently and returns a structured result including dependencies and verified content.
 
 ---
 
@@ -134,7 +134,7 @@ The [interactive DAG](https://ethan-brooke.github.io/APF-Paper-8-Admissibility-C
 │   ├── derivation_graph.json              ← theorem DAG as JSON
 │   └── wiki/                              ← bundled APF wiki (concepts, papers, codebase)
 ├── apf/
-│   ├── core.py                            ← 36 theorem check functions
+│   ├── core.py                            ← A1 + PLEC (foundational)
 │   ├── apf_utils.py                       ← exact arithmetic + helpers
 │   └── bank.py                            ← registry and runner
 ├── docs/
@@ -166,7 +166,7 @@ The [interactive DAG](https://ethan-brooke.github.io/APF-Paper-8-Admissibility-C
   title   = {The Admissibility-Capacity Ledger},
   author  = {Brooke, Ethan},
   year    = {2026},
-  doi     = {10.5281/zenodo.PENDING},
+  doi     = {10.5281/zenodo.19721385},
   url     = {https://github.com/Ethan-Brooke/APF-Paper-8-Admissibility-Capacity-Ledger}
 }
 ```

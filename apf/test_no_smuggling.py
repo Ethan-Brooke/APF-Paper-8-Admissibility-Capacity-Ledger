@@ -253,6 +253,97 @@ def test_CANON_residuals_agree_with_L_equip_derivation():
 
 
 # ──────────────────────────────────────────────────────────────────
+# Test 5: Toy rep-theory — dimension-only ≠ G-invariant complement
+# (Phase 22.2.b pedagogical pilot; full SM-scale Maschke witness
+# lands Phase 22.2.a in a future session)
+# ──────────────────────────────────────────────────────────────────
+
+def test_toy_rep_theory_dimension_only_is_not_invariant():
+    """Claim under attack: "a 42-dim complement is enough for Theorem 1.1".
+
+    Mutation: at a toy scale (V = C^5 with Z_2 action), construct a
+    RANDOM 2-dim complement of the 3-dim invariant subspace, rather
+    than the unique Z_2-invariant 2-dim complement. Verify it is NOT
+    G-invariant.
+
+    Structural reason: Theorem 1.1 (at SM scale) requires V_Lambda to
+    be a G_SM-INVARIANT 42-dim complement, not just any 42-dim
+    complement. This toy test demonstrates, in <30 lines of code,
+    that dimension-only complements fail invariance under a
+    non-trivial group action.
+
+    Observed behaviour required: random 2-dim complement fails
+    invariance check; G-invariant 2-dim complement passes.
+
+    This test is the pedagogical Phase 22.2.b pilot for the full
+    Phase 22.2.a check at SM scale. It establishes the pattern the
+    full check must follow.
+    """
+    import numpy as np
+
+    # V = R^5 (real coefficients for simplicity in this toy)
+    # G = Z_2 acting as diag(1, 1, 1, -1, -1) -- trivial on first 3, sign on last 2
+    g = np.diag([1.0, 1.0, 1.0, -1.0, -1.0])
+
+    # V_local = span(e1, e2, e3), G-invariant
+    V_local = np.array([[1,0,0,0,0],
+                        [0,1,0,0,0],
+                        [0,0,1,0,0]], dtype=float).T  # columns = basis
+
+    # Canonical G-invariant complement: span(e4, e5) — split into
+    # invariant and anti-invariant 1D subspaces
+    V_invariant_complement = np.array([[0,0,0,1,0],
+                                       [0,0,0,0,1]], dtype=float).T
+
+    # Verify V_local is G-invariant (g V_local = V_local)
+    check_local_invariant = np.allclose(g @ V_local, V_local)
+    assert check_local_invariant, "Toy setup error: V_local should be G-invariant"
+
+    # Verify G-invariant complement is actually invariant
+    # g @ span(e4, e5) = span(-e4, -e5) = span(e4, e5) as a subspace
+    g_applied = g @ V_invariant_complement
+    # Check: g_applied columns are in span of V_invariant_complement
+    from numpy.linalg import lstsq, matrix_rank
+    combined = np.hstack([V_invariant_complement, g_applied])
+    # Rank should still be 2 if g_applied is in span
+    invariant_complement_check = (matrix_rank(combined) == 2)
+    assert invariant_complement_check, "span(e4, e5) should be G-invariant"
+
+    # ADVERSARIAL: pick a random 2-dim complement of V_local that is
+    # NOT G-invariant. Example: span(e1 + e4, e2 + e5).
+    V_random_complement = np.array([[1,0,0,1,0],
+                                    [0,1,0,0,1]], dtype=float).T
+    # Is V_random_complement a complement of V_local?
+    full_5d = np.hstack([V_local, V_random_complement])
+    assert matrix_rank(full_5d) == 5, \
+        "Toy setup error: random complement should span R^5 with V_local"
+
+    # Is V_random_complement G-invariant?
+    g_applied_random = g @ V_random_complement
+    combined_random = np.hstack([V_random_complement, g_applied_random])
+    rank_random = matrix_rank(combined_random)
+    random_is_NOT_invariant = (rank_random > 2)
+
+    assert random_is_NOT_invariant, (
+        "CRITICAL: a random 2-dim complement was G-invariant. "
+        "This toy test must distinguish dim-only from invariant. "
+        "Check the construction.")
+
+    return {
+        'passed': True,
+        'claim': 'Toy: dim-only complements are NOT G-invariant complements',
+        'rank_after_G_action_on_invariant': 2,      # stays 2
+        'rank_after_G_action_on_random': int(rank_random),  # grows to 3 or 4
+        'interpretation': (
+            'At SM scale, this is Theorem 1.1: V_Lambda must be a '
+            'G_SM-INVARIANT 42-dim complement of V_local, not any '
+            '42-dim subspace. Phase 22.2.a lifts this toy to the full '
+            'SM scale with explicit G_SM matrix representations.'
+        )
+    }
+
+
+# ──────────────────────────────────────────────────────────────────
 # Test runner
 # ──────────────────────────────────────────────────────────────────
 
@@ -261,6 +352,7 @@ _TESTS = [
     test_I2_passes_on_canonical_partition,
     test_I2_fails_on_mutated_residuals_that_break_closure,
     test_CANON_residuals_agree_with_L_equip_derivation,
+    test_toy_rep_theory_dimension_only_is_not_invariant,
 ]
 
 

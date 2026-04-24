@@ -1,4 +1,4 @@
-"""APF v6.7 Theorem Bank — unified registry with lazy loading.
+"""APF v6.9 Theorem Bank — unified registry with lazy loading.
 
 Each physics module exports a register(registry) function that adds
 its theorem check functions to the global REGISTRY. No theorem logic
@@ -604,7 +604,7 @@ REGISTRY = OrderedDict()
 
 # Expected theorem count — updated when theorems are added/removed.
 # If the loaded count doesn't match, something silently failed.
-EXPECTED_THEOREM_COUNT = 420  # v6.9 (2026-04-23 — Phase 14f.4 adds
+EXPECTED_THEOREM_COUNT = 421  # v6.9 (2026-04-23 — Phase 14f.4 adds
 #                                T_I1_bridge_at_joint_K42 [P_bridge] tier-4
 #                                in apf/horizon_joint_bridge.py.  Three
 #                                independent constructions of the 42-dim
@@ -1385,6 +1385,7 @@ _MODULE_PATHS = [
     'apf.plec',
     'apf.unification',
     'apf.unification_three_levels',
+    'apf.formal_kernel',
     'apf.unification_projection_essentiality',
     'apf.subspace_functors',
     'apf.fractional_reading',

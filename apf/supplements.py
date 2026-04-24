@@ -6017,7 +6017,10 @@ def check_L_ST_index():
     """
     import math as _m
     import numpy as _np
-    from scipy.linalg import expm as _expm
+    try:
+        from scipy.linalg import expm as _expm
+    except ImportError:
+        from apf.numeric_fallback import expm as _expm
 
     # --- Rebuild mass matrices (same as L_ST_Dirac) ---
     x = float(dag_get('x_overlap', default=0.5, consumer='L_ST_index')); phi = _m.pi/4; d_fn = 4
@@ -6214,7 +6217,10 @@ def check_L_spectral_action_coefficients():
     Heat kernel expansion verified with scipy.linalg.expm.
     """
     import math as _m, numpy as _np
-    from scipy.linalg import expm as _expm
+    try:
+        from scipy.linalg import expm as _expm
+    except ImportError:
+        from apf.numeric_fallback import expm as _expm
 
     # --- Input constants from APF [P] theorems ---
     x = float(dag_get('x_overlap', default=0.5, consumer='L_spectral_action_coefficients')); phi=_m.pi/4; d_fn=4; q_B=[7,4,0]; q_H=[7,5,0]; Q=[2,5,9]
@@ -6636,7 +6642,10 @@ def check_L_SA_moments():
     fixed by physical fermion masses (experimentally known quantities).
     """
     import math as _m, numpy as _np
-    from scipy.linalg import expm as _expm
+    try:
+        from scipy.linalg import expm as _expm
+    except ImportError:
+        from apf.numeric_fallback import expm as _expm
 
     x = float(dag_get('x_overlap', default=0.5, consumer='L_SA_moments')); phi=_m.pi/4; d_fn=4; q_B=[7,4,0]; q_H=[7,5,0]; Q=[2,5,9]
     c_Hu=x**3; eta=x**d_fn/Q[2]; N_gen=dag_get('N_gen', default=3, consumer='L_SA_moments'); N_c=3
@@ -9754,7 +9763,10 @@ perturbation theory applied to already-[P] inputs. The color factor
 def check_L_mc_mt_twoloop_RG():
     import math
     import numpy as np
-    from scipy.integrate import solve_ivp, quad
+    try:
+        from scipy.integrate import solve_ivp, quad
+    except ImportError:
+        from apf.numeric_fallback import solve_ivp, quad
     """L_mc_mt_twoloop_RG: two-loop QCD-Yukawa correction to m_c/m_t."""
 
     # ══════════════════════════════════════════════════════
