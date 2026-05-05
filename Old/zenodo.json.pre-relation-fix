@@ -11,7 +11,18 @@
   "upload_type": "software",
   "access_right": "open",
   "license": "MIT",
-  "keywords": ["admissibility-capacity ledger", "gauge-cosmological bridge", "V_Lambda", "T_ACC", "Type III_1 factor"],
+  "keywords": [
+    "admissibility-capacity ledger",
+    "gauge-cosmological bridge",
+    "cosmological constant",
+    "Omega_Lambda",
+    "V_Lambda subspace",
+    "two-tier carrier",
+    "representation theory",
+    "KMS condition",
+    "Type III_1 factor",
+    "meta-theoretical consistency framework"
+  ],
   "related_identifiers": [
     {
       "identifier": "https://github.com/Ethan-Brooke/APF-Paper-8-Admissibility-Capacity-Ledger",
@@ -19,15 +30,10 @@
       "scheme": "url"
     },
     {
-      "identifier": "10.5281/zenodo.19721384",
-      "relation": "isSupplementTo",
-      "scheme": "doi"
-    },
-    {
-      "identifier": "10.5281/zenodo.18529115",
+      "identifier": "10.5281/zenodo.18604548",
       "relation": "references",
       "scheme": "doi"
     }
   ],
-  "version": "2.10"
+  "version": "2.9"
 }

@@ -14,8 +14,8 @@ This file tracks the version history of Paper 8 (The Admissibility-Capacity Ledg
 
 ## Zenodo record
 
-- **Concept DOI:** 10.5281/zenodo.19721385
-- **URL:** https://doi.org/10.5281/zenodo.19721385
+- **Concept DOI:** 10.5281/zenodo.19721384
+- **URL:** https://doi.org/10.5281/zenodo.19721384
 - **Latest Zenodo version as of release:** varies by paper — see the Zenodo record directly.
 
 If the version in this repo is newer than the latest Zenodo version, a future GitHub release will trigger a new Zenodo deposit that supersedes the old one. The concept DOI points to the latest at any given time; the version DOI points to a specific deposit.
@@ -44,7 +44,7 @@ All `\coderef{check_X}{module.py}` anchors in this paper are valid against codeb
 
 The full codebase is at:
 - `__APF Library/Codebase/APF_Codebase_v6.9/` (this release built against this version)
-- Zenodo: https://doi.org/10.5281/zenodo.18604548 (concept DOI for the codebase)
+- Zenodo: https://doi.org/10.5281/zenodo.18529115 (concept DOI for the codebase)
 
 ## Policy on retractions
 
